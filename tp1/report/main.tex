@@ -1,0 +1,33 @@
+\documentclass{article}
+
+% Packages
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[portuguese]{babel}
+
+% Page setup
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+
+\input{cover.tex}
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\lipsum[1]
+
+\section{Experimental Setup}
+\lipsum[2]
+
+\section{Results}
+\lipsum[3]
+
+\section{Conclusion}
+\lipsum[4]
+
+\end{document}
