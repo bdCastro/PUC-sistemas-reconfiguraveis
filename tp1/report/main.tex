@@ -4,6 +4,7 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{lipsum}
+\usepackage{listings}
 \usepackage[portuguese]{babel}
 
 % Page setup
@@ -130,6 +131,110 @@ O sinais de entrada e saída são os seguintes:
     \hline
 \end{tabular}
 \end{center}
+
+\subsection{Implementação}
+
+Nossa implementação, feita em VHDL, consiste na utilização de métodos e bibloiotecas já implementadas, bem como lógica implementada por nós. Abaixo explicamos como foram implentadas cada uma das funções proportas.
+
+\subsubsection{XOR, OR, AND e COM}
+
+Esses métodos forma implemntados usando as funções lógicas disponíveis nativamente na linguagem VHDL.
+
+\begin{lstlisting}[language=VHDL]
+aux <=
+    a XOR b WHEN "0000",    -- XOR
+    a OR b  WHEN "0001",    -- OR
+    a AND b WHEN "0010",    -- AND
+
+    [...]
+
+    NOT a   WHEN "1010", 	-- COM
+\end{lstlisting}
+
+\subsubsection{ADD, SUB, INC e DEC}
+
+As funções de ADD (Adição), SUB (Subtração), INC (Incremento) e DEC (Decremento) foram implementadas usando operações aritiméticas já inclusas na linguagem. Para as funções de ADD e SUB, os operandos A e B são utilizados, e já para as operações de INC e DEC, apenas o operando A e a constante 1.
+
+\begin{lstlisting}[language=VHDL]
+aux <=  
+    a + b   WHEN "0100",    -- ADD
+    a - b   WHEN "0101",    -- SUB
+    a + 1   WHEN "0110",    -- INC
+    a - 1   WHEN "0111",    -- DEC
+\end{lstlisting}
+
+\subsubsection{PASS\_A e PASS\_B}
+
+Talvez as operações mais simples, ambas não utilizam nenhuma lógica. As entradas A e B são apenas ``copiadas'' para a saída.
+
+\begin{lstlisting}[language=VHDL]
+aux <=  
+    a   WHEN "1000",        -- PASS_A
+    b   WHEN "1001",        -- PASS_B
+\end{lstlisting}
+
+\subsubsection{SWAP}
+
+A operação de SWAP é feita invertando os dois \textit{nibbles}
+
+\begin{lstlisting}[language=VHDL]
+aux <= '0' & a(3 DOWNTO 0) & a(7 DOWNTO 4) WHEN "1011", -- SWAP
+\end{lstlisting}
+
+A concatenacão com zero no início será explicada na implementação do c\_out.
+
+\subsubsection{BS e BC}
+
+As operações de BS (\textit{bit set}) e BC (\textit{bit clear}) implementam a seguinte lógica: para ``setarmos'' um bit para 1, podemos fazer uma operação OR da entrada com uma \textit{string} de zeros, mas com um único um na posição que desejamos que seja igual à 1. Isso garanterá que este bit será sempre 1, e od demais são copiados. Podemos obter essa \textit{string} efetuando um \textit{shift lógico} de 1 um número bit\_sel de casas.
+
+A operação BC funciona de maneira semalhando, mas deve ser feita com um AND no lugar do OR, e a \textit{string} deve ser de 1s com um único zero na posição desejada. Para isso, fazemos mesma operação que anteriormente, mas invertemos o resultado.
+
+\begin{lstlisting}[language=VHDL]
+aux <=
+    a OR
+        STD_LOGIC_VECTOR(SHIFT_LEFT(TO_UNSIGNED(1, 8),
+            TO_INTEGER(UNSIGNED(bit_sel))))
+        WHEN "1100",    -- BS
+
+    a AND
+        NOT STD_LOGIC_VECTOR(SHIFT_LEFT(TO_UNSIGNED(1, 8),
+            TO_INTEGER(UNSIGNED(bit_sel))))
+        WHEN "1101",	-- BC
+\end{lstlisting}
+
+\subsubsection{RR e RL}
+
+As operações de RR (\textit{Rotate Right}) e RL (\textit{Rotate Left}) foram implementadas selecionando os bits necessários, e concatenando à entrada c\_in.
+
+\begin{lstlisting}[language=VHDL]
+aux <=
+    '0' & c_in & a(7 DOWNTO 1) WHEN "1110",     -- RR
+    '0' & a(6 DOWNTO 0) & c_in WHEN "1111";     -- RL
+\end{lstlisting}
+
+\subsubsection{c\_out}
+
+Para idetificarmos um \textit{carry} (ou um \textit{borrow}), há várias rotas que podemos tomar. Poderiamos, por exemplo, implementar cirtuitos lógicos capazar de identificar que ele ocorreu. Mas, para simplificar a operação, podemos chegar no mesmo resultado simplesmente aumentando o número de bits dos nossos dois operandos em 1. Podemos então copiar o bit mais significativo para a a saída c\_out. Caso um \textit{carry} ou um \textit{borrow} ocorra, esse bit será um.
+
+\begin{lstlisting}[language=VHDL]
+    r_out <= aux(7 DOWNTO 0);
+    c_out <= aux(8);
+\end{lstlisting}
+
+Para evitarmos que o $9^o$ bit seja copiado para a saída, usamos um buffer aux, e apenas os bits de 7 à 0 são copiados para a saída c\_out.
+
+\subsubsection{dc\_nibble}
+
+Para identificarmos um \textit{carry} ou \textit{borrow} em um \textit{nibble}, podemos faer algo similar ao que fizemos c\_out. Criamos um auxiliar com 5 bits, e verificamos o copiamos para a saída, após executada a operação necessária.
+
+\begin{lstlisting}[language=VHDL]
+aux_nibble <=
+    ('0' & a(3 DOWNTO 0)) +
+        ('0' + b(3 DOWNTO 0)) WHEN op_sel(0) = '0' 
+	ELSE ('0' & a(3 DOWNTO 0)) - ('0' & b(3 DOWNTO 0));
+
+dc_out <= aux_nibble(4);
+\end{lstlisting}
 
 \section{Conclusion}
 \lipsum[4]
