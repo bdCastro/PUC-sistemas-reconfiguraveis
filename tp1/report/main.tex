@@ -11,19 +11,24 @@
 
 \begin{document}
 
+% cover
 \input{cover.tex}
 
+% table of contents
 \newpage
 \thispagestyle{empty}
 \tableofcontents
-\newpage
 
-\large
+% body
+\newpage
+\large % document text size
 
 \section{Introdução}
-Durante as aulas da disciplina de Sistemas Reconfiguráveis, fomos introduzidos à linguagem VHDL. VHDL (\textbf{V}HSIC \textbf{H}ardware \textbf{D}escription \textbf{L}anguage) é uma linguage de descrição de hardware. Com ela, podemos montar circuitos lógicos de maneira totalmente textual, o que garante à linguagem uma grande vantagem ante à soluções visuais.
+
+Durante as aulas da disciplina de Sistemas Reconfiguráveis, fomos introduzidos à linguagem VHDL. VHDL (\textbf{V}HSIC \textbf{H}ardware \textbf{D}escription \textbf{L}anguage) é uma linguagem de descrição de hardware. Com ela, podemos montar circuitos lógicos de maneira totalmente textual, o que garante à linguagem uma grande vantagem ante à soluções visuais.
 
 \subsection{TP1}
+
 Como primeiro trabalho prático (TP1), são propostas as montagens de dois circuitos utilizando a linguagem VHDL para a placa de desenvolvimento Altera:
 
 \begin{itemize}
@@ -52,7 +57,7 @@ A ULA (\textbf{U}nidade \textbf{L}ógica \textbf{A}ritimétrica) é um dos compo
 
 De maneira simplificada, a ULA receberá um comando, composto por seletores de operação e bits, e operandos. Na saída temos o resultado da operação desejada.
 
-Como uma ULA opera de maneira concorrente, todas as operações implementadas são ``executadas ao mesmo tempo``. Um Multiplexador é usado para selecionar a operação correta.
+Como uma ULA opera de maneira concorrente, todas as operações implementadas são ``executadas ao mesmo tempo''. Um Multiplexador é usado para selecionar a operação correta.
 
 \section{Conclusion}
 \lipsum[4]
