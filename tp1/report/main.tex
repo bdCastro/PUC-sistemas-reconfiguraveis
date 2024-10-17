@@ -59,6 +59,78 @@ De maneira simplificada, a ULA receberá um comando, composto por seletores de o
 
 Como uma ULA opera de maneira concorrente, todas as operações implementadas são ``executadas ao mesmo tempo''. Um Multiplexador é usado para selecionar a operação correta.
 
+\subsection{ULA Proposta}
+
+Neste trabalho prático, a ULA proposta deve possuir as seguintes funções:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        Função & op\_code & Descrição & z\_out & c\_out & dc\_out\\
+        \hline
+        XOR & 0000 & XOR Lógico & 1, se res. = 0 & - & -\\
+        \hline
+        OR & 0001 & OR Lógico & 1, se res. = 0 & - & -\\
+        \hline
+        AND & 0010 & AND Lógico & 1, se res. = 0 & - & -\\
+        \hline
+        CLR & 0011 & Limpa & 1 & - & -\\ 
+        \hline
+        ADD & 0100 & Soma & 1, se res. = 0 & 1 se \textit{carry} & 0 se \textit{carry} no nibble\\
+        \hline
+        SUB & 0101 & Subtração & 1, se res. = 0 & 0 se \textit{borrow} & 0 se \textit{borrow} no nibble\\
+        \hline
+        INC & 0110 & Incremento & 1, se res. = 0 & - & - \\
+        \hline
+        DEC & 0111 & Decremento & 1, se res. = 0 & - & - \\
+        \hline
+        PASS\_A & 1000 & Passa 'A' & 1, se res. = 0 & - & - \\
+        \hline
+        PASS\_B & 1001 & Passa 'B' & 1, se res. = 0 & - & - \\
+        \hline
+        COM & 1010 & Complemento & 1, se res. = 0 & - & - \\
+        \hline
+        SWAP & 1011 & Permuta \textit{nibbles} & 1, se res. = 0 & - & - \\
+        \hline
+        BS & 1100 & bit\_sel = 1 & a\_in[bit\_sel] & - & - \\
+        \hline
+        BC & 1101 & bit\_sel = 0 & a\_in[bit\_sel] & - & - \\
+        \hline
+        RR & 1110 & Rotação p/ dir. & - &  a\_in[0] & - \\
+        \hline
+        RL & 1111 & Rotação p/ esq. & - &  a\_in[7] & - \\
+        \hline
+    \end{tabular}
+\end{center}
+
+O sinais de entrada e saída são os seguintes:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    Nome & Tamanho & Tipo & Descrição\\
+    \hline
+    a\_in & 8 bits & \textit{Input} & Entrada de dados A\\
+    \hline
+    b\_in & 8 bits & \textit{Input} & Entrada de dados B\\
+    \hline
+    c\_in & 1 bit & \textit{Input} & Entrada de \textit{carry}\\
+    \hline
+    op\_sel & 4 bits & \textit{Input} & Seletor de operação\\
+    \hline
+    bit\_sel & 3 bits & \textit{Input} & Seletor de bit\\
+    \hline
+    r\_out & 8 bits & \textit{Output} & Saída do resultado\\
+    \hline
+    c\_out & 1 bit & \textit{Output} & Saída de \textit{carry/borrow}\\
+    \hline
+    dc\_out & 1 bit & \textit{Output} & Saída de \textit{digit carry/borrow}\\
+    \hline
+    z\_out & 1 bit & \textit{Output} & Saída de zero\\
+    \hline
+\end{tabular}
+\end{center}
+
 \section{Conclusion}
 \lipsum[4]
 
