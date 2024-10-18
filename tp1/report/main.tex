@@ -212,6 +212,20 @@ aux <=
     '0' & a(6 DOWNTO 0) & c_in WHEN "1111";     -- RL
 \end{lstlisting}
 
+\subsubsection{z\_out}
+
+A saída z\_out é usada para indicar que o resultado é zero para a maioria das operações, com duas excessões: a de CLR (já que o resultado sempre é zero), e as operações BS e BC onde ele deve ser o bit da entrada A na posição bit\_sel.
+
+Para isso, verificamos se a operação termina com a sequência "110" (utilizada por ambas as operações) e colocamos o bit correto na saída. Caso contrário, ela é 1 caso a saída seja zero.
+
+\begin{lstlisting}[language=VHDL]
+z_out <=
+    a(TO_INTEGER(UNSIGNED(bit_sel)))
+        WHEN op_sel(3 DOWNTO 1) = "110" -- BS and BC
+
+    ELSE '1' WHEN aux(7 DOWNTO 0) = "00000000";
+\end{lstlisting}
+
 \subsubsection{c\_out}
 
 Para idetificarmos um \textit{carry} (ou um \textit{borrow}), há várias rotas que podemos tomar. Poderiamos, por exemplo, implementar cirtuitos lógicos capazar de identificar que ele ocorreu. Mas, para simplificar a operação, podemos chegar no mesmo resultado simplesmente aumentando o número de bits dos nossos dois operandos em 1. Podemos então copiar o bit mais significativo para a a saída c\_out. Caso um \textit{carry} ou um \textit{borrow} ocorra, esse bit será um.
