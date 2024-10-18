@@ -50,7 +50,48 @@ Entre os objetivos que temos com o desenvolvimento deste trabalho prático podem
 \end{itemize}
 
 \section{ADDR\_MUX}
-\lipsum[1]
+O multiplexador de endereços é um mux com uma saída de endereço (abus\_out), de 9 bits, que deve ser igual a concatenação da entrada de seleção de banco para endereçamento indireto (irp\_in), de 1 bit, com a entrada para endereçamento indireto (ind\_addr\_in), de 8 bits, quando todos os bits da entrada de endereçamento direto (dir\_addr\_in) forem iguais a 0. Caso contrário, a saída deve ser a concatenação da entrada de seleção de banco para endereçamento direto (rp\_in), de 2 bits, concatenada com a entrada para endereçamento direto (dir\_addr\_in) de 7 bits.
+
+\subsection {Tabela Verdade}
+
+A lógica do multiplexador é simples e pode ser representada por uma pequena tabela verdade.
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        dir\_addr\_in & abus\_out \\
+        \hline
+              0000000 & irp\_in \& ind\_addr\_in \\
+        \hline
+          maior que 0 & rp\_in \& dir\_addr\_in \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection {Implementação em VHDL}
+
+Na implementação em VHDL foram declaradas 5 portas utilizando os tipos STD\_LOGIC para a entrada de 1 bit e STD\_LOGIC\_VECTOR para as entradas e saída de vários bits, esse tipo foi importado da biblioteca IEEE.
+
+\begin{lstlisting}[language=VHDL]
+	PORT (
+		-- Input
+		rp_in : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+		dir_addr_in : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+		irp_in : IN STD_LOGIC;
+		ind_addr_in : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+		-- Output
+		abus_out : OUT STD_LOGIC_VECTOR(8 DOWNTO 0)
+	);
+\end{lstlisting}
+
+\subsubsection{Arquitetura}
+
+A lógica da arquitetura é bem simples e pode ser descrita com apenas uma linha de código, onde foi utilizado a estrutura WHEN...ELSE para descrever as relações entre as portas de entrada e a porta de saída.
+
+\begin{lstlisting}[language=VHDL]
+    abus_out <= irp_in & ind_addr_in WHEN dir_addr_in = "0000000"
+                ELSE rp_in & dir_addr_in;
+\end{lstlisting}
 
 \section{ULA (Unidade Lógica Aritimética)}
 
