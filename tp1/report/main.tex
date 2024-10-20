@@ -292,7 +292,6 @@ dc_out <= aux_nibble(4);
 \end{lstlisting}
 
 \subsection{Simulação e Testes}
-
 Nesta fase do projeto, precisamos ter certeza de que tudo o que fizemos se comportava da maneira esperada. Para isso, efetuamos dois tipos de validações:
 
 \begin{itemize}
@@ -306,7 +305,6 @@ A primeira maneira de testar nosso circuito, foi pelo próprio software que util
 Nessa fase, obtivemos as saídas corretas para todos os casos de testes, e não foi preciso fazer nenhuma alteração. Com isso, avançamos para a próxima fase.
 
 \subsubsection{Teste com a plada de desenvolvimento Altera}
-
 Utilizando o mesmo software Quartus, compilamos o nosso projeto e subimos para a placa de testes Altera.
 
 Nesta fase, tivemos que fazer uma pequena alteração. Apesar da placa ofereçer um grande número de opções entrada e saída, para o tipo de entrada que precisávamos, era nescessário utilizar os switches. Porém, o número de switches na placa era menor do que precisávamos para testar o circuito em sua totalidade. Optamos aqui por testar apenas os 4 bits menos signifcativos das entradas A e B, e mantivemos todos os demais.
@@ -314,6 +312,6 @@ Nesta fase, tivemos que fazer uma pequena alteração. Apesar da placa ofereçer
 Com a placa ajustada, efetuamos testes exaustivos para todas as operações implementadas. Os resultados foram todos dentro do esperado, levando em consideração nossa limitação de inputs à 4 bits.
 
 \section{Conclusion}
-\lipsum[4]
+Com estes dois projetos simples, tivemos um excelente primeiro contado com a linguagem VHDL, bem como à programação concorrente e desenvolvimento de circuitos FPGA. Os dois circuitos implementados (Multiplexador de Endereçamento e Unidade Lógica Aritimética) são blocos de construção chave para a maior parte dos circuitos complexos, e serão de suma importância não só para os demais trabalhos práticos que realizaremos ao longo do semestre, mas para nosso desenvolvimento acadêmico e profissional.
 
 \end{document}
