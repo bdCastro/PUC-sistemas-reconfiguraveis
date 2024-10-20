@@ -291,6 +291,28 @@ aux_nibble <=
 dc_out <= aux_nibble(4);
 \end{lstlisting}
 
+\subsection{Simulação e Testes}
+
+Nesta fase do projeto, precisamos ter certeza de que tudo o que fizemos se comportava da maneira esperada. Para isso, efetuamos dois tipos de validações:
+
+\begin{itemize}
+    \item Simulação via Quartus II.
+    \item Teste com a placa de desenvolvimento Altera.
+\end{itemize}
+
+\subsubsection{Simulação via Quartus II}
+A primeira maneira de testar nosso circuito, foi pelo próprio software que utilizamos para toda a implementação: O Quartus II. Dentro dele temos uma função de simulação, Com ela, podemos simular as entradas como ``ondas'' no tempo, e analizar se obtemos as saídas esperadas.
+
+Nessa fase, obtivemos as saídas corretas para todos os casos de testes, e não foi preciso fazer nenhuma alteração. Com isso, avançamos para a próxima fase.
+
+\subsubsection{Teste com a plada de desenvolvimento Altera}
+
+Utilizando o mesmo software Quartus, compilamos o nosso projeto e subimos para a placa de testes Altera.
+
+Nesta fase, tivemos que fazer uma pequena alteração. Apesar da placa ofereçer um grande número de opções entrada e saída, para o tipo de entrada que precisávamos, era nescessário utilizar os switches. Porém, o número de switches na placa era menor do que precisávamos para testar o circuito em sua totalidade. Optamos aqui por testar apenas os 4 bits menos signifcativos das entradas A e B, e mantivemos todos os demais.
+
+Com a placa ajustada, efetuamos testes exaustivos para todas as operações implementadas. Os resultados foram todos dentro do esperado, levando em consideração nossa limitação de inputs à 4 bits.
+
 \section{Conclusion}
 \lipsum[4]
 
