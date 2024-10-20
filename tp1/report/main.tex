@@ -50,7 +50,7 @@ Entre os objetivos que temos com o desenvolvimento deste trabalho prático podem
 \end{itemize}
 
 \section{ADDR\_MUX}
-O multiplexador de endereços é um mux com uma saída de endereço (abus\_out), de 9 bits, que deve ser igual a concatenação da entrada de seleção de banco para endereçamento indireto (irp\_in), de 1 bit, com a entrada para endereçamento indireto (ind\_addr\_in), de 8 bits, quando todos os bits da entrada de endereçamento direto (dir\_addr\_in) forem iguais a 0. Caso contrário, a saída deve ser a concatenação da entrada de seleção de banco para endereçamento direto (rp\_in), de 2 bits, concatenada com a entrada para endereçamento direto (dir\_addr\_in) de 7 bits.
+O multiplexador de endereços é um MUX com uma saída de endereço (abus\_out), de 9 bits, que deve ser igual a concatenação da entrada de seleção de banco para endereçamento indireto (irp\_in), de 1 bit, com a entrada para endereçamento indireto (ind\_addr\_in), de 8 bits, quando todos os bits da entrada de endereçamento direto (dir\_addr\_in) forem iguais a 0. Caso contrário, a saída deve ser a concatenação da entrada de seleção de banco para endereçamento direto (rp\_in), de 2 bits, concatenada com a entrada para endereçamento direto (dir\_addr\_in) de 7 bits.
 
 \subsection {Tabela Verdade}
 
@@ -175,11 +175,11 @@ O sinais de entrada e saída são os seguintes:
 
 \subsection{Implementação}
 
-Nossa implementação, feita em VHDL, consiste na utilização de métodos e bibloiotecas já implementadas, bem como lógica implementada por nós. Abaixo explicamos como foram implentadas cada uma das funções proportas.
+Nossa implementação, feita em VHDL, consiste na utilização de métodos e bibliotecas já implementadas, bem como lógica implementada por nós. Abaixo explicamos como foram implentadas cada uma das funções propostas.
 
 \subsubsection{XOR, OR, AND e COM}
 
-Esses métodos forma implemntados usando as funções lógicas disponíveis nativamente na linguagem VHDL.
+Esses métodos foram implementados usando as funções lógicas disponíveis nativamente na linguagem VHDL.
 
 \begin{lstlisting}[language=VHDL]
 aux <=
@@ -189,7 +189,7 @@ aux <=
 
     [...]
 
-    NOT a   WHEN "1010", 	-- COM
+    NOT a   WHEN "1010",    -- COM
 \end{lstlisting}
 
 \subsubsection{ADD, SUB, INC e DEC}
@@ -216,17 +216,17 @@ aux <=
 
 \subsubsection{SWAP}
 
-A operação de SWAP é feita invertando os dois \textit{nibbles}
+A operação de SWAP é feita invertendo os dois \textit{nibbles}.
 
 \begin{lstlisting}[language=VHDL]
 aux <= '0' & a(3 DOWNTO 0) & a(7 DOWNTO 4) WHEN "1011", -- SWAP
 \end{lstlisting}
 
-A concatenacão com zero no início será explicada na implementação do c\_out.
+A concatenação com zero no início será explicada na implementação do c\_out.
 
 \subsubsection{BS e BC}
 
-As operações de BS (\textit{bit set}) e BC (\textit{bit clear}) implementam a seguinte lógica: para ``setarmos'' um bit para 1, podemos fazer uma operação OR da entrada com uma \textit{string} de zeros, mas com um único um na posição que desejamos que seja igual à 1. Isso garanterá que este bit será sempre 1, e od demais são copiados. Podemos obter essa \textit{string} efetuando um \textit{shift lógico} de 1 um número bit\_sel de casas.
+As operações de BS (\textit{bit set}) e BC (\textit{bit clear}) implementam a seguinte lógica: para ``setarmos'' um bit para 1, podemos fazer uma operação OR da entrada com uma \textit{string} de zeros, mas com um único 1 na posição que desejamos que seja igual à 1. Isso garantirá que este bit será sempre 1, e os demais são copiados. Podemos obter essa \textit{string} efetuando um \textit{shift lógico} de 1 um número bit\_sel de casas.
 
 A operação BC funciona de maneira semalhando, mas deve ser feita com um AND no lugar do OR, e a \textit{string} deve ser de 1s com um único zero na posição desejada. Para isso, fazemos mesma operação que anteriormente, mas invertemos o resultado.
 
@@ -269,7 +269,7 @@ z_out <=
 
 \subsubsection{c\_out}
 
-Para idetificarmos um \textit{carry} (ou um \textit{borrow}), há várias rotas que podemos tomar. Poderiamos, por exemplo, implementar cirtuitos lógicos capazar de identificar que ele ocorreu. Mas, para simplificar a operação, podemos chegar no mesmo resultado simplesmente aumentando o número de bits dos nossos dois operandos em 1. Podemos então copiar o bit mais significativo para a a saída c\_out. Caso um \textit{carry} ou um \textit{borrow} ocorra, esse bit será um.
+Para idetificarmos um \textit{carry} (ou um \textit{borrow}), há várias rotas que podemos tomar. Poderiamos, por exemplo, implementar cirtuitos lógicos capazes de identificar que ele ocorreu. Mas, para simplificar a operação, podemos chegar no mesmo resultado simplesmente aumentando o número de bits dos nossos dois operandos em 1. Podemos então copiar o bit mais significativo para a a saída c\_out. Caso um \textit{carry} ou um \textit{borrow} ocorra, esse bit será um.
 
 \begin{lstlisting}[language=VHDL]
     r_out <= aux(7 DOWNTO 0);
@@ -280,7 +280,7 @@ Para evitarmos que o $9^o$ bit seja copiado para a saída, usamos um buffer aux,
 
 \subsubsection{dc\_out}
 
-Para identificarmos um \textit{carry} ou \textit{borrow} em um \textit{nibble}, podemos faer algo similar ao que fizemos c\_out. Criamos um auxiliar com 5 bits, e verificamos o copiamos para a saída, após executada a operação necessária.
+Para identificarmos um \textit{carry} ou \textit{borrow} em um \textit{nibble}, podemos fazer algo similar ao que fizemos c\_out. Criamos um auxiliar com 5 bits, e verificamos o copiamos para a saída, após executada a operação necessária.
 
 \begin{lstlisting}[language=VHDL]
 aux_nibble <=
@@ -304,7 +304,7 @@ A primeira maneira de testar nosso circuito, foi pelo próprio software que util
 
 Nessa fase, obtivemos as saídas corretas para todos os casos de testes, e não foi preciso fazer nenhuma alteração. Com isso, avançamos para a próxima fase.
 
-\subsubsection{Teste com a plada de desenvolvimento Altera}
+\subsubsection{Teste com a placa de desenvolvimento Altera}
 Utilizando o mesmo software Quartus, compilamos o nosso projeto e subimos para a placa de testes Altera.
 
 Nesta fase, tivemos que fazer uma pequena alteração. Apesar da placa ofereçer um grande número de opções entrada e saída, para o tipo de entrada que precisávamos, era nescessário utilizar os switches. Porém, o número de switches na placa era menor do que precisávamos para testar o circuito em sua totalidade. Optamos aqui por testar apenas os 4 bits menos signifcativos das entradas A e B, e mantivemos todos os demais.
