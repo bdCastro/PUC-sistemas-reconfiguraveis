@@ -1,2 +1,5 @@
 # custom attr file of the macOS file sys
 .DS_Store
+
+# vscode configuration directory
+.vscode
