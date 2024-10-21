@@ -118,7 +118,7 @@ Neste trabalho prático, a ULA proposta deve possuir as seguintes funções:
         \hline
         CLR & 0011 & Limpa & 1 & - & -\\ 
         \hline
-        ADD & 0100 & Soma & 1, se res. = 0 & 1 se \textit{carry} & 0 se \textit{carry} no nibble\\
+        ADD & 0100 & Soma & 1, se res. = 0 & 1 se \textit{carry} & 1 se \textit{carry} no nibble\\
         \hline
         SUB & 0101 & Subtração & 1, se res. = 0 & 0 se \textit{borrow} & 0 se \textit{borrow} no nibble\\
         \hline
@@ -303,6 +303,27 @@ Nesta fase do projeto, precisamos ter certeza de que tudo o que fizemos se compo
 A primeira maneira de testar nosso circuito, foi pelo próprio software que utilizamos para toda a implementação: O Quartus II. Dentro dele temos uma função de simulação, Com ela, podemos simular as entradas como ``ondas'' no tempo, e analizar se obtemos as saídas esperadas.
 
 Nessa fase, obtivemos as saídas corretas para todos os casos de testes, e não foi preciso fazer nenhuma alteração. Com isso, avançamos para a próxima fase.
+
+\begin{figure}
+\begin{center}
+    \includegraphics[width=8cm]{images/xor.png}
+    \caption{Simulação XOR}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+    \includegraphics[width=8cm]{images/add.png}
+    \caption{Simulação ADD\\}
+\end{center}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+    \includegraphics[width=8cm]{images/bc.png}
+    \caption{Simulação BC}
+\end{center}
+\end{figure}
 
 \subsubsection{Teste com a placa de desenvolvimento Altera}
 Utilizando o mesmo software Quartus, compilamos o nosso projeto e subimos para a placa de testes Altera.
