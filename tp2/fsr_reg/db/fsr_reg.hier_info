@@ -1,0 +1,47 @@
+|fsr_reg
+nrst => ~NO_FANOUT~
+clk_in => ~NO_FANOUT~
+abus_in[0] => ~NO_FANOUT~
+abus_in[1] => ~NO_FANOUT~
+abus_in[2] => ~NO_FANOUT~
+abus_in[3] => ~NO_FANOUT~
+abus_in[4] => ~NO_FANOUT~
+abus_in[5] => ~NO_FANOUT~
+abus_in[6] => ~NO_FANOUT~
+abus_in[7] => ~NO_FANOUT~
+abus_in[8] => ~NO_FANOUT~
+dbus_in[0] => fsr_out[0].DATAIN
+dbus_in[1] => fsr_out[1].DATAIN
+dbus_in[2] => fsr_out[2].DATAIN
+dbus_in[3] => fsr_out[3].DATAIN
+dbus_in[4] => fsr_out[4].DATAIN
+dbus_in[5] => fsr_out[5].DATAIN
+dbus_in[6] => fsr_out[6].DATAIN
+dbus_in[7] => fsr_out[7].DATAIN
+wr_en => ~NO_FANOUT~
+rd_en => dbus_out[0].OE
+rd_en => dbus_out[1].OE
+rd_en => dbus_out[2].OE
+rd_en => dbus_out[3].OE
+rd_en => dbus_out[4].OE
+rd_en => dbus_out[5].OE
+rd_en => dbus_out[6].OE
+rd_en => dbus_out[7].OE
+dbus_out[0] <= dbus_out[0].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[1] <= dbus_out[1].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[2] <= dbus_out[2].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[3] <= dbus_out[3].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[4] <= dbus_out[4].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[5] <= dbus_out[5].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[6] <= dbus_out[6].DB_MAX_OUTPUT_PORT_TYPE
+dbus_out[7] <= dbus_out[7].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[0] <= dbus_in[0].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[1] <= dbus_in[1].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[2] <= dbus_in[2].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[3] <= dbus_in[3].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[4] <= dbus_in[4].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[5] <= dbus_in[5].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[6] <= dbus_in[6].DB_MAX_OUTPUT_PORT_TYPE
+fsr_out[7] <= dbus_in[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
