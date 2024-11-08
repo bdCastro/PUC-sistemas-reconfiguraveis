@@ -17,20 +17,6 @@ ENTITY w_reg IS
 END ENTITY;
 
 ARCHITECTURE w_reg OF w_reg IS
-    SIGNAL mem_reg: STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
-
-    PROCESS (nrst, clk_in)
-    BEGIN
-        IF nrst = '0' THEN
-            mem_reg <= "00000000";
-        ELSIF RISING_EDGE(clk_in) then
-            IF wr_en = '1' THEN
-                mem_reg <= d_in;
-            END IF;
-        END IF;
-    END PROCESS;
-
-    w_out <= mem_reg;
-
+	w_out <= '1' & '0';
 END w_reg;
