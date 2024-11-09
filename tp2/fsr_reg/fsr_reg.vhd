@@ -26,7 +26,7 @@ BEGIN
     BEGIN
         IF nrst = '0' THEN
             mem_reg <= "00000000";
-        ELSIF abus_in = "XX0000100" THEN
+        ELSIF abus_in(6 DOWNTO 0) = "0000100" THEN
             IF RISING_EDGE(clk_in) THEN
                 IF wr_en = '1' THEN
                     mem_reg <= dbus_in;
@@ -36,5 +36,5 @@ BEGIN
     END PROCESS;
 
     dbus_out <= mem_reg WHEN rd_en = '1' ELSE "ZZZZZZZZ";
-    fsr_out <= dbus_in;
+    fsr_out <= mem_reg;
 END fsr_reg;

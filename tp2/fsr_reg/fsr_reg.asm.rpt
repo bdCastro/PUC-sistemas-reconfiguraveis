@@ -1,5 +1,5 @@
 Assembler report for fsr_reg
-Fri Nov 08 01:03:32 2024
+Sat Nov 09 15:15:20 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.sof
-  6. Assembler Device Options: Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.pof
+  5. Assembler Device Options: C:/users/crossover/Documents/fsr_reg/fsr_reg.sof
+  6. Assembler Device Options: C:/users/crossover/Documents/fsr_reg/fsr_reg.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Nov 08 01:03:32 2024 ;
+; Assembler Status      ; Successful - Sat Nov 09 15:15:20 2024 ;
 ; Revision Name         ; fsr_reg                               ;
 ; Top-level Entity Name ; fsr_reg                               ;
 ; Family                ; Cyclone II                            ;
@@ -78,37 +78,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                   ;
-+---------------------------------------------------------------------------------------------+
-; File Name                                                                                   ;
-+---------------------------------------------------------------------------------------------+
-; Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.sof ;
-; Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.pof ;
-+---------------------------------------------------------------------------------------------+
++--------------------------------------------------+
+; Assembler Generated Files                        ;
++--------------------------------------------------+
+; File Name                                        ;
++--------------------------------------------------+
+; C:/users/crossover/Documents/fsr_reg/fsr_reg.sof ;
+; C:/users/crossover/Documents/fsr_reg/fsr_reg.pof ;
++--------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.sof ;
-+----------------+------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                              ;
-+----------------+------------------------------------------------------------------------------------------------------+
-; Device         ; EP2C5T144C6                                                                                          ;
-; JTAG usercode  ; 0xFFFFFFFF                                                                                           ;
-; Checksum       ; 0x00073C15                                                                                           ;
-+----------------+------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------+
+; Assembler Device Options: C:/users/crossover/Documents/fsr_reg/fsr_reg.sof ;
++----------------+-----------------------------------------------------------+
+; Option         ; Setting                                                   ;
++----------------+-----------------------------------------------------------+
+; Device         ; EP2C5T144C6                                               ;
+; JTAG usercode  ; 0xFFFFFFFF                                                ;
+; Checksum       ; 0x00076385                                                ;
++----------------+-----------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/home/rafael/MEGA/Projects/Faculdade/PUC-sistemas-reconfiguraveis/tp2/fsr_reg/fsr_reg.pof ;
-+--------------------+--------------------------------------------------------------------------------------------------+
-; Option             ; Setting                                                                                          ;
-+--------------------+--------------------------------------------------------------------------------------------------+
-; Device             ; EPCS4                                                                                            ;
-; JTAG usercode      ; 0x00000000                                                                                       ;
-; Checksum           ; 0x07528628                                                                                       ;
-; Compression Ratio  ; 3                                                                                                ;
-+--------------------+--------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------+
+; Assembler Device Options: C:/users/crossover/Documents/fsr_reg/fsr_reg.pof ;
++--------------------+-------------------------------------------------------+
+; Option             ; Setting                                               ;
++--------------------+-------------------------------------------------------+
+; Device             ; EPCS4                                                 ;
+; JTAG usercode      ; 0x00000000                                            ;
+; Checksum           ; 0x075214DB                                            ;
+; Compression Ratio  ; 3                                                     ;
++--------------------+-------------------------------------------------------+
 
 
 +--------------------+
@@ -117,13 +117,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Fri Nov 08 01:03:31 2024
+    Info: Processing started: Sat Nov 09 15:15:19 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off fsr_reg -c fsr_reg
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 106 megabytes
-    Info: Processing ended: Fri Nov 08 01:03:32 2024
+    Info: Peak virtual memory: 150 megabytes
+    Info: Processing ended: Sat Nov 09 15:15:20 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

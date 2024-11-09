@@ -26,7 +26,7 @@ BEGIN
     BEGIN
         IF nrst = '0' THEN
             mem_reg <= "00000000";
-        ELSIF abus_in = "XX0000100" THEN
+        ELSIF abus_in(6 DOWNTO 0) = "0000100" THEN
             IF RISING_EDGE(clk_in) THEN
                 IF wr_en = '1' THEN
                     mem_reg <= dbus_in;
