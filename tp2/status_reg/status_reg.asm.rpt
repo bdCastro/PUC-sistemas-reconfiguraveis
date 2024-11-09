@@ -1,5 +1,5 @@
 Assembler report for status_reg
-Sat Nov 09 12:23:29 2024
+Sat Nov 09 18:03:31 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -10,8 +10,8 @@ Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.sof
-  6. Assembler Device Options: Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.pof
+  5. Assembler Device Options: C:/users/crossover/Documents/status_reg/status_reg.sof
+  6. Assembler Device Options: C:/users/crossover/Documents/status_reg/status_reg.pof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Nov 09 12:23:29 2024 ;
+; Assembler Status      ; Successful - Sat Nov 09 18:03:31 2024 ;
 ; Revision Name         ; status_reg                            ;
 ; Top-level Entity Name ; status_reg                            ;
 ; Family                ; Stratix II                            ;
@@ -79,37 +79,37 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------+----------+---------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                                         ;
-+-------------------------------------------------------------------------------------------------------------------+
-; File Name                                                                                                         ;
-+-------------------------------------------------------------------------------------------------------------------+
-; Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.sof ;
-; Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.pof ;
-+-------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------+
+; Assembler Generated Files                              ;
++--------------------------------------------------------+
+; File Name                                              ;
++--------------------------------------------------------+
+; C:/users/crossover/Documents/status_reg/status_reg.sof ;
+; C:/users/crossover/Documents/status_reg/status_reg.pof ;
++--------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.sof ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                                    ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
-; Device         ; EP2S15F484C3                                                                                                               ;
-; JTAG usercode  ; 0xFFFFFFFF                                                                                                                 ;
-; Checksum       ; 0x00279992                                                                                                                 ;
-+----------------+----------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Assembler Device Options: C:/users/crossover/Documents/status_reg/status_reg.sof ;
++----------------+-----------------------------------------------------------------+
+; Option         ; Setting                                                         ;
++----------------+-----------------------------------------------------------------+
+; Device         ; EP2S15F484C3                                                    ;
+; JTAG usercode  ; 0xFFFFFFFF                                                      ;
+; Checksum       ; 0x00279FFF                                                      ;
++----------------+-----------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp2/status_reg/status_reg.pof ;
-+--------------------+------------------------------------------------------------------------------------------------------------------------+
-; Option             ; Setting                                                                                                                ;
-+--------------------+------------------------------------------------------------------------------------------------------------------------+
-; Device             ; EPC16                                                                                                                  ;
-; JTAG usercode      ; 0xFFFFFFFF                                                                                                             ;
-; Checksum           ; 0x1EF4933F                                                                                                             ;
-; Compression Ratio  ; 3                                                                                                                      ;
-+--------------------+------------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Assembler Device Options: C:/users/crossover/Documents/status_reg/status_reg.pof ;
++--------------------+-------------------------------------------------------------+
+; Option             ; Setting                                                     ;
++--------------------+-------------------------------------------------------------+
+; Device             ; EPC16                                                       ;
+; JTAG usercode      ; 0xFFFFFFFF                                                  ;
+; Checksum           ; 0x1EF4A39E                                                  ;
+; Compression Ratio  ; 3                                                           ;
++--------------------+-------------------------------------------------------------+
 
 
 +--------------------+
@@ -118,13 +118,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II Assembler
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Nov 09 12:23:27 2024
+    Info: Processing started: Sat Nov 09 18:03:29 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off status_reg -c status_reg
 Info: Writing out detailed assembly data for power analysis
 Info: Assembler is generating device programming files
 Info: Quartus II Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 138 megabytes
-    Info: Processing ended: Sat Nov 09 12:23:29 2024
+    Info: Peak virtual memory: 179 megabytes
+    Info: Processing ended: Sat Nov 09 18:03:31 2024
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

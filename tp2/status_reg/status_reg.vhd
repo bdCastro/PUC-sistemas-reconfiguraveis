@@ -8,7 +8,7 @@ ENTITY status_reg IS
         -- Inputs
         nrst: IN STD_LOGIC;                       -- Reset
         clk_in: IN STD_LOGIC;                     -- Clock
-        abus_in: IN STD_LOGIC_VECTOR(8 DOWNTO 0); -- Endereçamento
+        abus_in: IN STD_LOGIC_VECTOR(8 DOWNTO 0); -- Enderecamento
         dbus_in: IN STD_LOGIC_VECTOR(7 DOWNTO 0); -- Dados
         wr_en: IN STD_LOGIC;                      -- Enable escrita
         rd_en: IN STD_LOGIC;                      -- Enable leitura
@@ -37,7 +37,7 @@ BEGIN
         IF nrst = '0' THEN 
             mem_reg <= "00000000";
         ELSIF RISING_EDGE(clk_in) THEN
-            IF wr_en = '1' AND abus_in = "0000011" THEN
+            IF wr_en = '1' AND abus_in(6 DOWNTO 0) = "0000011" THEN
                 mem_reg <= dbus_in;
             END IF;
             IF z_wr_en = '1' THEN
@@ -52,7 +52,7 @@ BEGIN
         END IF;
     END PROCESS;
     
-    dbus_out <= mem_reg WHEN rd_en = '1' AND abus_in = "0000011" ELSE "ZZZZZZZZ";
+    dbus_out <= mem_reg WHEN rd_en = '1' AND abus_in(6 DOWNTO 0) = "0000011" ELSE "ZZZZZZZZ";
     irp_out <= mem_reg(7);
     rp_out <= mem_reg(6 DOWNTO 5);
     z_out <= mem_reg(2);
