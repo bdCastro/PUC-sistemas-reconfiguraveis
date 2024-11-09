@@ -1,5 +1,5 @@
 Simulator report for status_reg
-Sat Nov 09 18:24:55 2024
+Sat Nov 09 20:01:29 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -46,8 +46,8 @@ applicable agreement for further details.
 ; Simulation Start Time       ; 0 ps         ;
 ; Simulation End Time         ; 1.0 us       ;
 ; Simulation Netlist Size     ; 58 nodes     ;
-; Simulation Coverage         ;      57.14 % ;
-; Total Number of Transitions ; 558          ;
+; Simulation Coverage         ;      80.36 % ;
+; Total Number of Transitions ; 580          ;
 ; Simulation Breakpoints      ; 0            ;
 ; Family                      ; Stratix II   ;
 ; Device                      ; EP2S15F484C3 ;
@@ -94,13 +94,13 @@ Please use Quartus II to view the waveform report data.
 +-----------------------------------------------------+--------------+
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
-; Total coverage as a percentage                      ;      57.14 % ;
+; Total coverage as a percentage                      ;      80.36 % ;
 ; Total nodes checked                                 ; 58           ;
 ; Total output ports checked                          ; 56           ;
-; Total output ports with complete 1/0-value coverage ; 32           ;
-; Total output ports with no 1/0-value coverage       ; 5            ;
-; Total output ports with no 1-value coverage         ; 10           ;
-; Total output ports with no 0-value coverage         ; 19           ;
+; Total output ports with complete 1/0-value coverage ; 45           ;
+; Total output ports with no 1/0-value coverage       ; 3            ;
+; Total output ports with no 1-value coverage         ; 8            ;
+; Total output ports with no 0-value coverage         ; 6            ;
 +-----------------------------------------------------+--------------+
 
 
@@ -110,13 +110,19 @@ The following table displays output ports that toggle between 1 and 0 during sim
 +-------------------------------+-------------------------------+------------------+
 ; Node Name                     ; Output Port Name              ; Output Port Type ;
 +-------------------------------+-------------------------------+------------------+
+; |status_reg|mem_reg[7]        ; |status_reg|mem_reg[7]        ; regout           ;
+; |status_reg|mem_reg[5]        ; |status_reg|mem_reg[5]        ; regout           ;
 ; |status_reg|mem_reg[6]        ; |status_reg|mem_reg[6]        ; regout           ;
+; |status_reg|mem_reg[2]        ; |status_reg|mem_reg[2]        ; regout           ;
+; |status_reg|mem_reg[1]        ; |status_reg|mem_reg[1]        ; regout           ;
+; |status_reg|mem_reg[0]        ; |status_reg|mem_reg[0]        ; regout           ;
 ; |status_reg|dbus_out~9        ; |status_reg|dbus_out~9        ; combout          ;
 ; |status_reg|mem_reg[3]        ; |status_reg|mem_reg[3]        ; regout           ;
 ; |status_reg|mem_reg[4]        ; |status_reg|mem_reg[4]        ; regout           ;
 ; |status_reg|process_0~0       ; |status_reg|process_0~0       ; combout          ;
 ; |status_reg|mem_reg~0         ; |status_reg|mem_reg~0         ; combout          ;
 ; |status_reg|mem_reg~1         ; |status_reg|mem_reg~1         ; combout          ;
+; |status_reg|mem_reg~2         ; |status_reg|mem_reg~2         ; combout          ;
 ; |status_reg|dbus_out[0]       ; |status_reg|dbus_out[0]       ; padio            ;
 ; |status_reg|dbus_out[1]       ; |status_reg|dbus_out[1]       ; padio            ;
 ; |status_reg|dbus_out[2]       ; |status_reg|dbus_out[2]       ; padio            ;
@@ -125,10 +131,16 @@ The following table displays output ports that toggle between 1 and 0 during sim
 ; |status_reg|dbus_out[5]       ; |status_reg|dbus_out[5]       ; padio            ;
 ; |status_reg|dbus_out[6]       ; |status_reg|dbus_out[6]       ; padio            ;
 ; |status_reg|dbus_out[7]       ; |status_reg|dbus_out[7]       ; padio            ;
+; |status_reg|irp_out           ; |status_reg|irp_out           ; padio            ;
+; |status_reg|rp_out[0]         ; |status_reg|rp_out[0]         ; padio            ;
 ; |status_reg|rp_out[1]         ; |status_reg|rp_out[1]         ; padio            ;
+; |status_reg|z_out             ; |status_reg|z_out             ; padio            ;
+; |status_reg|dc_out            ; |status_reg|dc_out            ; padio            ;
+; |status_reg|c_out             ; |status_reg|c_out             ; padio            ;
 ; |status_reg|rd_en             ; |status_reg|rd_en~corein      ; combout          ;
 ; |status_reg|dbus_in[7]        ; |status_reg|dbus_in[7]~corein ; combout          ;
 ; |status_reg|clk_in            ; |status_reg|clk_in~corein     ; combout          ;
+; |status_reg|nrst              ; |status_reg|nrst~corein       ; combout          ;
 ; |status_reg|wr_en             ; |status_reg|wr_en~corein      ; combout          ;
 ; |status_reg|dbus_in[5]        ; |status_reg|dbus_in[5]~corein ; combout          ;
 ; |status_reg|dbus_in[6]        ; |status_reg|dbus_in[6]~corein ; combout          ;
@@ -141,55 +153,41 @@ The following table displays output ports that toggle between 1 and 0 during sim
 ; |status_reg|dbus_in[3]        ; |status_reg|dbus_in[3]~corein ; combout          ;
 ; |status_reg|dbus_in[4]        ; |status_reg|dbus_in[4]~corein ; combout          ;
 ; |status_reg|clk_in~clkctrl    ; |status_reg|clk_in~clkctrl    ; outclk           ;
+; |status_reg|nrst~clkctrl      ; |status_reg|nrst~clkctrl      ; outclk           ;
 ; |status_reg|mem_reg[5]~feeder ; |status_reg|mem_reg[5]~feeder ; combout          ;
 +-------------------------------+-------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+-----------------------------------------------------------------------------+
-; Missing 1-Value Coverage                                                    ;
-+--------------------------+-------------------------------+------------------+
-; Node Name                ; Output Port Name              ; Output Port Type ;
-+--------------------------+-------------------------------+------------------+
-; |status_reg|abus_in[6]   ; |status_reg|abus_in[6]~corein ; combout          ;
-; |status_reg|abus_in[5]   ; |status_reg|abus_in[5]~corein ; combout          ;
-; |status_reg|abus_in[4]   ; |status_reg|abus_in[4]~corein ; combout          ;
-; |status_reg|abus_in[3]   ; |status_reg|abus_in[3]~corein ; combout          ;
-; |status_reg|abus_in[2]   ; |status_reg|abus_in[2]~corein ; combout          ;
-; |status_reg|nrst         ; |status_reg|nrst~corein       ; combout          ;
-; |status_reg|dbus_in[2]   ; |status_reg|dbus_in[2]~corein ; combout          ;
-; |status_reg|dbus_in[1]   ; |status_reg|dbus_in[1]~corein ; combout          ;
-; |status_reg|dbus_in[0]   ; |status_reg|dbus_in[0]~corein ; combout          ;
-; |status_reg|nrst~clkctrl ; |status_reg|nrst~clkctrl      ; outclk           ;
-+--------------------------+-------------------------------+------------------+
++---------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                  ;
++------------------------+-------------------------------+------------------+
+; Node Name              ; Output Port Name              ; Output Port Type ;
++------------------------+-------------------------------+------------------+
+; |status_reg|abus_in[6] ; |status_reg|abus_in[6]~corein ; combout          ;
+; |status_reg|abus_in[5] ; |status_reg|abus_in[5]~corein ; combout          ;
+; |status_reg|abus_in[4] ; |status_reg|abus_in[4]~corein ; combout          ;
+; |status_reg|abus_in[3] ; |status_reg|abus_in[3]~corein ; combout          ;
+; |status_reg|abus_in[2] ; |status_reg|abus_in[2]~corein ; combout          ;
+; |status_reg|dbus_in[2] ; |status_reg|dbus_in[2]~corein ; combout          ;
+; |status_reg|dbus_in[1] ; |status_reg|dbus_in[1]~corein ; combout          ;
+; |status_reg|dbus_in[0] ; |status_reg|dbus_in[0]~corein ; combout          ;
++------------------------+-------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+-----------------------------------------------------------------------------+
-; Missing 0-Value Coverage                                                    ;
-+--------------------------+-------------------------------+------------------+
-; Node Name                ; Output Port Name              ; Output Port Type ;
-+--------------------------+-------------------------------+------------------+
-; |status_reg|mem_reg[7]   ; |status_reg|mem_reg[7]        ; regout           ;
-; |status_reg|mem_reg[5]   ; |status_reg|mem_reg[5]        ; regout           ;
-; |status_reg|mem_reg[2]   ; |status_reg|mem_reg[2]        ; regout           ;
-; |status_reg|mem_reg[1]   ; |status_reg|mem_reg[1]        ; regout           ;
-; |status_reg|mem_reg[0]   ; |status_reg|mem_reg[0]        ; regout           ;
-; |status_reg|dbus_out~8   ; |status_reg|dbus_out~8        ; combout          ;
-; |status_reg|mem_reg~2    ; |status_reg|mem_reg~2         ; combout          ;
-; |status_reg|irp_out      ; |status_reg|irp_out           ; padio            ;
-; |status_reg|rp_out[0]    ; |status_reg|rp_out[0]         ; padio            ;
-; |status_reg|z_out        ; |status_reg|z_out             ; padio            ;
-; |status_reg|dc_out       ; |status_reg|dc_out            ; padio            ;
-; |status_reg|c_out        ; |status_reg|c_out             ; padio            ;
-; |status_reg|abus_in[0]   ; |status_reg|abus_in[0]~corein ; combout          ;
-; |status_reg|abus_in[1]   ; |status_reg|abus_in[1]~corein ; combout          ;
-; |status_reg|nrst         ; |status_reg|nrst~corein       ; combout          ;
-; |status_reg|dbus_in[2]   ; |status_reg|dbus_in[2]~corein ; combout          ;
-; |status_reg|dbus_in[1]   ; |status_reg|dbus_in[1]~corein ; combout          ;
-; |status_reg|dbus_in[0]   ; |status_reg|dbus_in[0]~corein ; combout          ;
-; |status_reg|nrst~clkctrl ; |status_reg|nrst~clkctrl      ; outclk           ;
-+--------------------------+-------------------------------+------------------+
++---------------------------------------------------------------------------+
+; Missing 0-Value Coverage                                                  ;
++------------------------+-------------------------------+------------------+
+; Node Name              ; Output Port Name              ; Output Port Type ;
++------------------------+-------------------------------+------------------+
+; |status_reg|dbus_out~8 ; |status_reg|dbus_out~8        ; combout          ;
+; |status_reg|abus_in[0] ; |status_reg|abus_in[0]~corein ; combout          ;
+; |status_reg|abus_in[1] ; |status_reg|abus_in[1]~corein ; combout          ;
+; |status_reg|dbus_in[2] ; |status_reg|dbus_in[2]~corein ; combout          ;
+; |status_reg|dbus_in[1] ; |status_reg|dbus_in[1]~corein ; combout          ;
+; |status_reg|dbus_in[0] ; |status_reg|dbus_in[0]~corein ; combout          ;
++------------------------+-------------------------------+------------------+
 
 
 +---------------------+
@@ -205,17 +203,17 @@ The following table displays output ports that do not toggle to 0 during simulat
 Info: *******************************************************************
 Info: Running Quartus II Simulator
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Sat Nov 09 18:24:55 2024
+    Info: Processing started: Sat Nov 09 20:01:29 2024
 Info: Command: quartus_sim --read_settings_files=on --write_settings_files=off status_reg -c status_reg
 Info: Using vector source file "C:/users/crossover/Documents/status_reg/status_reg.vwf"
 Info: Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info: Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info: Simulation partitioned into 1 sub-simulations
-Info: Simulation coverage is      57.14 %
-Info: Number of transitions in simulation is 558
+Info: Simulation coverage is      80.36 %
+Info: Number of transitions in simulation is 580
 Info: Quartus II Simulator was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 84 megabytes
-    Info: Processing ended: Sat Nov 09 18:24:55 2024
+    Info: Processing ended: Sat Nov 09 20:01:29 2024
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 

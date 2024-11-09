@@ -77,31 +77,32 @@ Nesta imagem é realizado 3 testes para verificar a funcionalidade do registrado
 
 \section{fsr\_reg}
 
-O registrador FSR é um registrador semelhante ao implemntado anteriormente. A principal diferença entre os dois está na presença de um sistema de endereçamento, e de duas entradas binárias independentes para habilitação da escrita e da leitura. Os requisitos são descritos na tabela abaixo.
+O registrador FSR é um registrador semelhante ao implementado anteriormente. A principal diferença entre os dois está na presença de um sistema de endereçamento, e de duas entradas binárias independentes para habilitação da escrita e da leitura. Os requisitos são descritos na tabela abaixo.
 
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-        \hline
-        Nome & Tamanho & Tipo & Descrição\\
-        \hline
-        nrst & 1 bit & \textit{Input} & Entrada de \textit{reset} assíncrono.\\
-        \hline
-        clk\_in & 1 bit & \textit{Input} & Entrada de \textit{clock}.\\
-        \hline
-        abus\_in & 9 bit & \textit{Input} & Entrada de enderençamento\\
-        \hline
-        dbus\_in & 8 bits & \textit{Input} & Entrada de dados para escrita\\
-        \hline
-        wr\_sel & 1 bit & \textit{Input} & Entrada de habilitação de escrita\\
-        \hline
-        rd\_sel & 1 bit & \textit{Input} & Entrada de habilitação de leitura\\
-        \hline
-        dbus\_out & 8 bits & \textit{Output} & Saída de dadas hailitada por rd\_en\\
-        \hline
-        fsr\_out & 8 bits & \textit{Output} & Saída de dadas dados sempre ativa\\
-        \hline
-\end{tabular}
-\end{center}
+\begin{table}
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nome & Tamanho & Tipo & Descrição\\
+            \hline
+            nrst & 1 bit & \textit{Input} & Entrada de \textit{reset} assíncrono.\\
+            \hline
+            clk\_in & 1 bit & \textit{Input} & Entrada de \textit{clock}.\\
+            \hline
+            abus\_in & 9 bit & \textit{Input} & Entrada de enderençamento.\\
+            \hline
+            dbus\_in & 8 bits & \textit{Input} & Entrada de dados para escrita.\\
+            \hline
+            wr\_en & 1 bit & \textit{Input} & Entrada de habilitação de escrita.\\
+            \hline
+            rd\_en & 1 bit & \textit{Input} & Entrada de habilitação de leitura.\\
+            \hline
+            dbus\_out & 8 bits & \textit{Output} & Saída de dados hailitada por rd\_en.\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Entradas e Saídas de fsr\_reg}
+\end{table}
 
 \subsection{Implementação}
 
@@ -200,6 +201,224 @@ Os testes realizados foram os seguites:
         \caption{Simulação fsr\_reg}
 \end{center}
 \end{figure}
+
+\newpage
+
+\section{status\_reg}
+
+O status é um registrador semelhante ao implementado anteriormente. A diferença esta na presença de sinais de entrada e saída para controlar bits específicos. Assim como o anterior, existe um sistema de endereçamento que deve ser conferido para alterar o registrador.\\
+
+As entradas e saídas do circuito são descritas na tabela a baixo:\\
+
+\begin{table}[ht]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nome & Tamanho & Tipo & Descrição\\
+            \hline
+            nrst & 1 bit & \textit{Input} & Entrada de \textit{reset} assíncrono.\\
+            \hline
+            clk\_in & 1 bit & \textit{Input} & Entrada de \textit{clock}.\\
+            \hline
+            abus\_in & 9 bit & \textit{Input} & Entrada de enderençamento.\\
+            \hline
+            dbus\_in & 8 bits & \textit{Input} & Entrada de dados para escrita.\\
+            \hline
+            wr\_en & 1 bit & \textit{Input} & Entrada de habilitação de escrita.\\
+            \hline
+            rd\_en & 1 bit & \textit{Input} & Entrada de habilitação de leitura.\\
+            \hline
+            z\_in & 1 bit & \textit{Input} & Entrada de dado para escrita no bit 2 do registrador.\\
+            \hline
+            dc\_in & 1 bit & \textit{Input} & Entrada de dado para escrita no bit 1 do registrador.\\
+            \hline
+            c\_in & 1 bit & \textit{Input} & Entrada de dado para escrita no bit 0 do registrador.\\
+            \hline
+            z\_wr\_en & 1 bit & \textit{Input} & Entrada para habilitação da escrita no bit 2 do registrador.\\
+            \hline
+            dc\_wr\_en & 1 bit & \textit{Input} & Entrada para habilitação da escrita no bit 1 do registrador.\\
+            \hline
+            c\_wr\_en & 1 bit & \textit{Input} & Entrada para habilitação da escrita no bit 0 do registrador.\\
+            \hline
+            dbus\_out & 8 bits & \textit{Output} & Saída de dados hailitada por rd\_en.\\
+            \hline
+            irp\_out & 1 bit & \textit{Output} & Saída correspondente ao bit 7 do registrador.\\
+            \hline
+            rp\_out & 2 bits & \textit{Output} & Saída correspondente aos bits 6 e 5 do registrador.\\
+            \hline
+            z\_out & 1 bit & \textit{Output} & Saída correspondente ao bit 2 do registrador.\\
+            \hline\
+            dc\_out & 1 bit & \textit{Output} & Saída correspondente ao bit 1 do registrador.\\
+            \hline
+            c\_out & 1 bit & \textit{Output} & Saída correspondente ao bit 0 do registrador.\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Entradas e Saídas de status\_reg}
+\end{table}
+
+\subsection{Implementação}
+
+O status\_reg foi implementado utilizando a linguagem VHDL.\\
+
+O código na íntegra está abaixo:\\
+
+\begin{lstlisting}[language=VHDL, caption={Código VHDL status\_reg}]
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
+
+ENTITY status_reg IS
+    PORT (
+        -- Inputs
+        nrst: IN STD_LOGIC;                             -- Reset
+        clk_in: IN STD_LOGIC;                           -- Clock
+        abus_in: IN STD_LOGIC_VECTOR(8 DOWNTO 0);       -- Enderecamento
+        dbus_in: IN STD_LOGIC_VECTOR(7 DOWNTO 0);       -- Dados
+        wr_en: IN STD_LOGIC;                            -- Enable escrita
+        rd_en: IN STD_LOGIC;                            -- Enable leitura
+        z_in: IN STD_LOGIC;                             -- Dados bit 2
+        dc_in: IN STD_LOGIC;                            -- Dados bit 1
+        c_in: IN STD_LOGIC;                             -- Dados bit 0
+        z_wr_en: IN STD_LOGIC;                          -- Enable escrita bit 2
+        dc_wr_en: IN STD_LOGIC;                         -- Enable escrita bit 1
+        c_wr_en: IN STD_LOGIC;                          -- Enable escrita bit 0
+
+        -- Outputs
+        dbus_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);     -- Dados
+        irp_out: OUT STD_LOGIC;                         -- Dados bit 7
+        rp_out: OUT STD_LOGIC_VECTOR(1 DOWNTO 0);       -- Dados bit 6 e 5
+        z_out: OUT STD_LOGIC;                           -- Dados bit 2
+        dc_out: OUT STD_LOGIC;                          -- Dados bit 1
+        c_out: OUT STD_LOGIC                            -- Dados bit 0
+    );  
+END ENTITY;
+
+ARCHITECTURE status_reg OF status_reg IS
+    SIGNAL mem_reg: STD_LOGIC_VECTOR(7 downto 0);
+BEGIN
+    PROCESS(nrst, clk_in, mem_reg, wr_en, z_in, dc_in, c_in)
+    BEGIN
+        IF nrst = '0' THEN 
+            mem_reg <= "00000000";
+        ELSIF RISING_EDGE(clk_in) THEN
+            IF wr_en = '1' AND abus_in(6 DOWNTO 0) = "0000011" THEN
+                mem_reg <= dbus_in;
+            END IF;
+            IF z_wr_en = '1' THEN
+                mem_reg(2) <= z_in;
+            END IF;
+            IF dc_wr_en = '1' THEN
+                mem_reg(1) <= dc_in;
+            END IF;
+            IF c_wr_en = '1' THEN
+                mem_reg(0) <= c_in;
+            END IF;
+        END IF;
+    END PROCESS;
+    
+    dbus_out <= mem_reg WHEN rd_en = '1' AND abus_in(6 DOWNTO 0) = "0000011" ELSE "ZZZZZZZZ";
+    irp_out <= mem_reg(7);
+    rp_out <= mem_reg(6 DOWNTO 5);
+    z_out <= mem_reg(2);
+    dc_out <= mem_reg(1);
+    c_out <= mem_reg(0);
+END status_reg;
+\end{lstlisting}
+
+\subsection{Simulação}
+
+Para testar nosso código VHDL e certificar-nos de que nosso circuito funciona de maneira esperada, simulamos alguns casos de testes utilizando o software Quatus II.\\
+
+Os testes realizados foram os seguites:
+
+\begin{enumerate}
+    \item Escrita com enderaçamento incorreto (diferente de ``0bXX0000011).
+    \begin{itemize}
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out em alta impedância;
+            \item rp\_out = ``0b00''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b0''
+        \end{itemize}
+    \end{itemize}
+    
+    \item Leitura desabilitada e escrita habilitada;
+    \begin{itemize}
+        \item dbus\_in = ``0b01011000''.\
+        \item z\_in = dc\_in = c\_in = 1;
+        \item z\_wr\_en = dc\_wr\_en = c\_wr\_en = 0;
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out em alta impendância;
+            \item rp\_out = ``10b''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b0''
+        \end{itemize}
+    \end{itemize}
+
+    \item Leitura habilitada e escrita desabilitada.
+    \begin{itemize}
+        \item Valor salvo = ``0b01011000''.
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out = ``0b01011000'';
+            \item rp\_out = ``10b''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b0''
+        \end{itemize}
+    \end{itemize}
+
+    \item Leitura desabilitada e escrita habilitada;
+    \begin{itemize}
+        \item dbus\_in = ``0b10100000''.
+        \item z\_in = dc\_in = c\_in = 1;
+        \item z\_wr\_en = dc\_wr\_en = c\_wr\_en = 1;
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out em alta impendância;
+            \item rp\_out = ``01b''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b1''
+        \end{itemize}
+    \end{itemize}
+
+    \item Leitura habilitada e escrita desabilitada.
+    \begin{itemize}
+        \item Valor salvo = ``0b10100111''.
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out = ``0b10100111'';
+            \item rp\_out = ``10b''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b1''
+        \end{itemize}
+    \end{itemize}
+
+    \item \textit{Reset} com leitura habilitada.
+    \begin{itemize}
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item dbus\_out = ``0b00000000'';
+            \item rp\_out = ``00b''
+            \item irp\_out = z\_out = dc\_out = c\_out = ``0b0''
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=15cm]{images/status.png}
+        \caption{Simulação status\_reg}
+\end{center}
+\end{figure}
+
+\section{status\_reg}
+
+\subsection{Implementação}
+
+\subsection{Simulação}
+
+\subsection{}
+
+\newpage
 
 \section{Conclusão}
 Com estes dois projetos simples, tivemos um excelente primeiro contado com a linguagem VHDL, bem como à programação concorrente e desenvolvimento de circuitos FPGA. Os dois circuitos implementados (Multiplexador de Endereçamento e Unidade Lógica Aritimética) são blocos de construção chave para a maior parte dos circuitos complexos, e serão de suma importância não só para os demais trabalhos práticos que realizaremos ao longo do semestre, mas para nosso desenvolvimento acadêmico e profissional.
