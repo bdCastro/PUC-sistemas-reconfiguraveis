@@ -30,7 +30,7 @@ ENTITY status_reg IS
 END ENTITY;
 
 ARCHITECTURE status_reg OF status_reg IS
-    SIGNAL mem_reg: STD_LOGIC_VECTOR(7 downto 0);
+    SIGNAL memreg: STD_LOGIC_VECTOR(7 downto 0);
 BEGIN
     PROCESS(nrst, clk_in, mem_reg, wr_en, z_in, dc_in, c_in)
     BEGIN
