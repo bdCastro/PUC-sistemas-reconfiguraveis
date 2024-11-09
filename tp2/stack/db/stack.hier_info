@@ -1,0 +1,33 @@
+|stack
+nrst => ~NO_FANOUT~
+clk_in => ~NO_FANOUT~
+stack_in[0] => ~NO_FANOUT~
+stack_in[1] => ~NO_FANOUT~
+stack_in[2] => ~NO_FANOUT~
+stack_in[3] => ~NO_FANOUT~
+stack_in[4] => ~NO_FANOUT~
+stack_in[5] => ~NO_FANOUT~
+stack_in[6] => ~NO_FANOUT~
+stack_in[7] => ~NO_FANOUT~
+stack_in[8] => ~NO_FANOUT~
+stack_in[9] => ~NO_FANOUT~
+stack_in[10] => ~NO_FANOUT~
+stack_in[11] => ~NO_FANOUT~
+stack_in[12] => ~NO_FANOUT~
+stack_push => ~NO_FANOUT~
+stack_pop => ~NO_FANOUT~
+stack_out[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+stack_out[1] <= stack_out[1].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[2] <= stack_out[2].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[3] <= stack_out[3].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[4] <= stack_out[4].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[5] <= stack_out[5].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[6] <= stack_out[6].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[7] <= stack_out[7].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[8] <= stack_out[8].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[9] <= stack_out[9].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[10] <= stack_out[10].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[11] <= stack_out[11].DB_MAX_OUTPUT_PORT_TYPE
+stack_out[12] <= stack_out[12].DB_MAX_OUTPUT_PORT_TYPE
+
+
