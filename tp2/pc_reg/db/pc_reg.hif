@@ -31,7 +31,7 @@ ON
 # case_insensitive
 # source_file
 pc_reg.vhd
-3ddff8d99527990552a223d1295f8e3
+d4412257e3d740e8a471b9293f4092e3
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -47,8 +47,8 @@ ON
 |
 }
 # lmf
-|home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
+|program files (x86)|altera|91sp2|quartus|lmf|maxplus2.lmf
+0
 # macro_sequence
 
 # end
