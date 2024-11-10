@@ -410,13 +410,173 @@ Os testes realizados foram os seguites:
 \end{center}
 \end{figure}
 
-\section{status\_reg}
+\newpage
+
+\section{stack}
+
+O bloco \textbf{stack} é um conjunto de 8 registradores de 13 bits. As operações de \textit{push} e \textit{pop} adicionam e removem dados da pilha, respectivamente.\\
+
+As entradas e saídas deste bloco estão descritas na tabela abaixo:\\
+
+\begin{table}[ht]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nome & Tamanho & Tipo & Descrição\\
+            \hline
+            nrst & 1 bit & \textit{Input} & Entrada de \textit{reset} assíncrono.\\
+            \hline
+            clk\_in & 1 bit & \textit{Input} & Entrada de \textit{clock}.\\
+            \hline
+            stack\_in & 13 bit & \textit{Input} & Entrada de dados para a pilha.\\
+            \hline
+            stack\_push & 1 bit & \textit{Input} & Entrada de habilitação para colocar valores na pilha.\\
+            \hline
+            stack\_pop & 1 bit & \textit{Input} & Entrada de habilitação para retirar valores da pilha.\\
+            \hline
+            stack\_out & 13 bits & \textit{Output} & Saída correspondente à primeira posição da pilha.\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Entradas e Saídas do bloco stack}
+\end{table}
 
 \subsection{Implementação}
 
+O bloco stack foi implementado utilizando a linguagem VHDL.\\
+
+O código na íntegra está abaixo:\\
+
+\begin{lstlisting}[language=VHDL, caption={Código VHDL status\_reg}]
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
+
+ENTITY stack IS
+    PORT (
+        -- Inputs
+        nrst: IN STD_LOGIC;                             -- Reset
+        clk_in: IN STD_LOGIC;                           -- Clock
+        stack_in: IN STD_LOGIC_VECTOR(12 DOWNTO 0);     -- Dados
+        stack_push: IN STD_LOGIC;                       -- Enable push op
+        stack_pop: IN STD_LOGIC;                        -- Enable pop op
+        
+        -- Outputs
+        stack_out: OUT STD_LOGIC_VECTOR(12 DOWNTO 0)    -- Stack output
+    );
+END ENTITY;
+
+ARCHITECTURE stack OF stack IS
+    SIGNAL mem_reg1, mem_reg2, mem_reg3, mem_reg4, mem_reg5, mem_reg6, mem_reg7, mem_reg8 : STD_LOGIC_VECTOR(12 DOWNTO 0);
+BEGIN
+    PROCESS(nrst, clk_in, stack_push, stack_pop)
+    BEGIN
+        IF nrst = '0' THEN
+            mem_reg1 <= "0000000000000";
+            mem_reg2 <= "0000000000000";
+            mem_reg3 <= "0000000000000";
+            mem_reg4 <= "0000000000000";
+            mem_reg5 <= "0000000000000";
+            mem_reg6 <= "0000000000000";
+            mem_reg7 <= "0000000000000";
+            mem_reg8 <= "0000000000000";
+        ELSIF RISING_EDGE(clk_in) THEN
+			stack_out <= "0000000000000";
+            IF stack_pop = '1' THEN
+                stack_out <= mem_reg1;
+                mem_reg1 <= mem_reg2;
+                mem_reg2 <= mem_reg3;
+                mem_reg3 <= mem_reg4;
+                mem_reg4 <= mem_reg5;
+                mem_reg5 <= mem_reg6;
+                mem_reg6 <= mem_reg7;
+                mem_reg7 <= mem_reg8;
+                mem_reg8 <= "0000000000000";
+            ELSIF stack_push = '1' THEN
+                mem_reg8 <= mem_reg7;
+                mem_reg7 <= mem_reg6;
+                mem_reg6 <= mem_reg5;
+                mem_reg5 <= mem_reg4;
+                mem_reg4 <= mem_reg3;
+                mem_reg3 <= mem_reg2;
+                mem_reg2 <= mem_reg1;
+                mem_reg1 <= stack_in; 
+            END IF;
+        END IF;
+    END PROCESS;
+END stack;
+\end{lstlisting}
+
 \subsection{Simulação}
 
-\subsection{}
+Para testar nosso código VHDL e certificar-nos de que nosso circuito funciona de maneira esperada, simulamos alguns casos de testes utilizando o software Quatus II.\\
+
+Os testes realizados foram os seguites:
+
+\begin{enumerate}
+    \item \textit{Push} até pilha cheia.
+    \begin{itemize}
+        \item stack\_in: Sequência de ``0'' à ``7'';
+        \item stack\_push = ``1'';
+        \item stack\_pop = ``0'';
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item stack\_out = ``0'';
+        \end{itemize}
+    \end{itemize}
+
+    \item \textit{Pop} até pilha vazia.
+    \begin{itemize}
+        \item stack\_push = ``0'';
+        \item stack\_pop = ``1'';
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item stack\_out = Sequência de ``7'' à ``0'';
+        \end{itemize}
+    \end{itemize}
+
+    \item \textit{Push} até \textit{Stack Overvlow}.
+    \begin{itemize}
+        \item stack\_in: Sequência de ``0'' à ``9'';
+        \item stack\_push = ``1'';
+        \item stack\_pop = ``0'';
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item stack\_out = ``0'';
+        \end{itemize}
+    \end{itemize}
+
+    \item \textit{Pop} até \textit{Stack Underflow}.
+    \begin{itemize}
+        \item stack: Sequência de ``9'' à ``2'';
+        \item stack\_push = ``0'';
+        \item stack\_pop = ``1'';
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item stack\_out = Sequência de ``9'' à ``2'', depois, ``0'';
+        \end{itemize}
+    \end{itemize}
+
+    \item \textit{Push} e \textit{Pop} simultâneo.
+    \begin{itemize}
+        \item stack: ``1'';
+        \item stack\_push = ``1'';
+        \item stack\_pop = ``1'';
+        \item \textbf{Comportamento esperado:}
+        \begin{itemize}
+            \item Preferência do \textit{pop}.
+            \item stack\_out = ``1'', depois, ``0'';
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=15cm]{images/stack.png}
+        \caption{Simulação bloco stack}
+\end{center}
+\end{figure}
 
 \newpage
 
