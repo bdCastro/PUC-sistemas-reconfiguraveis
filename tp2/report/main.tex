@@ -64,7 +64,79 @@ Durante as aulas da disciplina de Sistemas Reconfiguráveis, fomos introduzidos 
 
 Nessa etapa realizamos testes no software Quartus II da altera.
 
-\subsubsection{Bloco w\_reg}
+\section{w\_reg}
+
+O registrador w\_reg é um registrador simples. Possui um barramento de dados para escrita, habilitada por um sinal wr\_in.\\
+
+As entradas e saídas do circuito são descritas na tabela a baixo:\\
+
+\begin{table}[ht]
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            Nome & Tamanho & Tipo & Descrição\\
+            \hline
+            nrst & 1 bit & \textit{Input} & Entrada de \textit{reset} assíncrono.\\
+            \hline
+            clk\_in & 1 bit & \textit{Input} & Entrada de \textit{clock}.\\
+            \hline
+            d\_in & 8 bits & \textit{Input} & Entrada de dados para escrita.\\
+            \hline
+            wr\_en & 1 bit & \textit{Input} & Entrada de habilitação de escrita.\\
+            \hline
+            w\_out & 8 bits & \textit{Output} & Saída de dados.\\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Entradas e Saídas de fsr\_reg}
+\end{table}
+
+\subsection{Implementação}
+
+O registrador w\_reg foi implementado utilizando a linguagem VHDL.\\
+
+O código na íntegra está abaixo:\\
+
+\begin{lstlisting}[language=VHDL, caption={Código VHDL w\_reg}]
+    LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.all;
+
+ENTITY w_reg IS
+    PORT (
+        -- Inputs
+        nrst : IN STD_LOGIC;                        -- Reset
+        clk_in: IN STD_LOGIC;                       -- Clock
+        d_in: IN STD_LOGIC_VECTOR(7 DOWNTO 0);      -- Dados
+        wr_en : IN STD_LOGIC;                       -- Enable
+
+        -- Outputs
+        w_out : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)    -- Dados
+    );
+END ENTITY;
+
+ARCHITECTURE w_reg OF w_reg IS
+    SIGNAL mem_reg: STD_LOGIC_VECTOR(7 DOWNTO 0);
+BEGIN
+
+    PROCESS (nrst, clk_in)
+    BEGIN
+        IF nrst = '0' THEN
+            mem_reg <= "00000000";
+        ELSIF RISING_EDGE(clk_in) then
+            IF wr_en = '1' THEN
+                mem_reg <= d_in;
+            END IF;
+        END IF;
+    END PROCESS;
+
+    w_out <= mem_reg;
+
+END w_reg;
+\end{lstlisting}
+
+\subsection{Simulação}
 
 Nesta imagem é realizado 3 testes para verificar a funcionalidade do registrador, nos primeiros 60ns é alterado os bits da entrada de dados (d\_in) para nivel lógico alto, o bit de reset (nrst) que é ativo em baixa, é desativado, ou seja, nível lógico alto e o bit de ativação (wr\_en) é colocoado em nível lógico alto após 10ns. Assim é possível verificar a mudança na saída (w\_out) com um tempo de delay de 6ns. No segundo teste a partir de 60ns até 140ns é resetado os bits da memória do registrador colocando reset em nível lógico zero, o resultado é propagada para a saída após o tempo de delay de aproximadamente 6ns. No terceiro teste foi verificados se o bit de ativação de escrita está funcionando corretamente, portanto com o bit 6 da saída em nível lógico alto esse valor será escrito apenas no tempo 160ns quando é colocado a porta de ativação do registrador em nível lógico alto e o registrador é escrito.
 
@@ -75,11 +147,13 @@ Nesta imagem é realizado 3 testes para verificar a funcionalidade do registrado
 \end{center}
 \end{figure}
 
+\newpage
+
 \section{fsr\_reg}
 
 O registrador FSR é um registrador semelhante ao implementado anteriormente. A principal diferença entre os dois está na presença de um sistema de endereçamento, e de duas entradas binárias independentes para habilitação da escrita e da leitura. Os requisitos são descritos na tabela abaixo.
 
-\begin{table}
+\begin{table}[ht]
     \begin{center}
         \begin{tabular}{|c|c|c|c|}
             \hline
