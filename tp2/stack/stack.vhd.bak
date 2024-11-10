@@ -22,6 +22,8 @@ ARCHITECTURE stack OF stack IS
 BEGIN
     PROCESS(nrst, clk_in, stack_push, stack_pop)
     BEGIN
+		stack_out <= "0000000000000";
+		
         IF nrst = '0' THEN
             mem_reg1 <= "0000000000000";
             mem_reg2 <= "0000000000000";
@@ -32,7 +34,6 @@ BEGIN
             mem_reg7 <= "0000000000000";
             mem_reg8 <= "0000000000000";
         ELSIF RISING_EDGE(clk_in) THEN
-			stack_out <= "0000000000000";
             IF stack_pop = '1' THEN
                 stack_out <= mem_reg1;
                 mem_reg1 <= mem_reg2;

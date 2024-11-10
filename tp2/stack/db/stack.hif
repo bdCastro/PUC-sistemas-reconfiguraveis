@@ -31,7 +31,7 @@ ON
 # case_insensitive
 # source_file
 stack.vhd
-3e8fc0f6d6774624cf886c618445714
+a1e84e2a588ffcd41f3b591dc3cbe7d
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -47,8 +47,8 @@ ON
 |
 }
 # lmf
-|home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
+|program files (x86)|altera|91sp2|quartus|lmf|maxplus2.lmf
+0
 # macro_sequence
 
 # end
