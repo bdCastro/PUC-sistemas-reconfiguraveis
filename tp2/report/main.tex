@@ -60,9 +60,25 @@ Durante as aulas da disciplina de Sistemas Reconfiguráveis, fomos introduzidos 
 
 \subsection{Objetivos}
 
-\subsection{Simulação via Quartus II}
+O objetivo deste segundo trabalho prático é a implementação de estruturas diversas de registradores e pilhas. Essas estruturas são cruciais na construção de circuitos complexos como controladores e processadores. Uma breve descrição de cada um é apresentada à seguir:
 
-Nessa etapa realizamos testes no software Quartus II da altera.
+\subsubsection{Registradores}
+
+Registradores são estruturas capazes de armazenar valores binários. São extremamente úteis na construção de circuitos, e é o que permite à ele se ``lembrar'' de dados relevantes.
+
+Possuam três operações básicas: escrita, leitura e \textit{reset}. Com o auxílio de um sinal de \textit{clock}, mantém suas operações sincronizadas.
+
+Pode ser usada por um processador para guardar valores entre ciclos de \textit{clock}, ou para obter a próxima intrucão à ser executada (PC). Este último é implementado no último circuito (pc\_reg), juntamente com uma pilha.
+
+\subsubsection{Pilhas}
+
+Pilhas são conjuntos de registradores com duas operações básicas: \textit{Push} (Empilhamento) e \textit{pop} (Desempilhamento). Ao receber um sinal de \textit{Push}, o dado na entrada da pilha e adicionado ao primeiro registrador da estrutura. O dado que estava neste registrador é então movido para o segundo, e assim por diante.
+
+O contrário ocorre na operação de \textit{pop}. O dado no último registrados é movido para o penúltimo, e assim por diante. O dado no primeiro registrador é então colocado para fora da pilha para ser usado.
+
+Ambas as operções acontecem de maneira síncrona, com o auxílio de um sinal de \textit{clock}. Um efeito interessante é que, como os dados são empilhados através de iuma regra FILO (\textbf{F}irst \textbf{I}n \textbf{L}ast \textbf{O}ut), isso tem op efeito colateral de inverter à ordem dos dados que foram inseridos. Por exemplo, ao empilhar a sequência: ``1'', ``2'' e ``3'', ao desempilhar toda a pilha, observarem o sequência: ``3'', ```2'' e ``1'' na saída.
+
+\newpage
 
 \section{w\_reg}
 
