@@ -116,7 +116,7 @@ BEGIN
     -- logica combinacional para dbus_out
     PROCESS(clk_in, rd_en, abus_in, lath_pc, pc)
     BEGIN
-        IF abus_in(6 DOWNTO 0) = "0000101" AND rd_en = '1' THEN
+        IF abus_in(6 DOWNTO 0) = "0001010" AND rd_en = '1' THEN
             dbus_out <= lath_pc(7 DOWNTO 0);
         ELSIF abus_in(6 DOWNTO 0) = "0000010" AND rd_en = '1' THEN
             dbus_out <= pc(7 DOWNTO 0);

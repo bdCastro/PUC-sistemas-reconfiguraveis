@@ -78,7 +78,7 @@ BEGIN
         ELSIF load_pc = '1' THEN
             nextpc(10 DOWNTO 0) <= addr_in;
             nextpc(12 DOWNTO 11) <= lath_pc(4 DOWNTO 3);
-        ELSIF wr_en = '1' AND abus_in = "0000010" THEN
+        ELSIF wr_en = '1' AND abus_in(6 DOWNTO 0) = "0000010" THEN
             nextpc <= lath_pc(4 DOWNTO 0) & dbus_in;
         ELSE
             nextpc <= pc;
@@ -88,7 +88,7 @@ BEGIN
     END PROCESS;
 
     -- logica sequencial para PC_reg
-    PROCESS(clk_in, stack_pop, inc_pc, load_pc, wr_en, abus_in, nrst)
+    PROCESS(clk_in, nrst, pc, nextpc)
     BEGIN
         IF RISING_EDGE(clk_in) THEN
             pc <= nextpc;
@@ -99,11 +99,11 @@ BEGIN
         END IF;
     END PROCESS;
 
-    --Lath
+    -- logica sequencial para PCLATH
     PROCESS(clk_in, nrst, wr_en, abus_in)
     BEGIN
         IF RISING_EDGE(clk_in) THEN
-            IF wr_en = '1' AND abus_in = "0001010" THEN
+            IF wr_en = '1' AND abus_in(6 DOWNTO 0) = "0001010" THEN
                 lath_pc <= dbus_in;
             END IF;
         END IF;
@@ -113,12 +113,12 @@ BEGIN
         END IF;
     END PROCESS;
 
-    --Dbus
+    -- logica combinacional para dbus_out
     PROCESS(clk_in, rd_en, abus_in, lath_pc, pc)
     BEGIN
-        IF abus_in = "0000101" AND rd_en = '1' THEN
+        IF abus_in(6 DOWNTO 0) = "0000101" AND rd_en = '1' THEN
             dbus_out <= lath_pc(7 DOWNTO 0);
-        ELSIF abus_in = "0000010" AND rd_en = '1' THEN
+        ELSIF abus_in(6 DOWNTO 0) = "0000010" AND rd_en = '1' THEN
             dbus_out <= pc(7 DOWNTO 0);
         ELSE
             dbus_out <= "ZZZZZZZZ";
