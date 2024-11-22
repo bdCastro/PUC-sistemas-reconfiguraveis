@@ -1,5 +1,5 @@
 Fitter report for port_io
-Thu Nov 21 21:44:51 2024
+Fri Nov 22 11:52:38 2024
 Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
 
 
@@ -62,15 +62,15 @@ applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                    ;
 +------------------------------------+----------------------------------------------+
-; Fitter Status                      ; Successful - Thu Nov 21 21:44:51 2024        ;
+; Fitter Status                      ; Successful - Fri Nov 22 11:52:38 2024        ;
 ; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
 ; Revision Name                      ; port_io                                      ;
 ; Top-level Entity Name              ; port_io                                      ;
 ; Family                             ; Cyclone II                                   ;
 ; Device                             ; EP2C35F672C6                                 ;
 ; Timing Models                      ; Final                                        ;
-; Total logic elements               ; 51 / 33,216 ( < 1 % )                        ;
-;     Total combinational functions  ; 51 / 33,216 ( < 1 % )                        ;
+; Total logic elements               ; 43 / 33,216 ( < 1 % )                        ;
+;     Total combinational functions  ; 35 / 33,216 ( < 1 % )                        ;
 ;     Dedicated logic registers      ; 16 / 33,216 ( < 1 % )                        ;
 ; Total registers                    ; 16                                           ;
 ; Total pins                         ; 37 / 475 ( 8 % )                             ;
@@ -140,7 +140,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 16     ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -151,8 +151,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Type                    ; Value              ;
 +-------------------------+--------------------+
 ; Placement               ;                    ;
-;     -- Requested        ; 0 / 112 ( 0.00 % ) ;
-;     -- Achieved         ; 0 / 112 ( 0.00 % ) ;
+;     -- Requested        ; 0 / 95 ( 0.00 % )  ;
+;     -- Achieved         ; 0 / 95 ( 0.00 % )  ;
 ;                         ;                    ;
 ; Routing (by Connection) ;                    ;
 ;     -- Requested        ; 0 / 0 ( 0.00 % )   ;
@@ -174,14 +174,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------+---------+-------------------+-------------------------+-------------------+
 ; Partition Name ; # Nodes ; # Preserved Nodes ; Preservation Level Used ; Netlist Type Used ;
 +----------------+---------+-------------------+-------------------------+-------------------+
-; Top            ; 112     ; 0                 ; N/A                     ; Source File       ;
+; Top            ; 95      ; 0                 ; N/A                     ; Source File       ;
 +----------------+---------+-------------------+-------------------------+-------------------+
 
 
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pin.
+The pin-out file can be found in Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp3/port_io/port_io.pin.
 
 
 +---------------------------------------------------------------------+
@@ -189,48 +189,48 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 +---------------------------------------------+-----------------------+
 ; Resource                                    ; Usage                 ;
 +---------------------------------------------+-----------------------+
-; Total logic elements                        ; 51 / 33,216 ( < 1 % ) ;
-;     -- Combinational with no register       ; 35                    ;
-;     -- Register only                        ; 0                     ;
-;     -- Combinational with a register        ; 16                    ;
+; Total logic elements                        ; 43 / 33,216 ( < 1 % ) ;
+;     -- Combinational with no register       ; 27                    ;
+;     -- Register only                        ; 8                     ;
+;     -- Combinational with a register        ; 8                     ;
 ;                                             ;                       ;
 ; Logic element usage by number of LUT inputs ;                       ;
 ;     -- 4 input functions                    ; 15                    ;
-;     -- 3 input functions                    ; 26                    ;
+;     -- 3 input functions                    ; 10                    ;
 ;     -- <=2 input functions                  ; 10                    ;
-;     -- Register only                        ; 0                     ;
+;     -- Register only                        ; 8                     ;
 ;                                             ;                       ;
 ; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 51                    ;
+;     -- normal mode                          ; 35                    ;
 ;     -- arithmetic mode                      ; 0                     ;
 ;                                             ;                       ;
 ; Total registers*                            ; 16 / 34,593 ( < 1 % ) ;
 ;     -- Dedicated logic registers            ; 16 / 33,216 ( < 1 % ) ;
 ;     -- I/O registers                        ; 0 / 1,377 ( 0 % )     ;
 ;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 5 / 2,076 ( < 1 % )   ;
+; Total LABs:  partially or completely used   ; 9 / 2,076 ( < 1 % )   ;
 ; User inserted logic elements                ; 0                     ;
 ; Virtual pins                                ; 0                     ;
 ; I/O pins                                    ; 37 / 475 ( 8 % )      ;
 ;     -- Clock pins                           ; 2 / 8 ( 25 % )        ;
-; Global signals                              ; 4                     ;
+; Global signals                              ; 3                     ;
 ; M4Ks                                        ; 0 / 105 ( 0 % )       ;
 ; Total block memory bits                     ; 0 / 483,840 ( 0 % )   ;
 ; Total block memory implementation bits      ; 0 / 483,840 ( 0 % )   ;
 ; Embedded Multiplier 9-bit elements          ; 0 / 70 ( 0 % )        ;
 ; PLLs                                        ; 0 / 4 ( 0 % )         ;
-; Global clocks                               ; 4 / 16 ( 25 % )       ;
+; Global clocks                               ; 3 / 16 ( 19 % )       ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )         ;
 ; ASMI blocks                                 ; 0 / 1 ( 0 % )         ;
 ; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
 ; Average interconnect usage (total/H/V)      ; 0% / 0% / 0%          ;
 ; Peak interconnect usage (total/H/V)         ; 1% / 1% / 1%          ;
-; Maximum fan-out node                        ; nrst~clkctrl          ;
+; Maximum fan-out node                        ; clk_in~clkctrl        ;
 ; Maximum fan-out                             ; 16                    ;
-; Highest non-global fan-out signal           ; dbus_out~2            ;
+; Highest non-global fan-out signal           ; en_tris_addr~2        ;
 ; Highest non-global fan-out                  ; 10                    ;
-; Total fan-out                               ; 234                   ;
-; Average fan-out                             ; 2.11                  ;
+; Total fan-out                               ; 207                   ;
+; Average fan-out                             ; 2.07                  ;
 +---------------------------------------------+-----------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
@@ -241,27 +241,27 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Power Up High ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Location assigned by ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
-; abus_in[0] ; J14   ; 3        ; 24           ; 36           ; 0           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[1] ; E5    ; 2        ; 0            ; 34           ; 4           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[2] ; D23   ; 5        ; 65           ; 34           ; 3           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[0] ; F21   ; 5        ; 65           ; 34           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[1] ; C12   ; 3        ; 29           ; 36           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[2] ; B12   ; 3        ; 29           ; 36           ; 0           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; abus_in[3] ; D13   ; 3        ; 31           ; 36           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[4] ; G5    ; 2        ; 0            ; 33           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[5] ; B2    ; 2        ; 0            ; 34           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[6] ; J11   ; 3        ; 27           ; 36           ; 0           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[7] ; F20   ; 5        ; 65           ; 34           ; 0           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; abus_in[8] ; V14   ; 8        ; 27           ; 0            ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; clk_in     ; P2    ; 1        ; 0            ; 18           ; 2           ; 9                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[0] ; AE11  ; 8        ; 27           ; 0            ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[1] ; B11   ; 3        ; 29           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[2] ; Y12   ; 8        ; 29           ; 0            ; 0           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[3] ; F4    ; 2        ; 0            ; 32           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[4] ; G11   ; 3        ; 22           ; 36           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[5] ; A10   ; 3        ; 22           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[6] ; A9    ; 3        ; 20           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; dbus_in[7] ; AF7   ; 8        ; 16           ; 0            ; 0           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[4] ; B11   ; 3        ; 29           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[5] ; F14   ; 4        ; 35           ; 36           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[6] ; B14   ; 4        ; 33           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[7] ; J10   ; 3        ; 27           ; 36           ; 1           ; 3                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; abus_in[8] ; C11   ; 3        ; 29           ; 36           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; clk_in     ; P2    ; 1        ; 0            ; 18           ; 2           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[0] ; AD11  ; 8        ; 27           ; 0            ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[1] ; F12   ; 3        ; 27           ; 36           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[2] ; J14   ; 3        ; 24           ; 36           ; 0           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[3] ; V14   ; 8        ; 27           ; 0            ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[4] ; U12   ; 8        ; 29           ; 0            ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[5] ; AE12  ; 8        ; 31           ; 0            ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[6] ; F13   ; 4        ; 35           ; 36           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; dbus_in[7] ; G5    ; 2        ; 0            ; 33           ; 3           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; nrst       ; P1    ; 1        ; 0            ; 18           ; 3           ; 1                     ; 0                  ; yes    ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 ; rd_en      ; C13   ; 3        ; 31           ; 36           ; 2           ; 10                    ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
-; wr_en      ; C8    ; 3        ; 14           ; 36           ; 2           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
+; wr_en      ; A14   ; 4        ; 33           ; 36           ; 1           ; 2                     ; 0                  ; no     ; no             ; no            ; no              ; no       ; Off          ; 3.3-V LVTTL  ; Off         ; Fitter               ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+---------------+-----------------+----------+--------------+--------------+-------------+----------------------+
 
 
@@ -270,14 +270,14 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 +-------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name        ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; TRI Primitive ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; dbus_out[0] ; AD11  ; 8        ; 27           ; 0            ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[1] ; F12   ; 3        ; 27           ; 36           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[2] ; E12   ; 3        ; 24           ; 36           ; 3           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[3] ; AC9   ; 8        ; 20           ; 0            ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[4] ; D12   ; 3        ; 24           ; 36           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[5] ; F21   ; 5        ; 65           ; 34           ; 1           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[6] ; C9    ; 3        ; 16           ; 36           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; dbus_out[7] ; G12   ; 3        ; 27           ; 36           ; 2           ; no              ; no                     ; no            ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[0] ; C5    ; 3        ; 1            ; 36           ; 3           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[1] ; D10   ; 3        ; 20           ; 36           ; 0           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[2] ; D11   ; 3        ; 22           ; 36           ; 0           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[3] ; B9    ; 3        ; 20           ; 36           ; 3           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[4] ; B2    ; 2        ; 0            ; 34           ; 2           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[5] ; B10   ; 3        ; 22           ; 36           ; 3           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[6] ; D12   ; 3        ; 24           ; 36           ; 2           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; dbus_out[7] ; E5    ; 2        ; 0            ; 34           ; 4           ; no              ; no                     ; no            ; no              ; no         ; yes           ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
 +-------------+-------+----------+--------------+--------------+-------------+-----------------+------------------------+---------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
@@ -286,14 +286,14 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 ; Name       ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Cell number ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; Output Register ; Output Enable Register ; Power Up High ; PCI I/O Enabled ; Open Drain ; Bus Hold ; Weak Pull Up ; I/O Standard ; Current Strength ; Termination ; Location assigned by ; Load ; Output Enable Source ; Output Enable Group ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
-; port_io[0] ; W12   ; 8        ; 18           ; 0            ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[1] ; J10   ; 3        ; 27           ; 36           ; 1           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[2] ; G6    ; 2        ; 0            ; 33           ; 4           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[3] ; AC11  ; 8        ; 22           ; 0            ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[4] ; C10   ; 3        ; 20           ; 36           ; 1           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[5] ; F1    ; 2        ; 0            ; 28           ; 1           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[6] ; B19   ; 4        ; 53           ; 36           ; 2           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
-; port_io[7] ; AF13  ; 8        ; 31           ; 0            ; 0           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; -                    ; -                   ;
+; port_io[0] ; J13   ; 3        ; 24           ; 36           ; 1           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[0]          ; -                   ;
+; port_io[1] ; E12   ; 3        ; 24           ; 36           ; 3           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[1]          ; -                   ;
+; port_io[2] ; G12   ; 3        ; 27           ; 36           ; 2           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[2]          ; -                   ;
+; port_io[3] ; D14   ; 4        ; 33           ; 36           ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[3]          ; -                   ;
+; port_io[4] ; Y12   ; 8        ; 29           ; 0            ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[4]          ; -                   ;
+; port_io[5] ; AA12  ; 8        ; 29           ; 0            ; 1           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[5]          ; -                   ;
+; port_io[6] ; J11   ; 3        ; 27           ; 36           ; 0           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[6]          ; -                   ;
+; port_io[7] ; B3    ; 2        ; 0            ; 34           ; 3           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; no              ; no         ; no       ; Off          ; 3.3-V LVTTL  ; 24mA             ; Off         ; Fitter               ; 0 pF ; tris_reg[7]          ; -                   ;
 +------------+-------+----------+--------------+--------------+-------------+-----------------------+--------------------+--------+----------------+-----------------+------------------------+---------------+-----------------+------------+----------+--------------+--------------+------------------+-------------+----------------------+------+----------------------+---------------------+
 
 
@@ -303,13 +303,13 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; I/O Bank ; Usage            ; VCCIO Voltage ; VREF Voltage ;
 +----------+------------------+---------------+--------------+
 ; 1        ; 2 / 64 ( 3 % )   ; 3.3V          ; --           ;
-; 2        ; 8 / 59 ( 14 % )  ; 3.3V          ; --           ;
-; 3        ; 16 / 56 ( 29 % ) ; 3.3V          ; --           ;
-; 4        ; 1 / 58 ( 2 % )   ; 3.3V          ; --           ;
-; 5        ; 3 / 65 ( 5 % )   ; 3.3V          ; --           ;
+; 2        ; 6 / 59 ( 10 % )  ; 3.3V          ; --           ;
+; 3        ; 19 / 56 ( 34 % ) ; 3.3V          ; --           ;
+; 4        ; 5 / 58 ( 9 % )   ; 3.3V          ; --           ;
+; 5        ; 1 / 65 ( 2 % )   ; 3.3V          ; --           ;
 ; 6        ; 1 / 59 ( 2 % )   ; 3.3V          ; --           ;
 ; 7        ; 0 / 58 ( 0 % )   ; 3.3V          ; --           ;
-; 8        ; 9 / 56 ( 16 % )  ; 3.3V          ; --           ;
+; 8        ; 6 / 56 ( 11 % )  ; 3.3V          ; --           ;
 +----------+------------------+---------------+--------------+
 
 
@@ -325,12 +325,12 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; A6       ; 479        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A7       ; 465        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A8       ; 457        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; A9       ; 451        ; 3        ; dbus_in[6]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; A10      ; 447        ; 3        ; dbus_in[5]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; A9       ; 451        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; A10      ; 447        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; A11      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; A12      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; A13      ; 430        ; 4        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
-; A14      ; 427        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; A14      ; 427        ; 4        ; wr_en                                    ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; A15      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; A16      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; A17      ; 412        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -353,7 +353,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AA9      ; 152        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA10     ; 153        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA11     ; 155        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AA12     ; 179        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AA12     ; 179        ; 8        ; port_io[5]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AA13     ; 192        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA14     ; 194        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AA15     ; 197        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -402,9 +402,9 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AC6      ; 134        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AC7      ; 143        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AC8      ; 148        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AC9      ; 163        ; 8        ; dbus_out[3]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AC9      ; 163        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AC10     ; 164        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AC11     ; 168        ; 8        ; port_io[3]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AC11     ; 168        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AC12     ; 172        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AC13     ; 185        ; 8        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; AC14     ; 191        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -430,7 +430,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AD8      ; 149        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD9      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AD10     ; 167        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AD11     ; 173        ; 8        ; dbus_out[0]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AD11     ; 173        ; 8        ; dbus_in[0]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AD12     ; 181        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AD13     ; 186        ; 8        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; AD14     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
@@ -456,8 +456,8 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AE8      ; 159        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AE9      ; 165        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AE10     ; 169        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AE11     ; 174        ; 8        ; dbus_in[0]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; AE12     ; 182        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AE11     ; 174        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; AE12     ; 182        ; 8        ; dbus_in[5]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; AE13     ; 183        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AE14     ; 188        ; 7        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; AE15     ; 189        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -477,13 +477,13 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AF4      ; 132        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF5      ; 138        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF6      ; 151        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; AF7      ; 158        ; 8        ; dbus_in[7]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AF7      ; 158        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF8      ; 160        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF9      ; 166        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF10     ; 170        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF11     ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AF12     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; AF13     ; 184        ; 8        ; port_io[7]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; AF13     ; 184        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; AF14     ; 187        ; 7        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
 ; AF15     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; AF16     ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
@@ -497,24 +497,24 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; AF24     ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; AF25     ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; B1       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; B2       ; 2          ; 2        ; abus_in[5]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; B3       ; 3          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; B2       ; 2          ; 2        ; dbus_out[4]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; B3       ; 3          ; 2        ; port_io[7]                               ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; B4       ; 483        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B5       ; 481        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B6       ; 480        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B7       ; 466        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B8       ; 458        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B9       ; 452        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B10      ; 448        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B11      ; 435        ; 3        ; dbus_in[1]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; B12      ; 433        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; B9       ; 452        ; 3        ; dbus_out[3]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B10      ; 448        ; 3        ; dbus_out[5]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B11      ; 435        ; 3        ; abus_in[4]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B12      ; 433        ; 3        ; abus_in[2]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B13      ; 429        ; 4        ; GND+                                     ;        ;              ;         ; Column I/O ;                 ; --       ; --           ;
-; B14      ; 428        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; B14      ; 428        ; 4        ; abus_in[6]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; B15      ; 420        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B16      ; 419        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B17      ; 411        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B18      ; 405        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; B19      ; 393        ; 4        ; port_io[6]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; B19      ; 393        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B20      ; 389        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B21      ; 381        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; B22      ; 380        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -526,14 +526,14 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; C2       ; 6          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; C3       ; 7          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; C4       ; 478        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C5       ; 486        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C5       ; 486        ; 3        ; dbus_out[0]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C6       ; 485        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; C7       ; 468        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C8       ; 463        ; 3        ; wr_en                                    ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C9       ; 459        ; 3        ; dbus_out[6]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C10      ; 450        ; 3        ; port_io[4]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; C11      ; 436        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; C12      ; 434        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C8       ; 463        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C9       ; 459        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C10      ; 450        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; C11      ; 436        ; 3        ; abus_in[8]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; C12      ; 434        ; 3        ; abus_in[1]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C13      ; 431        ; 3        ; rd_en                                    ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; C14      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; C15      ; 421        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -557,11 +557,11 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; D7       ; 469        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D8       ; 464        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D9       ; 460        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D10      ; 449        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D11      ; 445        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; D12      ; 443        ; 3        ; dbus_out[4]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; D10      ; 449        ; 3        ; dbus_out[1]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; D11      ; 445        ; 3        ; dbus_out[2]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; D12      ; 443        ; 3        ; dbus_out[6]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D13      ; 432        ; 3        ; abus_in[3]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; D14      ; 426        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; D14      ; 426        ; 4        ; port_io[3]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; D15      ; 417        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D16      ; 415        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D17      ; 403        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -570,7 +570,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; D20      ; 387        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D21      ; 376        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; D22      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; D23      ; 369        ; 5        ; abus_in[2]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; D23      ; 369        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D24      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; D25      ; 358        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; D26      ; 359        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -578,14 +578,14 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; E2       ; 19         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E3       ; 0          ; 2        ; ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; On           ;
 ; E4       ;            ;          ; GND_PLL3                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; E5       ; 4          ; 2        ; abus_in[1]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; E5       ; 4          ; 2        ; dbus_out[7]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; E6       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; E7       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; E8       ; 474        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E9       ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; E10      ; 453        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; E11      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; E12      ; 444        ; 3        ; dbus_out[2]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; E12      ; 444        ; 3        ; port_io[1]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; E13      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; E14      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; E15      ; 416        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -600,10 +600,10 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; E24      ; 364        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E25      ; 355        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; E26      ; 356        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F1       ; 29         ; 2        ; port_io[5]                               ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F1       ; 29         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F2       ; 28         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F3       ; 10         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; F4       ; 11         ; 2        ; dbus_in[3]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F4       ; 11         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F5       ;            ; 2        ; VCCIO2                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; F6       ; 5          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F7       ; 14         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -611,16 +611,16 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; F9       ; 470        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F10      ; 462        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F11      ; 454        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F12      ; 440        ; 3        ; dbus_out[1]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; F13      ; 423        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; F14      ; 425        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; F12      ; 440        ; 3        ; dbus_in[1]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; F13      ; 423        ; 4        ; dbus_in[6]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; F14      ; 425        ; 4        ; abus_in[5]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; F15      ; 409        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F16      ; 408        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F17      ; 401        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F18      ; 398        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; F19      ;            ;          ; GNDA_PLL2                                ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
-; F20      ; 372        ; 5        ; abus_in[7]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; F21      ; 371        ; 5        ; dbus_out[5]                              ; output ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; F20      ; 372        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
+; F21      ; 371        ; 5        ; abus_in[0]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
 ; F22      ;            ; 5        ; VCCIO5                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; F23      ; 353        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; F24      ; 354        ; 5        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
@@ -630,14 +630,14 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; G2       ; 31         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G3       ; 24         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G4       ; 23         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
-; G5       ; 8          ; 2        ; abus_in[4]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
-; G6       ; 9          ; 2        ; port_io[2]                               ; bidir  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G5       ; 8          ; 2        ; dbus_in[7]                               ; input  ; 3.3-V LVTTL  ;         ; Row I/O    ; N               ; no       ; Off          ;
+; G6       ; 9          ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; G7       ;            ;          ; GND_PLL3                                 ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; G8       ;            ;          ; VCCA_PLL3                                ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; G9       ; 471        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G10      ; 461        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; G11      ; 446        ; 3        ; dbus_in[4]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; G12      ; 439        ; 3        ; dbus_out[7]                              ; output ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; G11      ; 446        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; G12      ; 439        ; 3        ; port_io[2]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; G13      ; 422        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G14      ; 424        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; G15      ; 410        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -687,11 +687,11 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; J7       ; 17         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J8       ; 16         ; 2        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; J9       ; 475        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; J10      ; 438        ; 3        ; port_io[1]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
-; J11      ; 437        ; 3        ; abus_in[6]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; J10      ; 438        ; 3        ; abus_in[7]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; J11      ; 437        ; 3        ; port_io[6]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J12      ;            ; 3        ; VCCIO3                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
-; J13      ; 442        ; 3        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; J14      ; 441        ; 3        ; abus_in[0]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; J13      ; 442        ; 3        ; port_io[0]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; J14      ; 441        ; 3        ; dbus_in[2]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; J15      ;            ; 4        ; VCCIO4                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; J16      ; 385        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; J17      ; 399        ; 4        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -897,7 +897,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; U9       ; 86         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U10      ; 87         ; 1        ; GND*                                     ;        ;              ;         ; Row I/O    ;                 ; no       ; Off          ;
 ; U11      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
-; U12      ; 178        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
+; U12      ; 178        ; 8        ; dbus_in[4]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; U13      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U14      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; U15      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
@@ -925,7 +925,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; V11      ; 177        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; V12      ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V13      ; 176        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; V14      ; 175        ; 8        ; abus_in[8]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; V14      ; 175        ; 8        ; dbus_in[3]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; V15      ;            ; 7        ; VCCIO7                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; V16      ;            ;          ; VCCINT                                   ; power  ;              ; 1.2V    ; --         ;                 ; --       ; --           ;
 ; V17      ; 218        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -949,7 +949,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; W9       ;            ; 8        ; VCCIO8                                   ; power  ;              ; 3.3V    ; --         ;                 ; --       ; --           ;
 ; W10      ; 145        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W11      ; 161        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; W12      ; 162        ; 8        ; port_io[0]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; W12      ; 162        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; W13      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W14      ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; W15      ; 203        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -975,7 +975,7 @@ The pin-out file can be found in C:/users/crossover/Documents/port_io/port_io.pi
 ; Y9       ;            ;          ; GND                                      ; gnd    ;              ;         ; --         ;                 ; --       ; --           ;
 ; Y10      ; 146        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y11      ; 156        ; 8        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
-; Y12      ; 180        ; 8        ; dbus_in[2]                               ; input  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
+; Y12      ; 180        ; 8        ; port_io[4]                               ; bidir  ; 3.3-V LVTTL  ;         ; Column I/O ; N               ; no       ; Off          ;
 ; Y13      ; 193        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y14      ; 195        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
 ; Y15      ; 196        ; 7        ; GND*                                     ;        ;              ;         ; Column I/O ;                 ; no       ; Off          ;
@@ -1036,7 +1036,7 @@ Note: User assignments will override these defaults. The user specified values a
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M4Ks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
-; |port_io                   ; 51 (51)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 37   ; 0            ; 35 (35)      ; 0 (0)             ; 16 (16)          ; |port_io            ;              ;
+; |port_io                   ; 43 (43)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 37   ; 0            ; 27 (27)      ; 8 (8)             ; 8 (8)            ; |port_io            ;              ;
 +----------------------------+-------------+---------------------------+---------------+-------------+------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1046,14 +1046,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------+----------+---------------+---------------+-----------------------+-----+
 ; Name        ; Pin Type ; Pad to Core 0 ; Pad to Core 1 ; Pad to Input Register ; TCO ;
 +-------------+----------+---------------+---------------+-----------------------+-----+
-; port_io[0]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; port_io[1]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; port_io[2]  ; Bidir    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; port_io[3]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; port_io[4]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; port_io[5]  ; Bidir    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; port_io[6]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; port_io[7]  ; Bidir    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
 ; dbus_out[0] ; Output   ; --            ; --            ; --                    ; --  ;
 ; dbus_out[1] ; Output   ; --            ; --            ; --                    ; --  ;
 ; dbus_out[2] ; Output   ; --            ; --            ; --                    ; --  ;
@@ -1062,217 +1054,334 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; dbus_out[5] ; Output   ; --            ; --            ; --                    ; --  ;
 ; dbus_out[6] ; Output   ; --            ; --            ; --                    ; --  ;
 ; dbus_out[7] ; Output   ; --            ; --            ; --                    ; --  ;
+; port_io[0]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[1]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[2]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[3]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[4]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[5]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[6]  ; Bidir    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; port_io[7]  ; Bidir    ; (6) 4075 ps   ; (6) 4075 ps   ; --                    ; --  ;
 ; rd_en       ; Input    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
 ; abus_in[3]  ; Input    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; abus_in[4]  ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; abus_in[8]  ; Input    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; abus_in[2]  ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; abus_in[0]  ; Input    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
-; abus_in[1]  ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; abus_in[7]  ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; abus_in[5]  ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
-; abus_in[6]  ; Input    ; (0) 287 ps    ; (0) 287 ps    ; --                    ; --  ;
+; abus_in[4]  ; Input    ; (0) 287 ps    ; (6) 4114 ps   ; --                    ; --  ;
+; abus_in[8]  ; Input    ; (0) 287 ps    ; (6) 4114 ps   ; --                    ; --  ;
+; abus_in[2]  ; Input    ; (0) 287 ps    ; (6) 4114 ps   ; --                    ; --  ;
+; abus_in[0]  ; Input    ; (6) 4075 ps   ; (0) 299 ps    ; --                    ; --  ;
+; abus_in[1]  ; Input    ; (6) 4114 ps   ; (0) 287 ps    ; --                    ; --  ;
+; abus_in[7]  ; Input    ; (0) 287 ps    ; (6) 4114 ps   ; --                    ; --  ;
+; abus_in[5]  ; Input    ; (0) 287 ps    ; (6) 4114 ps   ; --                    ; --  ;
+; abus_in[6]  ; Input    ; (6) 4114 ps   ; (0) 287 ps    ; --                    ; --  ;
 ; dbus_in[0]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; clk_in      ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
 ; nrst        ; Input    ; (0) 299 ps    ; (0) 299 ps    ; --                    ; --  ;
 ; wr_en       ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; dbus_in[1]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; dbus_in[2]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
-; dbus_in[3]  ; Input    ; (6) 4075 ps   ; (6) 4075 ps   ; --                    ; --  ;
+; dbus_in[3]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; dbus_in[4]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; dbus_in[5]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
 ; dbus_in[6]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
-; dbus_in[7]  ; Input    ; (6) 4114 ps   ; (6) 4114 ps   ; --                    ; --  ;
+; dbus_in[7]  ; Input    ; (6) 4075 ps   ; (6) 4075 ps   ; --                    ; --  ;
 +-------------+----------+---------------+---------------+-----------------------+-----+
 
 
-+----------------------------------------------------+
-; Pad To Core Delay Chain Fanout                     ;
-+----------------------+-------------------+---------+
-; Source Pin / Fanout  ; Pad To Core Index ; Setting ;
-+----------------------+-------------------+---------+
-; port_io[0]           ;                   ;         ;
-; port_io[1]           ;                   ;         ;
-; port_io[2]           ;                   ;         ;
-; port_io[3]           ;                   ;         ;
-; port_io[4]           ;                   ;         ;
-; port_io[5]           ;                   ;         ;
-; port_io[6]           ;                   ;         ;
-; port_io[7]           ;                   ;         ;
-; rd_en                ;                   ;         ;
-; abus_in[3]           ;                   ;         ;
-; abus_in[4]           ;                   ;         ;
-;      - dbus_out~2    ; 1                 ; 0       ;
-;      - dbus_out~4    ; 1                 ; 0       ;
-; abus_in[8]           ;                   ;         ;
-;      - dbus_out~0    ; 1                 ; 0       ;
-;      - dbus_out~5    ; 1                 ; 0       ;
-; abus_in[2]           ;                   ;         ;
-;      - dbus_out~0    ; 0                 ; 0       ;
-;      - dbus_out~6    ; 1                 ; 0       ;
-;      - dbus_out~15   ; 0                 ; 0       ;
-; abus_in[0]           ;                   ;         ;
-;      - dbus_out~0    ; 0                 ; 0       ;
-;      - dbus_out~5    ; 0                 ; 0       ;
-; abus_in[1]           ;                   ;         ;
-;      - dbus_out~0    ; 0                 ; 0       ;
-;      - dbus_out~1    ; 0                 ; 0       ;
-;      - dbus_out~5    ; 0                 ; 0       ;
-; abus_in[7]           ;                   ;         ;
-;      - dbus_out~1    ; 1                 ; 0       ;
-;      - dbus_out~6    ; 1                 ; 0       ;
-;      - dbus_out~15   ; 1                 ; 0       ;
-; abus_in[5]           ;                   ;         ;
-;      - dbus_out~1    ; 0                 ; 0       ;
-;      - dbus_out~4    ; 0                 ; 0       ;
-; abus_in[6]           ;                   ;         ;
-;      - dbus_out~1    ; 0                 ; 0       ;
-;      - dbus_out~4    ; 0                 ; 0       ;
-; dbus_in[0]           ;                   ;         ;
-;      - port_reg[0]   ; 1                 ; 6       ;
-;      - tris_reg[0]~1 ; 1                 ; 6       ;
-; clk_in               ;                   ;         ;
-; nrst                 ;                   ;         ;
-; wr_en                ;                   ;         ;
-;      - tris_reg[0]~0 ; 1                 ; 6       ;
-;      - port_reg[0]~0 ; 1                 ; 6       ;
-; dbus_in[1]           ;                   ;         ;
-;      - port_reg[1]   ; 1                 ; 6       ;
-;      - tris_reg[1]~2 ; 1                 ; 6       ;
-; dbus_in[2]           ;                   ;         ;
-;      - port_reg[2]   ; 0                 ; 6       ;
-;      - tris_reg[2]~3 ; 0                 ; 6       ;
-; dbus_in[3]           ;                   ;         ;
-;      - port_reg[3]   ; 1                 ; 6       ;
-;      - tris_reg[3]~4 ; 1                 ; 6       ;
-; dbus_in[4]           ;                   ;         ;
-;      - port_reg[4]   ; 0                 ; 6       ;
-;      - tris_reg[4]~5 ; 0                 ; 6       ;
-; dbus_in[5]           ;                   ;         ;
-;      - port_reg[5]   ; 1                 ; 6       ;
-;      - tris_reg[5]~6 ; 1                 ; 6       ;
-; dbus_in[6]           ;                   ;         ;
-;      - port_reg[6]   ; 0                 ; 6       ;
-;      - tris_reg[6]~7 ; 0                 ; 6       ;
-; dbus_in[7]           ;                   ;         ;
-;      - port_reg[7]   ; 0                 ; 6       ;
-;      - tris_reg[7]~8 ; 0                 ; 6       ;
-+----------------------+-------------------+---------+
++---------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                          ;
++---------------------------+-------------------+---------+
+; Source Pin / Fanout       ; Pad To Core Index ; Setting ;
++---------------------------+-------------------+---------+
+; port_io[0]                ;                   ;         ;
+;      - latch[0]           ; 0                 ; 6       ;
+; port_io[1]                ;                   ;         ;
+;      - latch[1]           ; 0                 ; 6       ;
+; port_io[2]                ;                   ;         ;
+;      - latch[2]           ; 0                 ; 6       ;
+; port_io[3]                ;                   ;         ;
+;      - latch[3]           ; 0                 ; 6       ;
+; port_io[4]                ;                   ;         ;
+;      - latch[4]           ; 0                 ; 6       ;
+; port_io[5]                ;                   ;         ;
+;      - latch[5]           ; 0                 ; 6       ;
+; port_io[6]                ;                   ;         ;
+;      - latch[6]           ; 0                 ; 6       ;
+; port_io[7]                ;                   ;         ;
+;      - latch[7]           ; 1                 ; 6       ;
+; rd_en                     ;                   ;         ;
+; abus_in[3]                ;                   ;         ;
+; abus_in[4]                ;                   ;         ;
+;      - en_tris_addr~2     ; 1                 ; 6       ;
+;      - en_tris_addr~3     ; 0                 ; 0       ;
+; abus_in[8]                ;                   ;         ;
+;      - en_tris_addr~0     ; 1                 ; 6       ;
+;      - en_port_addr~0     ; 0                 ; 0       ;
+; abus_in[2]                ;                   ;         ;
+;      - en_tris_addr~0     ; 1                 ; 6       ;
+;      - en_port_addr~1     ; 1                 ; 6       ;
+;      - en_port_addr~2     ; 0                 ; 0       ;
+; abus_in[0]                ;                   ;         ;
+;      - en_tris_addr~0     ; 0                 ; 6       ;
+;      - en_port_addr~0     ; 1                 ; 0       ;
+; abus_in[1]                ;                   ;         ;
+;      - en_tris_addr~0     ; 0                 ; 6       ;
+;      - en_tris_addr~1     ; 0                 ; 6       ;
+;      - en_port_addr~0     ; 1                 ; 0       ;
+; abus_in[7]                ;                   ;         ;
+;      - en_tris_addr~1     ; 1                 ; 6       ;
+;      - en_port_addr~1     ; 1                 ; 6       ;
+;      - en_port_addr~2     ; 0                 ; 0       ;
+; abus_in[5]                ;                   ;         ;
+;      - en_tris_addr~1     ; 1                 ; 6       ;
+;      - en_tris_addr~3     ; 0                 ; 0       ;
+; abus_in[6]                ;                   ;         ;
+;      - en_tris_addr~1     ; 0                 ; 6       ;
+;      - en_tris_addr~3     ; 1                 ; 0       ;
+; dbus_in[0]                ;                   ;         ;
+;      - tris_reg[0]~1      ; 1                 ; 6       ;
+;      - port_reg[0]~feeder ; 1                 ; 6       ;
+; clk_in                    ;                   ;         ;
+; nrst                      ;                   ;         ;
+; wr_en                     ;                   ;         ;
+;      - tris_reg[0]~0      ; 0                 ; 6       ;
+;      - port_reg[0]~0      ; 0                 ; 6       ;
+; dbus_in[1]                ;                   ;         ;
+;      - tris_reg[1]~2      ; 1                 ; 6       ;
+;      - port_reg[1]~feeder ; 1                 ; 6       ;
+; dbus_in[2]                ;                   ;         ;
+;      - tris_reg[2]~3      ; 0                 ; 6       ;
+;      - port_reg[2]~feeder ; 0                 ; 6       ;
+; dbus_in[3]                ;                   ;         ;
+;      - tris_reg[3]~4      ; 1                 ; 6       ;
+;      - port_reg[3]~feeder ; 1                 ; 6       ;
+; dbus_in[4]                ;                   ;         ;
+;      - port_reg[4]        ; 1                 ; 6       ;
+;      - tris_reg[4]~5      ; 1                 ; 6       ;
+; dbus_in[5]                ;                   ;         ;
+;      - tris_reg[5]~6      ; 1                 ; 6       ;
+;      - port_reg[5]~feeder ; 1                 ; 6       ;
+; dbus_in[6]                ;                   ;         ;
+;      - tris_reg[6]~7      ; 0                 ; 6       ;
+;      - port_reg[6]~feeder ; 0                 ; 6       ;
+; dbus_in[7]                ;                   ;         ;
+;      - port_reg[7]        ; 1                 ; 6       ;
+;      - tris_reg[7]~8      ; 1                 ; 6       ;
++---------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                            ;
-+---------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name          ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; clk_in        ; PIN_P2             ; 9       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; clk_in        ; PIN_P2             ; 8       ; Clock        ; yes    ; Global Clock         ; GCLK3            ; --                        ;
-; dbus_out[7]~7 ; LCCOMB_X28_Y34_N24 ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK9            ; --                        ;
-; dbus_out~16   ; LCCOMB_X27_Y34_N0  ; 8       ; Latch enable ; yes    ; Global Clock         ; GCLK11           ; --                        ;
-; nrst          ; PIN_P1             ; 16      ; Async. clear ; yes    ; Global Clock         ; GCLK1            ; --                        ;
-; port_reg[0]~0 ; LCCOMB_X27_Y34_N10 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; tris_reg[0]~0 ; LCCOMB_X27_Y34_N20 ; 8       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+---------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                             ;
++---------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; Name          ; Location           ; Fan-Out ; Usage         ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
+; clk_in        ; PIN_P2             ; 16      ; Clock         ; yes    ; Global Clock         ; GCLK3            ; --                        ;
+; dbus_out[7]~9 ; LCCOMB_X30_Y35_N6  ; 8       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; latch~0       ; LCCOMB_X30_Y35_N18 ; 8       ; Latch enable  ; yes    ; Global Clock         ; GCLK9            ; --                        ;
+; nrst          ; PIN_P1             ; 16      ; Async. clear  ; yes    ; Global Clock         ; GCLK1            ; --                        ;
+; port_reg[0]~0 ; LCCOMB_X30_Y35_N22 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; tris_reg[0]   ; LCFF_X27_Y35_N9    ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[0]~0 ; LCCOMB_X27_Y35_N24 ; 8       ; Clock enable  ; no     ; --                   ; --               ; --                        ;
+; tris_reg[1]   ; LCFF_X27_Y35_N11   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[2]   ; LCFF_X27_Y35_N21   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[3]   ; LCFF_X27_Y35_N15   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[4]   ; LCFF_X31_Y20_N17   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[5]   ; LCFF_X31_Y20_N11   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[6]   ; LCFF_X27_Y35_N17   ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
+; tris_reg[7]   ; LCFF_X27_Y35_N5    ; 2       ; Output enable ; no     ; --                   ; --               ; --                        ;
++---------------+--------------------+---------+---------------+--------+----------------------+------------------+---------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Global & Other Fast Signals                                                                                        ;
-+---------------+--------------------+---------+----------------------+------------------+---------------------------+
-; Name          ; Location           ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------+--------------------+---------+----------------------+------------------+---------------------------+
-; clk_in        ; PIN_P2             ; 8       ; Global Clock         ; GCLK3            ; --                        ;
-; dbus_out[7]~7 ; LCCOMB_X28_Y34_N24 ; 8       ; Global Clock         ; GCLK9            ; --                        ;
-; dbus_out~16   ; LCCOMB_X27_Y34_N0  ; 8       ; Global Clock         ; GCLK11           ; --                        ;
-; nrst          ; PIN_P1             ; 16      ; Global Clock         ; GCLK1            ; --                        ;
-+---------------+--------------------+---------+----------------------+------------------+---------------------------+
++--------------------------------------------------------------------------------------------------------------+
+; Global & Other Fast Signals                                                                                  ;
++---------+--------------------+---------+----------------------+------------------+---------------------------+
+; Name    ; Location           ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------+--------------------+---------+----------------------+------------------+---------------------------+
+; clk_in  ; PIN_P2             ; 16      ; Global Clock         ; GCLK3            ; --                        ;
+; latch~0 ; LCCOMB_X30_Y35_N18 ; 8       ; Global Clock         ; GCLK9            ; --                        ;
+; nrst    ; PIN_P1             ; 16      ; Global Clock         ; GCLK1            ; --                        ;
++---------+--------------------+---------+----------------------+------------------+---------------------------+
 
 
 +---------------------------------+
 ; Non-Global High Fan-Out Signals ;
-+-------------------+-------------+
-; Name              ; Fan-Out     ;
-+-------------------+-------------+
-; rd_en             ; 10          ;
-; dbus_out~2        ; 10          ;
-; clk_in            ; 8           ;
-; port_reg[0]~0     ; 8           ;
-; tris_reg[0]~0     ; 8           ;
-; abus_in[7]        ; 3           ;
-; abus_in[1]        ; 3           ;
-; abus_in[2]        ; 3           ;
-; port_io~31        ; 3           ;
-; port_io~30        ; 3           ;
-; port_io~29        ; 3           ;
-; port_io~28        ; 3           ;
-; port_io~27        ; 3           ;
-; port_io~26        ; 3           ;
-; port_io~25        ; 3           ;
-; port_io~24        ; 3           ;
-; dbus_out~5        ; 3           ;
-; dbus_out~4        ; 3           ;
-; dbus_in[7]        ; 2           ;
-; dbus_in[6]        ; 2           ;
-; dbus_in[5]        ; 2           ;
-; dbus_in[4]        ; 2           ;
-; dbus_in[3]        ; 2           ;
-; dbus_in[2]        ; 2           ;
-; dbus_in[1]        ; 2           ;
-; wr_en             ; 2           ;
-; dbus_in[0]        ; 2           ;
-; abus_in[6]        ; 2           ;
-; abus_in[5]        ; 2           ;
-; abus_in[0]        ; 2           ;
-; abus_in[8]        ; 2           ;
-; abus_in[4]        ; 2           ;
-; abus_in[3]        ; 2           ;
-; latch[7]          ; 2           ;
-; latch[6]          ; 2           ;
-; latch[5]          ; 2           ;
-; latch[4]          ; 2           ;
-; latch[3]          ; 2           ;
-; latch[2]          ; 2           ;
-; latch[1]          ; 2           ;
-; latch[0]          ; 2           ;
-; dbus_out[7]$latch ; 2           ;
-; dbus_out[6]$latch ; 2           ;
-; dbus_out[5]$latch ; 2           ;
-; dbus_out[4]$latch ; 2           ;
-; dbus_out[3]$latch ; 2           ;
-; dbus_out[2]$latch ; 2           ;
-; dbus_out[1]$latch ; 2           ;
-; dbus_out[0]$latch ; 2           ;
-; dbus_out~15       ; 2           ;
-+-------------------+-------------+
++----------------+----------------+
+; Name           ; Fan-Out        ;
++----------------+----------------+
+; rd_en          ; 10             ;
+; en_tris_addr~2 ; 10             ;
+; port_reg[0]~0  ; 8              ;
+; tris_reg[0]~0  ; 8              ;
+; dbus_out[7]~9  ; 8              ;
+; abus_in[7]     ; 3              ;
+; abus_in[1]     ; 3              ;
+; abus_in[2]     ; 3              ;
+; en_port_addr~0 ; 3              ;
+; en_tris_addr~3 ; 3              ;
+; dbus_in[7]     ; 2              ;
+; dbus_in[6]     ; 2              ;
+; dbus_in[5]     ; 2              ;
+; dbus_in[4]     ; 2              ;
+; dbus_in[3]     ; 2              ;
+; dbus_in[2]     ; 2              ;
+; dbus_in[1]     ; 2              ;
+; wr_en          ; 2              ;
+; dbus_in[0]     ; 2              ;
+; abus_in[6]     ; 2              ;
+; abus_in[5]     ; 2              ;
+; abus_in[0]     ; 2              ;
+; abus_in[8]     ; 2              ;
+; abus_in[4]     ; 2              ;
+; abus_in[3]     ; 2              ;
+; latch[7]       ; 2              ;
+; latch[6]       ; 2              ;
+; latch[5]       ; 2              ;
+; latch[4]       ; 2              ;
+; latch[3]       ; 2              ;
+; latch[2]       ; 2              ;
+; latch[1]       ; 2              ;
+; latch[0]       ; 2              ;
+; en_port_addr~2 ; 2              ;
+; tris_reg[7]    ; 2              ;
+; tris_reg[6]    ; 2              ;
+; tris_reg[5]    ; 2              ;
+; tris_reg[4]    ; 2              ;
+; tris_reg[3]    ; 2              ;
+; tris_reg[2]    ; 2              ;
+; tris_reg[1]    ; 2              ;
+; tris_reg[0]    ; 2              ;
+; port_io[7]~7   ; 1              ;
+; port_io[6]~6   ; 1              ;
+; port_io[5]~5   ; 1              ;
+; port_io[4]~4   ; 1              ;
+; port_io[3]~3   ; 1              ;
+; port_io[2]~2   ; 1              ;
+; port_io[1]~1   ; 1              ;
+; port_io[0]~0   ; 1              ;
++----------------+----------------+
 
 
-+----------------------------------------------------+
-; Interconnect Usage Summary                         ;
-+----------------------------+-----------------------+
-; Interconnect Resource Type ; Usage                 ;
-+----------------------------+-----------------------+
-; Block interconnects        ; 89 / 94,460 ( < 1 % ) ;
-; C16 interconnects          ; 15 / 3,315 ( < 1 % )  ;
-; C4 interconnects           ; 72 / 60,840 ( < 1 % ) ;
-; Direct links               ; 15 / 94,460 ( < 1 % ) ;
-; Global clocks              ; 4 / 16 ( 25 % )       ;
-; Local interconnects        ; 42 / 33,216 ( < 1 % ) ;
-; R24 interconnects          ; 19 / 3,091 ( < 1 % )  ;
-; R4 interconnects           ; 72 / 81,294 ( < 1 % ) ;
-+----------------------------+-----------------------+
++-----------------------------------------------------+
+; Interconnect Usage Summary                          ;
++----------------------------+------------------------+
+; Interconnect Resource Type ; Usage                  ;
++----------------------------+------------------------+
+; Block interconnects        ; 99 / 94,460 ( < 1 % )  ;
+; C16 interconnects          ; 10 / 3,315 ( < 1 % )   ;
+; C4 interconnects           ; 118 / 60,840 ( < 1 % ) ;
+; Direct links               ; 5 / 94,460 ( < 1 % )   ;
+; Global clocks              ; 3 / 16 ( 19 % )        ;
+; Local interconnects        ; 18 / 33,216 ( < 1 % )  ;
+; R24 interconnects          ; 11 / 3,091 ( < 1 % )   ;
+; R4 interconnects           ; 84 / 81,294 ( < 1 % )  ;
++----------------------------+------------------------+
+
+
++--------------------------------------------------------------------------+
+; LAB Logic Elements                                                       ;
++--------------------------------------------+-----------------------------+
+; Number of Logic Elements  (Average = 4.78) ; Number of LABs  (Total = 9) ;
++--------------------------------------------+-----------------------------+
+; 1                                          ; 6                           ;
+; 2                                          ; 0                           ;
+; 3                                          ; 0                           ;
+; 4                                          ; 0                           ;
+; 5                                          ; 1                           ;
+; 6                                          ; 0                           ;
+; 7                                          ; 0                           ;
+; 8                                          ; 0                           ;
+; 9                                          ; 0                           ;
+; 10                                         ; 0                           ;
+; 11                                         ; 0                           ;
+; 12                                         ; 0                           ;
+; 13                                         ; 0                           ;
+; 14                                         ; 0                           ;
+; 15                                         ; 0                           ;
+; 16                                         ; 2                           ;
++--------------------------------------------+-----------------------------+
+
+
++------------------------------------------------------------------+
+; LAB-wide Signals                                                 ;
++------------------------------------+-----------------------------+
+; LAB-wide Signals  (Average = 0.67) ; Number of LABs  (Total = 9) ;
++------------------------------------+-----------------------------+
+; 1 Async. clear                     ; 2                           ;
+; 1 Clock                            ; 2                           ;
+; 1 Clock enable                     ; 1                           ;
+; 2 Clock enables                    ; 1                           ;
++------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
+; LAB Signals Sourced                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 10.20) ; Number of LABs  (Total = 5) ;
+; Number of Signals Sourced  (Average = 6.33) ; Number of LABs  (Total = 9) ;
 +---------------------------------------------+-----------------------------+
-; 1                                           ; 1                           ;
-; 2                                           ; 1                           ;
+; 0                                           ; 0                           ;
+; 1                                           ; 6                           ;
+; 2                                           ; 0                           ;
 ; 3                                           ; 0                           ;
 ; 4                                           ; 0                           ;
 ; 5                                           ; 0                           ;
 ; 6                                           ; 0                           ;
 ; 7                                           ; 0                           ;
+; 8                                           ; 0                           ;
+; 9                                           ; 1                           ;
+; 10                                          ; 0                           ;
+; 11                                          ; 0                           ;
+; 12                                          ; 0                           ;
+; 13                                          ; 0                           ;
+; 14                                          ; 0                           ;
+; 15                                          ; 0                           ;
+; 16                                          ; 1                           ;
+; 17                                          ; 0                           ;
+; 18                                          ; 0                           ;
+; 19                                          ; 0                           ;
+; 20                                          ; 0                           ;
+; 21                                          ; 0                           ;
+; 22                                          ; 0                           ;
+; 23                                          ; 0                           ;
+; 24                                          ; 0                           ;
+; 25                                          ; 0                           ;
+; 26                                          ; 1                           ;
++---------------------------------------------+-----------------------------+
+
+
++-------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                       ;
++-------------------------------------------------+-----------------------------+
+; Number of Signals Sourced Out  (Average = 3.89) ; Number of LABs  (Total = 9) ;
++-------------------------------------------------+-----------------------------+
+; 0                                               ; 0                           ;
+; 1                                               ; 6                           ;
+; 2                                               ; 0                           ;
+; 3                                               ; 0                           ;
+; 4                                               ; 0                           ;
+; 5                                               ; 1                           ;
+; 6                                               ; 0                           ;
+; 7                                               ; 0                           ;
+; 8                                               ; 0                           ;
+; 9                                               ; 0                           ;
+; 10                                              ; 1                           ;
+; 11                                              ; 0                           ;
+; 12                                              ; 0                           ;
+; 13                                              ; 0                           ;
+; 14                                              ; 1                           ;
++-------------------------------------------------+-----------------------------+
+
+
++---------------------------------------------------------------------------+
+; LAB Distinct Inputs                                                       ;
++---------------------------------------------+-----------------------------+
+; Number of Distinct Inputs  (Average = 6.33) ; Number of LABs  (Total = 9) ;
++---------------------------------------------+-----------------------------+
+; 0                                           ; 0                           ;
+; 1                                           ; 0                           ;
+; 2                                           ; 6                           ;
+; 3                                           ; 0                           ;
+; 4                                           ; 0                           ;
+; 5                                           ; 0                           ;
+; 6                                           ; 0                           ;
+; 7                                           ; 1                           ;
 ; 8                                           ; 0                           ;
 ; 9                                           ; 0                           ;
 ; 10                                          ; 0                           ;
@@ -1280,97 +1389,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 12                                          ; 0                           ;
 ; 13                                          ; 0                           ;
 ; 14                                          ; 0                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 3                           ;
+; 15                                          ; 1                           ;
+; 16                                          ; 0                           ;
+; 17                                          ; 0                           ;
+; 18                                          ; 0                           ;
+; 19                                          ; 0                           ;
+; 20                                          ; 0                           ;
+; 21                                          ; 0                           ;
+; 22                                          ; 0                           ;
+; 23                                          ; 1                           ;
 +---------------------------------------------+-----------------------------+
-
-
-+------------------------------------------------------------------+
-; LAB-wide Signals                                                 ;
-+------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 2.20) ; Number of LABs  (Total = 5) ;
-+------------------------------------+-----------------------------+
-; 1 Async. clear                     ; 4                           ;
-; 1 Clock                            ; 1                           ;
-; 1 Clock enable                     ; 1                           ;
-; 2 Clock enables                    ; 2                           ;
-; 2 Clocks                           ; 3                           ;
-+------------------------------------+-----------------------------+
-
-
-+----------------------------------------------------------------------------+
-; LAB Signals Sourced                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 13.40) ; Number of LABs  (Total = 5) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 1                           ;
-; 2                                            ; 0                           ;
-; 3                                            ; 1                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
-; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 0                           ;
-; 11                                           ; 0                           ;
-; 12                                           ; 0                           ;
-; 13                                           ; 0                           ;
-; 14                                           ; 0                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 0                           ;
-; 17                                           ; 0                           ;
-; 18                                           ; 0                           ;
-; 19                                           ; 1                           ;
-; 20                                           ; 0                           ;
-; 21                                           ; 0                           ;
-; 22                                           ; 2                           ;
-+----------------------------------------------+-----------------------------+
-
-
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 5.00) ; Number of LABs  (Total = 5) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 1                           ;
-; 2                                               ; 1                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 0                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 2                           ;
-; 8                                               ; 1                           ;
-+-------------------------------------------------+-----------------------------+
-
-
-+----------------------------------------------------------------------------+
-; LAB Distinct Inputs                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 10.60) ; Number of LABs  (Total = 5) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 0                           ;
-; 2                                            ; 1                           ;
-; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
-; 6                                            ; 1                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 0                           ;
-; 11                                           ; 0                           ;
-; 12                                           ; 0                           ;
-; 13                                           ; 1                           ;
-; 14                                           ; 1                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 0                           ;
-; 17                                           ; 0                           ;
-; 18                                           ; 1                           ;
-+----------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------+
@@ -1407,10 +1435,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------------------+-------------------+
 ; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
 +-----------------+----------------------+-------------------+
-; clk_in          ; clk_in               ; 3.80705           ;
-+-----------------+----------------------+-------------------+
-Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
-This will disable optimization of problematic paths and expose them for further analysis using either the TimeQuest Timing Analyzer or the Classic Timing Analyzer.
 
 
 +-----------------+
@@ -1419,7 +1443,7 @@ This will disable optimization of problematic paths and expose them for further 
 Info: *******************************************************************
 Info: Running Quartus II Fitter
     Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
-    Info: Processing started: Thu Nov 21 21:44:13 2024
+    Info: Processing started: Fri Nov 22 11:52:30 2024
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off port_io -c port_io
 Info: Selected device EP2C35F672C6 for design "port_io"
 Info: Low junction temperature is 0 degrees C
@@ -1434,14 +1458,6 @@ Info: Fitter converted 3 user pins into dedicated programming pins
     Info: Pin ~nCSO~ is reserved at location D3
     Info: Pin ~LVDS150p/nCEO~ is reserved at location AE24
 Critical Warning: No exact pin location assignment(s) for 37 pins of 37 total pins
-    Info: Pin port_io[0] not assigned to an exact location on the device
-    Info: Pin port_io[1] not assigned to an exact location on the device
-    Info: Pin port_io[2] not assigned to an exact location on the device
-    Info: Pin port_io[3] not assigned to an exact location on the device
-    Info: Pin port_io[4] not assigned to an exact location on the device
-    Info: Pin port_io[5] not assigned to an exact location on the device
-    Info: Pin port_io[6] not assigned to an exact location on the device
-    Info: Pin port_io[7] not assigned to an exact location on the device
     Info: Pin dbus_out[0] not assigned to an exact location on the device
     Info: Pin dbus_out[1] not assigned to an exact location on the device
     Info: Pin dbus_out[2] not assigned to an exact location on the device
@@ -1450,6 +1466,14 @@ Critical Warning: No exact pin location assignment(s) for 37 pins of 37 total pi
     Info: Pin dbus_out[5] not assigned to an exact location on the device
     Info: Pin dbus_out[6] not assigned to an exact location on the device
     Info: Pin dbus_out[7] not assigned to an exact location on the device
+    Info: Pin port_io[0] not assigned to an exact location on the device
+    Info: Pin port_io[1] not assigned to an exact location on the device
+    Info: Pin port_io[2] not assigned to an exact location on the device
+    Info: Pin port_io[3] not assigned to an exact location on the device
+    Info: Pin port_io[4] not assigned to an exact location on the device
+    Info: Pin port_io[5] not assigned to an exact location on the device
+    Info: Pin port_io[6] not assigned to an exact location on the device
+    Info: Pin port_io[7] not assigned to an exact location on the device
     Info: Pin rd_en not assigned to an exact location on the device
     Info: Pin abus_in[3] not assigned to an exact location on the device
     Info: Pin abus_in[4] not assigned to an exact location on the device
@@ -1475,18 +1499,7 @@ Info: Timing-driven compilation is using the Classic Timing Analyzer
 Info: Timing requirements not specified -- quality metrics such as performance and power consumption may be sacrificed to reduce compilation time.
 Info: Automatically promoted node clk_in (placed in PIN P2 (CLK2, LVDSCLK1p, Input))
     Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G3
-    Info: Following destination nodes may be non-global or may not use global or regional clocks
-        Info: Destination node tris_reg[0]
-        Info: Destination node tris_reg[1]
-        Info: Destination node tris_reg[2]
-        Info: Destination node tris_reg[3]
-        Info: Destination node tris_reg[4]
-        Info: Destination node tris_reg[5]
-        Info: Destination node tris_reg[6]
-        Info: Destination node tris_reg[7]
-Info: Automatically promoted node dbus_out[7]~7 
-    Info: Automatically promoted destinations to use location or clock signal Global Clock
-Info: Automatically promoted node dbus_out~16 
+Info: Automatically promoted node latch~0 
     Info: Automatically promoted destinations to use location or clock signal Global Clock
 Info: Automatically promoted node nrst (placed in PIN P1 (CLK3, LVDSCLK1n, Input))
     Info: Automatically promoted destinations to use location or clock signal Global Clock CLKCTRL_G1
@@ -1512,35 +1525,21 @@ Info: I/O bank details before I/O pin placement
         Info: I/O bank number 6 does not use VREF pins and has undetermined VCCIO pins. 1 total pin(s) used --  58 pins available
         Info: I/O bank number 7 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  58 pins available
         Info: I/O bank number 8 does not use VREF pins and has undetermined VCCIO pins. 0 total pin(s) used --  56 pins available
-Info: Fitter preparation operations ending: elapsed time is 00:00:00
+Info: Fitter preparation operations ending: elapsed time is 00:00:01
 Info: Fitter placement preparation operations beginning
 Info: Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info: Fitter placement operations beginning
 Info: Fitter placement was successful
-Info: Fitter placement operations ending: elapsed time is 00:00:03
-Info: Estimated most critical path is register to register delay of 1.801 ns
-    Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LAB_X24_Y34; Fanout = 1; REG Node = 'latch[6]'
-    Info: 2: + IC(0.318 ns) + CELL(0.438 ns) = 0.756 ns; Loc. = LAB_X23_Y34; Fanout = 1; COMB Node = 'dbus_out[6]~13'
-    Info: 3: + IC(0.626 ns) + CELL(0.419 ns) = 1.801 ns; Loc. = LAB_X18_Y34; Fanout = 1; REG Node = 'dbus_out[6]$latch'
-    Info: Total cell delay = 0.857 ns ( 47.58 % )
-    Info: Total interconnect delay = 0.944 ns ( 52.42 % )
+Info: Fitter placement operations ending: elapsed time is 00:00:00
 Info: Fitter routing operations beginning
 Info: Average interconnect usage is 0% of the available device resources
     Info: Peak interconnect usage is 1% of the available device resources in the region that extends from location X22_Y24 to location X32_Y36
-Info: Fitter routing operations ending: elapsed time is 00:00:02
+Info: Fitter routing operations ending: elapsed time is 00:00:00
 Info: The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info: Optimizations that may affect the design's routability were skipped
     Info: Optimizations that may affect the design's timing were skipped
 Info: Started post-fitting delay annotation
 Warning: Found 16 output pins without output pin load capacitance assignment
-    Info: Pin "port_io[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
-    Info: Pin "port_io[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "dbus_out[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "dbus_out[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "dbus_out[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
@@ -1549,21 +1548,20 @@ Warning: Found 16 output pins without output pin load capacitance assignment
     Info: Pin "dbus_out[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "dbus_out[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
     Info: Pin "dbus_out[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
 Info: Delay annotation completed successfully
-Warning: Following 8 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info: Pin port_io[0] has a permanently enabled output enable
-    Info: Pin port_io[1] has a permanently enabled output enable
-    Info: Pin port_io[2] has a permanently enabled output enable
-    Info: Pin port_io[3] has a permanently enabled output enable
-    Info: Pin port_io[4] has a permanently enabled output enable
-    Info: Pin port_io[5] has a permanently enabled output enable
-    Info: Pin port_io[6] has a permanently enabled output enable
-    Info: Pin port_io[7] has a permanently enabled output enable
 Warning: The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info: Quartus II Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 245 megabytes
-    Info: Processing ended: Thu Nov 21 21:44:51 2024
-    Info: Elapsed time: 00:00:38
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus II Fitter was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 191 megabytes
+    Info: Processing ended: Fri Nov 22 11:52:38 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:06
 
 

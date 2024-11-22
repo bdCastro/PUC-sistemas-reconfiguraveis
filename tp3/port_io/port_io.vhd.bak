@@ -32,6 +32,9 @@ ARCHITECTURE port_io OF port_io IS
     SIGNAL port_reg: STD_LOGIC_VECTOR(7 DOWNTO 0);
     SIGNAL tris_reg: STD_LOGIC_VECTOR(7 DOWNTO 0);
     SIGNAL latch: STD_LOGIC_VECTOR(7 DOWNTO 0);
+
+    SIGNAL en_tris_addr: STD_LOGIC;
+    SIGNAL en_port_addr: STD_LOGIC;
 BEGIN
     PROCESS(nrst, clk_in, abus_in, tris_reg, port_reg)
     BEGIN
@@ -54,11 +57,23 @@ BEGIN
         END IF;
     END PROCESS;
 
-	dbus_out <= tris_reg WHEN ((abus_in = tris_addr OR abus_in = alt_tris_addr) AND (rd_en = '1'));
+    en_tris_addr <= '1' WHEN (abus_in = tris_addr) OR (abus_in = alt_tris_addr) ELSE '0';
+    en_port_addr <= '1' WHEN (abus_in = port_addr) OR (abus_in = alt_port_addr) ELSE '0';
 
-    port_io <= (port_io AND tris_reg) XOR (port_reg AND NOT tris_reg);
+    dbus_out <= tris_reg WHEN en_tris_addr = '1' AND rd_en = '1' ELSE 
+                latch WHEN en_port_addr = '1' AND rd_en = '1' ELSE "ZZZZZZZZ";
 
-    dbus_out <= latch WHEN ((abus_in = port_addr OR abus_in = alt_port_addr) AND rd_en = '1');
-    
-    latch <= port_io WHEN NOT((abus_in = port_addr OR abus_in = alt_port_addr) AND rd_en = '1');
+    latch <= port_io WHEN en_port_addr = '0' OR rd_en = '0';
+
+    -- port_io <= (port_io AND tris_reg) XOR (port_reg AND NOT tris_reg);
+
+    port_io(0) <= port_reg(0) WHEN tris_reg(0) = '0' ELSE 'Z';
+    port_io(1) <= port_reg(1) WHEN tris_reg(1) = '0' ELSE 'Z';
+    port_io(2) <= port_reg(2) WHEN tris_reg(2) = '0' ELSE 'Z';
+    port_io(3) <= port_reg(3) WHEN tris_reg(3) = '0' ELSE 'Z';
+    port_io(4) <= port_reg(4) WHEN tris_reg(4) = '0' ELSE 'Z';
+    port_io(5) <= port_reg(5) WHEN tris_reg(5) = '0' ELSE 'Z';
+    port_io(6) <= port_reg(6) WHEN tris_reg(6) = '0' ELSE 'Z';
+    port_io(7) <= port_reg(7) WHEN tris_reg(7) = '0' ELSE 'Z';
+
 END port_io;
