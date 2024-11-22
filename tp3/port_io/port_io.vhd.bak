@@ -54,10 +54,11 @@ BEGIN
         END IF;
     END PROCESS;
 
-	dbus_out <= tris_reg WHEN ((abus_in = tris_addr OR abus_in = alt_tris_addr) AND (rd_en = '1')) ELSE 
-				latch WHEN ((abus_in = port_addr OR abus_in = alt_port_addr) AND rd_en = '1');
-				
+	dbus_out <= tris_reg WHEN ((abus_in = tris_addr OR abus_in = alt_tris_addr) AND (rd_en = '1'));
+
     port_io <= (port_io AND tris_reg) XOR (port_reg AND NOT tris_reg);
+
+    dbus_out <= latch WHEN ((abus_in = port_addr OR abus_in = alt_port_addr) AND rd_en = '1');
     
     latch <= port_io WHEN NOT((abus_in = port_addr OR abus_in = alt_port_addr) AND rd_en = '1');
 END port_io;

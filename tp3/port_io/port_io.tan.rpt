@@ -1,0 +1,1580 @@
+Classic Timing Analyzer report for port_io
+Thu Nov 21 21:55:42 2024
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'abus_in[3]'
+  7. Clock Setup: 'abus_in[6]'
+  8. Clock Setup: 'abus_in[5]'
+  9. Clock Setup: 'abus_in[4]'
+ 10. Clock Setup: 'rd_en'
+ 11. Clock Setup: 'abus_in[7]'
+ 12. Clock Setup: 'abus_in[2]'
+ 13. Clock Setup: 'abus_in[0]'
+ 14. Clock Setup: 'abus_in[1]'
+ 15. Clock Setup: 'abus_in[8]'
+ 16. Clock Hold: 'clk_in'
+ 17. Clock Hold: 'abus_in[3]'
+ 18. Clock Hold: 'abus_in[6]'
+ 19. Clock Hold: 'abus_in[5]'
+ 20. Clock Hold: 'abus_in[4]'
+ 21. Clock Hold: 'abus_in[2]'
+ 22. Clock Hold: 'abus_in[0]'
+ 23. Clock Hold: 'abus_in[8]'
+ 24. tsu
+ 25. tco
+ 26. th
+ 27. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                     ;
++------------------------------+------------------------------------------+---------------+----------------------------------+-------------------+-------------------+------------+------------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From              ; To                ; From Clock ; To Clock   ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+-------------------+-------------------+------------+------------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 5.258 ns                         ; wr_en             ; port_reg[5]       ; --         ; clk_in     ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 13.656 ns                        ; dbus_out[3]$latch ; dbus_out[3]       ; abus_in[8] ; --         ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 4.991 ns                         ; rd_en             ; dbus_out[2]$latch ; --         ; abus_in[8] ; 0            ;
+; Clock Setup: 'rd_en'         ; N/A                                      ; None          ; 197.24 MHz ( period = 5.070 ns ) ; latch[6]          ; dbus_out[6]$latch ; rd_en      ; rd_en      ; 0            ;
+; Clock Setup: 'abus_in[2]'    ; N/A                                      ; None          ; 221.53 MHz ( period = 4.514 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[2] ; abus_in[2] ; 0            ;
+; Clock Setup: 'abus_in[7]'    ; N/A                                      ; None          ; 236.97 MHz ( period = 4.220 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[7] ; abus_in[7] ; 0            ;
+; Clock Setup: 'abus_in[8]'    ; N/A                                      ; None          ; 266.24 MHz ( period = 3.756 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[8] ; abus_in[8] ; 0            ;
+; Clock Setup: 'abus_in[1]'    ; N/A                                      ; None          ; 266.24 MHz ( period = 3.756 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[1] ; abus_in[1] ; 0            ;
+; Clock Setup: 'abus_in[0]'    ; N/A                                      ; None          ; 266.24 MHz ( period = 3.756 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[0] ; abus_in[0] ; 0            ;
+; Clock Setup: 'abus_in[4]'    ; N/A                                      ; None          ; 285.39 MHz ( period = 3.504 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[4] ; abus_in[4] ; 0            ;
+; Clock Setup: 'abus_in[5]'    ; N/A                                      ; None          ; 289.02 MHz ( period = 3.460 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[5] ; abus_in[5] ; 0            ;
+; Clock Setup: 'abus_in[6]'    ; N/A                                      ; None          ; 289.02 MHz ( period = 3.460 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[6] ; abus_in[6] ; 0            ;
+; Clock Setup: 'abus_in[3]'    ; N/A                                      ; None          ; 289.02 MHz ( period = 3.460 ns ) ; latch[6]          ; dbus_out[6]$latch ; abus_in[3] ; abus_in[3] ; 0            ;
+; Clock Hold: 'clk_in'         ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; port_reg[5]       ; port_io~29        ; clk_in     ; clk_in     ; 8            ;
+; Clock Hold: 'abus_in[6]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[6] ; abus_in[6] ; 7            ;
+; Clock Hold: 'abus_in[0]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[0] ; abus_in[0] ; 7            ;
+; Clock Hold: 'abus_in[5]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[5] ; abus_in[5] ; 7            ;
+; Clock Hold: 'abus_in[2]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[2] ; abus_in[2] ; 7            ;
+; Clock Hold: 'abus_in[3]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[3] ; abus_in[3] ; 7            ;
+; Clock Hold: 'abus_in[8]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[8] ; abus_in[8] ; 7            ;
+; Clock Hold: 'abus_in[4]'     ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; latch[1]          ; dbus_out[1]$latch ; abus_in[4] ; abus_in[4] ; 7            ;
+; Total number of failed paths ;                                          ;               ;                                  ;                   ;                   ;            ;            ; 57           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+-------------------+-------------------+------------+------------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C35F672C6       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk_in          ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[3]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[6]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[5]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[4]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; rd_en           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[7]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[2]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[0]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[1]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; abus_in[8]      ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[3]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 289.02 MHz ( period = 3.460 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 420.17 MHz ( period = 2.380 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[3] ; abus_in[3] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[6]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 289.02 MHz ( period = 3.460 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[6] ; abus_in[6] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[5]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 289.02 MHz ( period = 3.460 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[5] ; abus_in[5] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[4]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 285.39 MHz ( period = 3.504 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[4] ; abus_in[4] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'rd_en'                                                                                                                                                                ;
++-------+----------------------------------+----------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From     ; To                ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+----------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 197.24 MHz ( period = 5.070 ns ) ; latch[6] ; dbus_out[6]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; 284.09 MHz ( period = 3.520 ns ) ; latch[7] ; dbus_out[7]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; 290.02 MHz ( period = 3.448 ns ) ; latch[3] ; dbus_out[3]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 290.87 MHz ( period = 3.438 ns ) ; latch[5] ; dbus_out[5]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; 291.04 MHz ( period = 3.436 ns ) ; latch[0] ; dbus_out[0]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 291.38 MHz ( period = 3.432 ns ) ; latch[2] ; dbus_out[2]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; 291.38 MHz ( period = 3.432 ns ) ; latch[4] ; dbus_out[4]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; 292.23 MHz ( period = 3.422 ns ) ; latch[1] ; dbus_out[1]$latch ; rd_en      ; rd_en    ; None                        ; None                      ; 0.805 ns                ;
++-------+----------------------------------+----------+-------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[7]'                                                                                                                                                             ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 236.97 MHz ( period = 4.220 ns ) ; latch[6] ; dbus_out[6]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; 374.53 MHz ( period = 2.670 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; 384.91 MHz ( period = 2.598 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 386.40 MHz ( period = 2.588 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; 386.70 MHz ( period = 2.586 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 387.30 MHz ( period = 2.582 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; 387.30 MHz ( period = 2.582 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; 388.80 MHz ( period = 2.572 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[7] ; abus_in[7] ; None                        ; None                      ; 0.805 ns                ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[2]'                                                                                                                                                             ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 221.53 MHz ( period = 4.514 ns ) ; latch[6] ; dbus_out[6]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; 337.38 MHz ( period = 2.964 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; 345.78 MHz ( period = 2.892 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 346.98 MHz ( period = 2.882 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; 347.22 MHz ( period = 2.880 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; 347.71 MHz ( period = 2.876 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; 347.71 MHz ( period = 2.876 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; 348.92 MHz ( period = 2.866 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[2] ; abus_in[2] ; None                        ; None                      ; 0.805 ns                ;
++-------+----------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[0]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 266.24 MHz ( period = 3.756 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[0] ; abus_in[0] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[1]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 266.24 MHz ( period = 3.756 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[1] ; abus_in[1] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'abus_in[8]'                                                                                                                                                                           ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From     ; To                ; From Clock ; To Clock   ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 266.24 MHz ( period = 3.756 ns )               ; latch[6] ; dbus_out[6]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 1.607 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[7] ; dbus_out[7]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.793 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[3] ; dbus_out[3]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[5] ; dbus_out[5]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.810 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[0] ; dbus_out[0]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.813 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[2] ; dbus_out[2]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.811 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[4] ; dbus_out[4]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.799 ns                ;
+; N/A   ; Restricted to 450.05 MHz ( period = 2.222 ns ) ; latch[1] ; dbus_out[1]$latch ; abus_in[8] ; abus_in[8] ; None                        ; None                      ; 0.805 ns                ;
++-------+------------------------------------------------+----------+-------------------+------------+------------+-----------------------------+---------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clk_in'                                                                                                                                                             ;
++------------------------------------------+-------------+------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From        ; To         ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+-------------+------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; port_reg[5] ; port_io~29 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[7] ; port_io~31 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[6] ; port_io~30 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[4] ; port_io~28 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[3] ; port_io~27 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[2] ; port_io~26 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[1] ; port_io~25 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
+; Not operational: Clock Skew > Data Delay ; port_reg[0] ; port_io~24 ; clk_in     ; clk_in   ; None                       ; None                       ; 0.323 ns                 ;
++------------------------------------------+-------------+------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[3]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[3] ; abus_in[3] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[6]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[6] ; abus_in[6] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[5]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[5] ; abus_in[5] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[4]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[4] ; abus_in[4] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[2]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[2] ; abus_in[2] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[0]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[0] ; abus_in[0] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'abus_in[8]'                                                                                                                                                               ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From     ; To                ; From Clock ; To Clock   ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; latch[1] ; dbus_out[1]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.805 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[2] ; dbus_out[2]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.811 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[4] ; dbus_out[4]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.799 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[0] ; dbus_out[0]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[7] ; dbus_out[7]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.793 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[5] ; dbus_out[5]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.810 ns                 ;
+; Not operational: Clock Skew > Data Delay ; latch[3] ; dbus_out[3]$latch ; abus_in[8] ; abus_in[8] ; None                       ; None                       ; 0.813 ns                 ;
++------------------------------------------+----------+-------------------+------------+------------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                      ;
++-----------------------------------------+-----------------------------------------------------+------------+------------+-------------------+------------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From       ; To                ; To Clock   ;
++-----------------------------------------+-----------------------------------------------------+------------+------------+-------------------+------------+
+; N/A                                     ; None                                                ; 5.258 ns   ; wr_en      ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 5.258 ns   ; wr_en      ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 5.258 ns   ; wr_en      ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 5.243 ns   ; wr_en      ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 5.232 ns   ; wr_en      ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 5.123 ns   ; dbus_in[7] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.970 ns   ; wr_en      ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.970 ns   ; wr_en      ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.970 ns   ; wr_en      ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.670 ns   ; dbus_in[0] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.644 ns   ; wr_en      ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.644 ns   ; wr_en      ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.644 ns   ; wr_en      ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.592 ns   ; dbus_in[2] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.265 ns   ; dbus_in[7] ; tris_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.214 ns   ; wr_en      ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.214 ns   ; wr_en      ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 4.214 ns   ; wr_en      ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.960 ns   ; wr_en      ; tris_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.960 ns   ; wr_en      ; tris_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.938 ns   ; dbus_in[3] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.896 ns   ; dbus_in[0] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.812 ns   ; dbus_in[2] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.545 ns   ; dbus_in[6] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.360 ns   ; dbus_in[5] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.328 ns   ; dbus_in[1] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.308 ns   ; dbus_in[3] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 3.306 ns   ; dbus_in[4] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.921 ns   ; abus_in[8] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.921 ns   ; abus_in[8] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.921 ns   ; abus_in[8] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.906 ns   ; abus_in[8] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.895 ns   ; abus_in[8] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.802 ns   ; dbus_in[6] ; tris_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.726 ns   ; abus_in[8] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.723 ns   ; dbus_in[5] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.680 ns   ; abus_in[8] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.680 ns   ; abus_in[8] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.680 ns   ; abus_in[8] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.670 ns   ; dbus_in[4] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.633 ns   ; abus_in[8] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.633 ns   ; abus_in[8] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.633 ns   ; abus_in[8] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.563 ns   ; abus_in[4] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.563 ns   ; abus_in[4] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.563 ns   ; abus_in[4] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.555 ns   ; dbus_in[1] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.548 ns   ; abus_in[4] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.537 ns   ; abus_in[4] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.428 ns   ; abus_in[2] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.428 ns   ; abus_in[2] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.428 ns   ; abus_in[2] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.413 ns   ; abus_in[2] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.402 ns   ; abus_in[2] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.315 ns   ; abus_in[5] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.315 ns   ; abus_in[5] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.315 ns   ; abus_in[5] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.300 ns   ; abus_in[5] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.289 ns   ; abus_in[5] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.275 ns   ; abus_in[4] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.275 ns   ; abus_in[4] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.275 ns   ; abus_in[4] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.272 ns   ; abus_in[7] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.272 ns   ; abus_in[7] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.272 ns   ; abus_in[7] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.257 ns   ; abus_in[7] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.250 ns   ; abus_in[8] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.250 ns   ; abus_in[8] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.250 ns   ; abus_in[8] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.246 ns   ; abus_in[7] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.140 ns   ; abus_in[2] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.140 ns   ; abus_in[2] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.140 ns   ; abus_in[2] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.119 ns   ; abus_in[8] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.090 ns   ; abus_in[2] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.085 ns   ; abus_in[1] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.085 ns   ; abus_in[1] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.085 ns   ; abus_in[1] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.076 ns   ; abus_in[8] ; dbus_out[3]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.070 ns   ; abus_in[8] ; dbus_out[5]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.070 ns   ; abus_in[1] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.065 ns   ; abus_in[8] ; dbus_out[4]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 2.059 ns   ; abus_in[1] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.044 ns   ; abus_in[2] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.044 ns   ; abus_in[2] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.044 ns   ; abus_in[2] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.027 ns   ; abus_in[5] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.027 ns   ; abus_in[5] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.027 ns   ; abus_in[5] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 2.015 ns   ; abus_in[8] ; dbus_out[2]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.999 ns   ; abus_in[8] ; dbus_out[0]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.998 ns   ; abus_in[8] ; dbus_out[1]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.996 ns   ; abus_in[8] ; tris_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.996 ns   ; abus_in[8] ; tris_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.984 ns   ; abus_in[7] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.984 ns   ; abus_in[7] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.984 ns   ; abus_in[7] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.807 ns   ; abus_in[6] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.807 ns   ; abus_in[6] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.807 ns   ; abus_in[6] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.801 ns   ; abus_in[7] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.797 ns   ; abus_in[1] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.797 ns   ; abus_in[1] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.797 ns   ; abus_in[1] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.792 ns   ; abus_in[6] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.781 ns   ; abus_in[6] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.759 ns   ; abus_in[1] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.755 ns   ; abus_in[7] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.755 ns   ; abus_in[7] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.755 ns   ; abus_in[7] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.724 ns   ; abus_in[4] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.713 ns   ; abus_in[1] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.713 ns   ; abus_in[1] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.713 ns   ; abus_in[1] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.687 ns   ; abus_in[3] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.687 ns   ; abus_in[3] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.687 ns   ; abus_in[3] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.678 ns   ; abus_in[4] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.678 ns   ; abus_in[4] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.678 ns   ; abus_in[4] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.672 ns   ; abus_in[3] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.663 ns   ; abus_in[5] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.661 ns   ; abus_in[3] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.640 ns   ; abus_in[8] ; dbus_out[6]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 1.634 ns   ; abus_in[0] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.617 ns   ; abus_in[5] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.617 ns   ; abus_in[5] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.617 ns   ; abus_in[5] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.614 ns   ; abus_in[2] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.614 ns   ; abus_in[2] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.614 ns   ; abus_in[2] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.588 ns   ; abus_in[0] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.588 ns   ; abus_in[0] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.588 ns   ; abus_in[0] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.551 ns   ; abus_in[0] ; port_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.551 ns   ; abus_in[0] ; port_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.551 ns   ; abus_in[0] ; port_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.536 ns   ; abus_in[0] ; port_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.525 ns   ; abus_in[0] ; port_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.520 ns   ; abus_in[8] ; dbus_out[6]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 1.519 ns   ; abus_in[6] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.519 ns   ; abus_in[6] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.519 ns   ; abus_in[6] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.483 ns   ; abus_in[2] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.440 ns   ; abus_in[2] ; dbus_out[3]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.434 ns   ; abus_in[2] ; dbus_out[5]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.429 ns   ; abus_in[2] ; dbus_out[4]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.399 ns   ; abus_in[3] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.399 ns   ; abus_in[3] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.399 ns   ; abus_in[3] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.379 ns   ; abus_in[2] ; dbus_out[2]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.363 ns   ; abus_in[2] ; dbus_out[0]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.362 ns   ; abus_in[2] ; dbus_out[1]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.360 ns   ; abus_in[2] ; tris_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.360 ns   ; abus_in[2] ; tris_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.325 ns   ; abus_in[7] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.325 ns   ; abus_in[7] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.325 ns   ; abus_in[7] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.307 ns   ; abus_in[8] ; dbus_out[6]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 1.291 ns   ; abus_in[6] ; dbus_out[6]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.283 ns   ; abus_in[1] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.283 ns   ; abus_in[1] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.283 ns   ; abus_in[1] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.263 ns   ; abus_in[0] ; port_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.263 ns   ; abus_in[0] ; port_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.263 ns   ; abus_in[0] ; port_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.248 ns   ; abus_in[4] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.248 ns   ; abus_in[4] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.248 ns   ; abus_in[4] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.245 ns   ; abus_in[6] ; tris_reg[3]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.245 ns   ; abus_in[6] ; tris_reg[4]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.245 ns   ; abus_in[6] ; tris_reg[5]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.194 ns   ; abus_in[7] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.187 ns   ; abus_in[5] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.187 ns   ; abus_in[5] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.187 ns   ; abus_in[5] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.158 ns   ; abus_in[0] ; tris_reg[0]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.158 ns   ; abus_in[0] ; tris_reg[1]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.158 ns   ; abus_in[0] ; tris_reg[2]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.152 ns   ; abus_in[1] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.151 ns   ; abus_in[7] ; dbus_out[3]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.145 ns   ; abus_in[7] ; dbus_out[5]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.140 ns   ; abus_in[7] ; dbus_out[4]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.117 ns   ; abus_in[4] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.109 ns   ; abus_in[1] ; dbus_out[3]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.103 ns   ; abus_in[1] ; dbus_out[5]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.098 ns   ; abus_in[1] ; dbus_out[4]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.090 ns   ; abus_in[7] ; dbus_out[2]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.074 ns   ; abus_in[7] ; dbus_out[0]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.074 ns   ; abus_in[4] ; dbus_out[3]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.073 ns   ; abus_in[7] ; dbus_out[1]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.071 ns   ; abus_in[7] ; tris_reg[6]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.071 ns   ; abus_in[7] ; tris_reg[7]       ; clk_in     ;
+; N/A                                     ; None                                                ; 1.068 ns   ; abus_in[4] ; dbus_out[5]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.063 ns   ; abus_in[4] ; dbus_out[4]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.056 ns   ; abus_in[5] ; dbus_out[7]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.048 ns   ; abus_in[1] ; dbus_out[2]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.033 ns   ; abus_in[8] ; dbus_out[7]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 1.032 ns   ; abus_in[1] ; dbus_out[0]$latch ; rd_en      ;
+; N/A                                     ; None                                                ; 1.031 ns   ; abus_in[1] ; dbus_out[1]$latch ; rd_en      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;            ;                   ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+------------+-------------------+------------+
+
+
++----------------------------------------------------------------------------------+
+; tco                                                                              ;
++-------+--------------+------------+-------------------+-------------+------------+
+; Slack ; Required tco ; Actual tco ; From              ; To          ; From Clock ;
++-------+--------------+------------+-------------------+-------------+------------+
+; N/A   ; None         ; 13.656 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[8] ;
+; N/A   ; None         ; 13.544 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[8] ;
+; N/A   ; None         ; 13.020 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[2] ;
+; N/A   ; None         ; 12.908 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[2] ;
+; N/A   ; None         ; 12.731 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[7] ;
+; N/A   ; None         ; 12.689 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[1] ;
+; N/A   ; None         ; 12.676 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[4] ;
+; N/A   ; None         ; 12.619 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[7] ;
+; N/A   ; None         ; 12.593 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[5] ;
+; N/A   ; None         ; 12.577 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[1] ;
+; N/A   ; None         ; 12.564 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[0] ;
+; N/A   ; None         ; 12.564 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[4] ;
+; N/A   ; None         ; 12.481 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[5] ;
+; N/A   ; None         ; 12.452 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[0] ;
+; N/A   ; None         ; 12.221 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[6] ;
+; N/A   ; None         ; 12.109 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[6] ;
+; N/A   ; None         ; 11.945 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[8] ;
+; N/A   ; None         ; 11.832 ns  ; dbus_out[3]$latch ; dbus_out[3] ; abus_in[3] ;
+; N/A   ; None         ; 11.720 ns  ; dbus_out[0]$latch ; dbus_out[0] ; abus_in[3] ;
+; N/A   ; None         ; 11.309 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[2] ;
+; N/A   ; None         ; 11.235 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[8] ;
+; N/A   ; None         ; 11.200 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[8] ;
+; N/A   ; None         ; 11.115 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[8] ;
+; N/A   ; None         ; 11.107 ns  ; port_io~27        ; port_io[3]  ; clk_in     ;
+; N/A   ; None         ; 11.097 ns  ; port_io~31        ; port_io[7]  ; clk_in     ;
+; N/A   ; None         ; 11.020 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[7] ;
+; N/A   ; None         ; 11.007 ns  ; port_io~24        ; port_io[0]  ; clk_in     ;
+; N/A   ; None         ; 10.978 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[1] ;
+; N/A   ; None         ; 10.965 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[4] ;
+; N/A   ; None         ; 10.954 ns  ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[8] ;
+; N/A   ; None         ; 10.895 ns  ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[8] ;
+; N/A   ; None         ; 10.882 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[5] ;
+; N/A   ; None         ; 10.853 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[0] ;
+; N/A   ; None         ; 10.714 ns  ; dbus_out[3]$latch ; dbus_out[3] ; rd_en      ;
+; N/A   ; None         ; 10.602 ns  ; dbus_out[0]$latch ; dbus_out[0] ; rd_en      ;
+; N/A   ; None         ; 10.599 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[2] ;
+; N/A   ; None         ; 10.564 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[2] ;
+; N/A   ; None         ; 10.510 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[6] ;
+; N/A   ; None         ; 10.479 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[2] ;
+; N/A   ; None         ; 10.318 ns  ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[2] ;
+; N/A   ; None         ; 10.310 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[7] ;
+; N/A   ; None         ; 10.275 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[7] ;
+; N/A   ; None         ; 10.268 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[1] ;
+; N/A   ; None         ; 10.259 ns  ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[2] ;
+; N/A   ; None         ; 10.255 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[4] ;
+; N/A   ; None         ; 10.233 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[1] ;
+; N/A   ; None         ; 10.220 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[4] ;
+; N/A   ; None         ; 10.190 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[7] ;
+; N/A   ; None         ; 10.172 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[5] ;
+; N/A   ; None         ; 10.148 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[1] ;
+; N/A   ; None         ; 10.143 ns  ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[0] ;
+; N/A   ; None         ; 10.137 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[5] ;
+; N/A   ; None         ; 10.135 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[4] ;
+; N/A   ; None         ; 10.121 ns  ; dbus_out[5]$latch ; dbus_out[5] ; abus_in[3] ;
+; N/A   ; None         ; 10.108 ns  ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[0] ;
+; N/A   ; None         ; 10.052 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[5] ;
+; N/A   ; None         ; 10.029 ns  ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[7] ;
+; N/A   ; None         ; 10.023 ns  ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[0] ;
+; N/A   ; None         ; 9.987 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[1] ;
+; N/A   ; None         ; 9.977 ns   ; port_io~30        ; port_io[6]  ; clk_in     ;
+; N/A   ; None         ; 9.974 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[4] ;
+; N/A   ; None         ; 9.970 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[7] ;
+; N/A   ; None         ; 9.928 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[1] ;
+; N/A   ; None         ; 9.915 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[4] ;
+; N/A   ; None         ; 9.891 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[5] ;
+; N/A   ; None         ; 9.862 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[0] ;
+; N/A   ; None         ; 9.832 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[5] ;
+; N/A   ; None         ; 9.824 ns   ; port_io~29        ; port_io[5]  ; clk_in     ;
+; N/A   ; None         ; 9.803 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[0] ;
+; N/A   ; None         ; 9.800 ns   ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[6] ;
+; N/A   ; None         ; 9.765 ns   ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[6] ;
+; N/A   ; None         ; 9.680 ns   ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[6] ;
+; N/A   ; None         ; 9.519 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[6] ;
+; N/A   ; None         ; 9.460 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[6] ;
+; N/A   ; None         ; 9.411 ns   ; dbus_out[2]$latch ; dbus_out[2] ; abus_in[3] ;
+; N/A   ; None         ; 9.376 ns   ; dbus_out[4]$latch ; dbus_out[4] ; abus_in[3] ;
+; N/A   ; None         ; 9.291 ns   ; dbus_out[6]$latch ; dbus_out[6] ; abus_in[3] ;
+; N/A   ; None         ; 9.151 ns   ; port_io~26        ; port_io[2]  ; clk_in     ;
+; N/A   ; None         ; 9.130 ns   ; dbus_out[1]$latch ; dbus_out[1] ; abus_in[3] ;
+; N/A   ; None         ; 9.071 ns   ; dbus_out[7]$latch ; dbus_out[7] ; abus_in[3] ;
+; N/A   ; None         ; 9.003 ns   ; dbus_out[5]$latch ; dbus_out[5] ; rd_en      ;
+; N/A   ; None         ; 8.311 ns   ; port_io~28        ; port_io[4]  ; clk_in     ;
+; N/A   ; None         ; 8.293 ns   ; dbus_out[2]$latch ; dbus_out[2] ; rd_en      ;
+; N/A   ; None         ; 8.258 ns   ; dbus_out[4]$latch ; dbus_out[4] ; rd_en      ;
+; N/A   ; None         ; 8.173 ns   ; dbus_out[6]$latch ; dbus_out[6] ; rd_en      ;
+; N/A   ; None         ; 8.062 ns   ; port_io~25        ; port_io[1]  ; clk_in     ;
+; N/A   ; None         ; 8.012 ns   ; dbus_out[1]$latch ; dbus_out[1] ; rd_en      ;
+; N/A   ; None         ; 7.953 ns   ; dbus_out[7]$latch ; dbus_out[7] ; rd_en      ;
++-------+--------------+------------+-------------------+-------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                      ;
++-----------------------------------------+-----------------------------------------------------+-----------+------------+-------------------+------------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From       ; To                ; To Clock   ;
++-----------------------------------------+-----------------------------------------------------+-----------+------------+-------------------+------------+
+; N/A                                     ; None                                                ; 4.991 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.988 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.984 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.764 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.355 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 4.352 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 4.348 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 4.339 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.324 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.317 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 4.128 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 4.066 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 4.063 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 4.059 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 4.024 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 4.021 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 4.017 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 4.011 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 4.008 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 4.004 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 3.928 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.925 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.921 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.899 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.896 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.892 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.839 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 3.828 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.797 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 3.784 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 3.718 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.717 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.703 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.701 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.701 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.688 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.681 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.672 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.650 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.640 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.635 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.635 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.556 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 3.553 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 3.549 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 3.414 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 3.399 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 3.392 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 3.372 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 3.359 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 3.357 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 3.350 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 3.344 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 3.337 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 3.329 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 3.329 ns  ; abus_in[6] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.328 ns  ; abus_in[6] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.312 ns  ; abus_in[6] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.276 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.261 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.261 ns  ; abus_in[6] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.254 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 3.251 ns  ; abus_in[6] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.247 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.246 ns  ; abus_in[6] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.246 ns  ; abus_in[6] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 3.232 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.225 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 3.192 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.167 ns  ; rd_en      ; dbus_out[2]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 3.164 ns  ; rd_en      ; dbus_out[1]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 3.160 ns  ; rd_en      ; dbus_out[0]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 3.082 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.081 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.065 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.014 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 3.004 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.999 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.999 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.986 ns  ; abus_in[0] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.985 ns  ; abus_in[0] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.979 ns  ; abus_in[3] ; dbus_out[6]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.969 ns  ; abus_in[0] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.957 ns  ; abus_in[5] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.956 ns  ; abus_in[5] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.940 ns  ; rd_en      ; dbus_out[7]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 2.940 ns  ; abus_in[5] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.918 ns  ; abus_in[0] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.908 ns  ; abus_in[0] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.904 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 2.903 ns  ; abus_in[0] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.903 ns  ; abus_in[0] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.903 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.896 ns  ; abus_in[4] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.895 ns  ; abus_in[4] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.889 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 2.889 ns  ; abus_in[5] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.882 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 2.879 ns  ; abus_in[4] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.879 ns  ; abus_in[5] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.874 ns  ; abus_in[5] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.874 ns  ; abus_in[5] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.862 ns  ; abus_in[1] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.861 ns  ; abus_in[1] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.861 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.848 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.845 ns  ; abus_in[1] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.828 ns  ; abus_in[4] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.819 ns  ; abus_in[7] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.818 ns  ; abus_in[7] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.818 ns  ; abus_in[4] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.813 ns  ; abus_in[4] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.813 ns  ; abus_in[4] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.802 ns  ; abus_in[7] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.794 ns  ; abus_in[1] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.793 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.792 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.784 ns  ; abus_in[1] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.779 ns  ; abus_in[1] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.779 ns  ; abus_in[1] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.776 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.765 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.751 ns  ; abus_in[7] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.751 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.750 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.741 ns  ; abus_in[7] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.738 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.737 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.736 ns  ; abus_in[7] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.736 ns  ; abus_in[7] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.736 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.734 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.725 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.721 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.715 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.710 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.710 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.693 ns  ; abus_in[6] ; dbus_out[1]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.692 ns  ; abus_in[6] ; dbus_out[0]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.683 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.676 ns  ; abus_in[6] ; dbus_out[2]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.673 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.670 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.668 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.668 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.660 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.655 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.655 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.655 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.654 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.638 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.626 ns  ; abus_in[3] ; dbus_out[1]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.625 ns  ; abus_in[6] ; dbus_out[4]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.625 ns  ; abus_in[3] ; dbus_out[0]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.615 ns  ; abus_in[6] ; dbus_out[5]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.610 ns  ; abus_in[6] ; dbus_out[3]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.610 ns  ; abus_in[6] ; dbus_out[7]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.609 ns  ; abus_in[3] ; dbus_out[2]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.590 ns  ; abus_in[6] ; dbus_out[6]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.587 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.577 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.572 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.572 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[5] ;
+; N/A                                     ; None                                                ; 2.558 ns  ; abus_in[3] ; dbus_out[4]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.548 ns  ; abus_in[3] ; dbus_out[5]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.543 ns  ; abus_in[3] ; dbus_out[3]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.543 ns  ; abus_in[3] ; dbus_out[7]$latch ; abus_in[0] ;
+; N/A                                     ; None                                                ; 2.530 ns  ; abus_in[2] ; dbus_out[1]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.529 ns  ; abus_in[2] ; dbus_out[0]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.515 ns  ; rd_en      ; dbus_out[4]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 2.513 ns  ; abus_in[2] ; dbus_out[2]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.500 ns  ; rd_en      ; dbus_out[5]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 2.493 ns  ; rd_en      ; dbus_out[3]$latch ; abus_in[3] ;
+; N/A                                     ; None                                                ; 2.462 ns  ; abus_in[2] ; dbus_out[4]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.452 ns  ; abus_in[2] ; dbus_out[5]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.447 ns  ; abus_in[2] ; dbus_out[3]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.447 ns  ; abus_in[2] ; dbus_out[7]$latch ; abus_in[8] ;
+; N/A                                     ; None                                                ; 2.404 ns  ; abus_in[6] ; dbus_out[1]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.403 ns  ; abus_in[6] ; dbus_out[0]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.393 ns  ; rd_en      ; dbus_out[6]$latch ; abus_in[6] ;
+; N/A                                     ; None                                                ; 2.387 ns  ; abus_in[6] ; dbus_out[2]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.362 ns  ; abus_in[6] ; dbus_out[1]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.361 ns  ; abus_in[6] ; dbus_out[0]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.350 ns  ; abus_in[0] ; dbus_out[1]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.349 ns  ; abus_in[0] ; dbus_out[0]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.349 ns  ; abus_in[6] ; dbus_out[1]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.348 ns  ; abus_in[6] ; dbus_out[0]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.345 ns  ; abus_in[6] ; dbus_out[2]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.343 ns  ; abus_in[3] ; dbus_out[6]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.336 ns  ; abus_in[6] ; dbus_out[4]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.333 ns  ; abus_in[0] ; dbus_out[2]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.332 ns  ; abus_in[6] ; dbus_out[2]$latch ; abus_in[4] ;
+; N/A                                     ; None                                                ; 2.326 ns  ; abus_in[6] ; dbus_out[5]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.321 ns  ; abus_in[5] ; dbus_out[1]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.321 ns  ; abus_in[6] ; dbus_out[3]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.321 ns  ; abus_in[6] ; dbus_out[7]$latch ; abus_in[7] ;
+; N/A                                     ; None                                                ; 2.320 ns  ; abus_in[5] ; dbus_out[0]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.304 ns  ; abus_in[5] ; dbus_out[2]$latch ; abus_in[2] ;
+; N/A                                     ; None                                                ; 2.294 ns  ; abus_in[6] ; dbus_out[4]$latch ; abus_in[1] ;
+; N/A                                     ; None                                                ; 2.284 ns  ; abus_in[6] ; dbus_out[5]$latch ; abus_in[1] ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;            ;                   ;            ;
++-----------------------------------------+-----------------------------------------------------+-----------+------------+-------------------+------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Thu Nov 21 21:55:40 2024
+Info: Command: quartus_tan --read_settings_files=on --write_settings_files=off port_io -c port_io --speed=6
+Info: Started post-fitting delay annotation
+Warning: Found 16 output pins without output pin load capacitance assignment
+    Info: Pin "port_io[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "port_io[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[0]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[1]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[2]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[3]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[4]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[5]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[6]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+    Info: Pin "dbus_out[7]" has no specified output pin load capacitance -- assuming default load capacitance of 0 pF for timing analysis
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "latch[0]" is a latch
+    Warning: Node "port_io~24" is a latch
+    Warning: Node "latch[1]" is a latch
+    Warning: Node "port_io~25" is a latch
+    Warning: Node "latch[2]" is a latch
+    Warning: Node "port_io~26" is a latch
+    Warning: Node "latch[3]" is a latch
+    Warning: Node "port_io~27" is a latch
+    Warning: Node "latch[4]" is a latch
+    Warning: Node "port_io~28" is a latch
+    Warning: Node "latch[5]" is a latch
+    Warning: Node "port_io~29" is a latch
+    Warning: Node "latch[6]" is a latch
+    Warning: Node "port_io~30" is a latch
+    Warning: Node "latch[7]" is a latch
+    Warning: Node "port_io~31" is a latch
+    Warning: Node "dbus_out[0]$latch" is a latch
+    Warning: Node "dbus_out[1]$latch" is a latch
+    Warning: Node "dbus_out[2]$latch" is a latch
+    Warning: Node "dbus_out[3]$latch" is a latch
+    Warning: Node "dbus_out[4]$latch" is a latch
+    Warning: Node "dbus_out[5]$latch" is a latch
+    Warning: Node "dbus_out[6]$latch" is a latch
+    Warning: Node "dbus_out[7]$latch" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk_in" is an undefined clock
+    Info: Assuming node "abus_in[3]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[6]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[5]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[4]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "rd_en" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[7]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[2]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[0]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[1]" is a latch enable. Will not compute fmax for this pin.
+    Info: Assuming node "abus_in[8]" is a latch enable. Will not compute fmax for this pin.
+Warning: Found 17 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected ripple clock "tris_reg[7]" as buffer
+    Info: Detected ripple clock "tris_reg[6]" as buffer
+    Info: Detected ripple clock "tris_reg[5]" as buffer
+    Info: Detected ripple clock "tris_reg[4]" as buffer
+    Info: Detected ripple clock "tris_reg[3]" as buffer
+    Info: Detected ripple clock "tris_reg[2]" as buffer
+    Info: Detected ripple clock "tris_reg[1]" as buffer
+    Info: Detected gated clock "dbus_out[7]~7" as buffer
+    Info: Detected gated clock "dbus_out~6" as buffer
+    Info: Detected gated clock "dbus_out~4" as buffer
+    Info: Detected gated clock "dbus_out~15" as buffer
+    Info: Detected gated clock "dbus_out~5" as buffer
+    Info: Detected gated clock "dbus_out~16" as buffer
+    Info: Detected ripple clock "tris_reg[0]" as buffer
+    Info: Detected gated clock "dbus_out~2" as buffer
+    Info: Detected gated clock "dbus_out~1" as buffer
+    Info: Detected gated clock "dbus_out~0" as buffer
+Info: Clock "abus_in[3]" has Internal fmax of 289.02 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.46 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.816 ns
+        Info: + Shortest clock path from clock "abus_in[3]" to destination register is 5.649 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_D13; Fanout = 2; CLK Node = 'abus_in[3]'
+            Info: 2: + IC(0.908 ns) + CELL(0.150 ns) = 2.037 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.253 ns) + CELL(0.150 ns) = 2.440 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.109 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.036 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 5.649 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.821 ns ( 32.24 % )
+            Info: Total interconnect delay = 3.828 ns ( 67.76 % )
+        Info: - Longest clock path from clock "abus_in[3]" to source register is 4.833 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_D13; Fanout = 2; CLK Node = 'abus_in[3]'
+            Info: 2: + IC(0.908 ns) + CELL(0.150 ns) = 2.037 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 2.442 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.339 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 4.833 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.429 ns ( 29.57 % )
+            Info: Total interconnect delay = 3.404 ns ( 70.43 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[6]" has Internal fmax of 289.02 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.46 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.816 ns
+        Info: + Shortest clock path from clock "abus_in[6]" to destination register is 5.769 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.870 ns) = 0.870 ns; Loc. = PIN_J11; Fanout = 2; CLK Node = 'abus_in[6]'
+            Info: 2: + IC(1.012 ns) + CELL(0.275 ns) = 2.157 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.253 ns) + CELL(0.150 ns) = 2.560 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.229 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.156 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 5.769 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.837 ns ( 31.84 % )
+            Info: Total interconnect delay = 3.932 ns ( 68.16 % )
+        Info: - Longest clock path from clock "abus_in[6]" to source register is 4.953 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.870 ns) = 0.870 ns; Loc. = PIN_J11; Fanout = 2; CLK Node = 'abus_in[6]'
+            Info: 2: + IC(1.012 ns) + CELL(0.275 ns) = 2.157 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 2.562 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.459 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 4.953 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.445 ns ( 29.17 % )
+            Info: Total interconnect delay = 3.508 ns ( 70.83 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[5]" has Internal fmax of 289.02 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.46 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.816 ns
+        Info: + Shortest clock path from clock "abus_in[5]" to destination register is 6.277 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.872 ns) = 0.872 ns; Loc. = PIN_B2; Fanout = 2; CLK Node = 'abus_in[5]'
+            Info: 2: + IC(1.422 ns) + CELL(0.371 ns) = 2.665 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.253 ns) + CELL(0.150 ns) = 3.068 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.737 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.664 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 6.277 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.935 ns ( 30.83 % )
+            Info: Total interconnect delay = 4.342 ns ( 69.17 % )
+        Info: - Longest clock path from clock "abus_in[5]" to source register is 5.461 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.872 ns) = 0.872 ns; Loc. = PIN_B2; Fanout = 2; CLK Node = 'abus_in[5]'
+            Info: 2: + IC(1.422 ns) + CELL(0.371 ns) = 2.665 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 3.070 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.967 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 5.461 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.543 ns ( 28.25 % )
+            Info: Total interconnect delay = 3.918 ns ( 71.75 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[4]" has Internal fmax of 285.39 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.504 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.794 ns
+        Info: + Shortest clock path from clock "abus_in[4]" to destination register is 6.503 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_G5; Fanout = 2; CLK Node = 'abus_in[4]'
+            Info: 2: + IC(1.911 ns) + CELL(0.371 ns) = 3.124 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 3: + IC(0.426 ns) + CELL(0.413 ns) = 3.963 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 4: + IC(0.927 ns) + CELL(0.000 ns) = 4.890 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 5: + IC(1.342 ns) + CELL(0.271 ns) = 6.503 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.897 ns ( 29.17 % )
+            Info: Total interconnect delay = 4.606 ns ( 70.83 % )
+        Info: - Longest clock path from clock "abus_in[4]" to source register is 5.709 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_G5; Fanout = 2; CLK Node = 'abus_in[4]'
+            Info: 2: + IC(1.673 ns) + CELL(0.398 ns) = 2.913 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 3.318 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.215 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 5.709 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.540 ns ( 26.97 % )
+            Info: Total interconnect delay = 4.169 ns ( 73.03 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "rd_en" has Internal fmax of 197.24 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 5.07 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.011 ns
+        Info: + Shortest clock path from clock "rd_en" to destination register is 4.563 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 10; CLK Node = 'rd_en'
+            Info: 2: + IC(0.894 ns) + CELL(0.150 ns) = 2.023 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 3: + IC(0.927 ns) + CELL(0.000 ns) = 2.950 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 4: + IC(1.342 ns) + CELL(0.271 ns) = 4.563 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.400 ns ( 30.68 % )
+            Info: Total interconnect delay = 3.163 ns ( 69.32 % )
+        Info: - Longest clock path from clock "rd_en" to source register is 4.552 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 10; CLK Node = 'rd_en'
+            Info: 2: + IC(0.907 ns) + CELL(0.275 ns) = 2.161 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 3: + IC(0.897 ns) + CELL(0.000 ns) = 3.058 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 4: + IC(1.344 ns) + CELL(0.150 ns) = 4.552 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.404 ns ( 30.84 % )
+            Info: Total interconnect delay = 3.148 ns ( 69.16 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[7]" has Internal fmax of 236.97 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 4.22 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.436 ns
+        Info: + Shortest clock path from clock "abus_in[7]" to destination register is 6.282 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.832 ns) = 0.832 ns; Loc. = PIN_F20; Fanout = 3; CLK Node = 'abus_in[7]'
+            Info: 2: + IC(1.843 ns) + CELL(0.398 ns) = 3.073 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 3: + IC(0.398 ns) + CELL(0.271 ns) = 3.742 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 4: + IC(0.927 ns) + CELL(0.000 ns) = 4.669 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 5: + IC(1.342 ns) + CELL(0.271 ns) = 6.282 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.772 ns ( 28.21 % )
+            Info: Total interconnect delay = 4.510 ns ( 71.79 % )
+        Info: - Longest clock path from clock "abus_in[7]" to source register is 5.846 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.832 ns) = 0.832 ns; Loc. = PIN_F20; Fanout = 3; CLK Node = 'abus_in[7]'
+            Info: 2: + IC(1.822 ns) + CELL(0.150 ns) = 2.804 ns; Loc. = LCCOMB_X27_Y34_N4; Fanout = 2; COMB Node = 'dbus_out~15'
+            Info: 3: + IC(0.258 ns) + CELL(0.393 ns) = 3.455 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.352 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 5.846 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.525 ns ( 26.09 % )
+            Info: Total interconnect delay = 4.321 ns ( 73.91 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[2]" has Internal fmax of 221.53 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 4.514 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.289 ns
+        Info: + Shortest clock path from clock "abus_in[2]" to destination register is 6.291 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.852 ns) = 0.852 ns; Loc. = PIN_D23; Fanout = 3; CLK Node = 'abus_in[2]'
+            Info: 2: + IC(1.859 ns) + CELL(0.371 ns) = 3.082 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 3: + IC(0.398 ns) + CELL(0.271 ns) = 3.751 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 4: + IC(0.927 ns) + CELL(0.000 ns) = 4.678 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 5: + IC(1.342 ns) + CELL(0.271 ns) = 6.291 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.765 ns ( 28.06 % )
+            Info: Total interconnect delay = 4.526 ns ( 71.94 % )
+        Info: - Longest clock path from clock "abus_in[2]" to source register is 6.002 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.852 ns) = 0.852 ns; Loc. = PIN_D23; Fanout = 3; CLK Node = 'abus_in[2]'
+            Info: 2: + IC(1.833 ns) + CELL(0.275 ns) = 2.960 ns; Loc. = LCCOMB_X27_Y34_N4; Fanout = 2; COMB Node = 'dbus_out~15'
+            Info: 3: + IC(0.258 ns) + CELL(0.393 ns) = 3.611 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.508 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 6.002 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.670 ns ( 27.82 % )
+            Info: Total interconnect delay = 4.332 ns ( 72.18 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[0]" has Internal fmax of 266.24 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.756 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.668 ns
+        Info: + Shortest clock path from clock "abus_in[0]" to destination register is 5.982 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_J14; Fanout = 2; CLK Node = 'abus_in[0]'
+            Info: 2: + IC(1.248 ns) + CELL(0.150 ns) = 2.228 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.270 ns) + CELL(0.275 ns) = 2.773 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.442 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.369 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 5.982 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.797 ns ( 30.04 % )
+            Info: Total interconnect delay = 4.185 ns ( 69.96 % )
+        Info: - Longest clock path from clock "abus_in[0]" to source register is 5.314 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_J14; Fanout = 2; CLK Node = 'abus_in[0]'
+            Info: 2: + IC(1.248 ns) + CELL(0.150 ns) = 2.228 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.285 ns) + CELL(0.410 ns) = 2.923 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.820 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 5.314 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.540 ns ( 28.98 % )
+            Info: Total interconnect delay = 3.774 ns ( 71.02 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[1]" has Internal fmax of 266.24 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.756 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.668 ns
+        Info: + Shortest clock path from clock "abus_in[1]" to destination register is 6.516 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_E5; Fanout = 3; CLK Node = 'abus_in[1]'
+            Info: 2: + IC(1.645 ns) + CELL(0.275 ns) = 2.762 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.270 ns) + CELL(0.275 ns) = 3.307 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.976 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.903 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 6.516 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 1.934 ns ( 29.68 % )
+            Info: Total interconnect delay = 4.582 ns ( 70.32 % )
+        Info: - Longest clock path from clock "abus_in[1]" to source register is 5.848 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_E5; Fanout = 3; CLK Node = 'abus_in[1]'
+            Info: 2: + IC(1.645 ns) + CELL(0.275 ns) = 2.762 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.285 ns) + CELL(0.410 ns) = 3.457 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.354 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 5.848 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.677 ns ( 28.68 % )
+            Info: Total interconnect delay = 4.171 ns ( 71.32 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: Clock "abus_in[8]" has Internal fmax of 266.24 MHz between source register "latch[6]" and destination register "dbus_out[6]$latch" (period= 3.756 ns)
+    Info: + Longest register to register delay is 1.607 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+        Info: 2: + IC(0.434 ns) + CELL(0.150 ns) = 0.584 ns; Loc. = LCCOMB_X23_Y34_N20; Fanout = 1; COMB Node = 'dbus_out[6]~13'
+        Info: 3: + IC(0.873 ns) + CELL(0.150 ns) = 1.607 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+        Info: Total cell delay = 0.300 ns ( 18.67 % )
+        Info: Total interconnect delay = 1.307 ns ( 81.33 % )
+    Info: - Smallest clock skew is 0.668 ns
+        Info: + Shortest clock path from clock "abus_in[8]" to destination register is 7.352 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+            Info: 2: + IC(2.338 ns) + CELL(0.420 ns) = 3.598 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.270 ns) + CELL(0.275 ns) = 4.143 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 4.812 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 5.739 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.342 ns) + CELL(0.271 ns) = 7.352 ns; Loc. = LCCOMB_X18_Y34_N8; Fanout = 1; REG Node = 'dbus_out[6]$latch'
+            Info: Total cell delay = 2.077 ns ( 28.25 % )
+            Info: Total interconnect delay = 5.275 ns ( 71.75 % )
+        Info: - Longest clock path from clock "abus_in[8]" to source register is 6.684 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+            Info: 2: + IC(2.338 ns) + CELL(0.420 ns) = 3.598 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.285 ns) + CELL(0.410 ns) = 4.293 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 5.190 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.344 ns) + CELL(0.150 ns) = 6.684 ns; Loc. = LCCOMB_X24_Y34_N2; Fanout = 1; REG Node = 'latch[6]'
+            Info: Total cell delay = 1.820 ns ( 27.23 % )
+            Info: Total interconnect delay = 4.864 ns ( 72.77 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 0.939 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 8 non-operational path(s) clocked by clock "clk_in" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "port_reg[5]" and destination pin or register "port_io~29" for clock "clk_in" (Hold time is 1.469 ns)
+    Info: + Largest clock skew is 2.042 ns
+        Info: + Longest clock path from clock "clk_in" to destination register is 4.732 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 9; CLK Node = 'clk_in'
+            Info: 2: + IC(1.779 ns) + CELL(0.787 ns) = 3.565 ns; Loc. = LCFF_X23_Y34_N17; Fanout = 2; REG Node = 'tris_reg[5]'
+            Info: 3: + IC(0.729 ns) + CELL(0.438 ns) = 4.732 ns; Loc. = LCCOMB_X23_Y34_N6; Fanout = 2; REG Node = 'port_io~29'
+            Info: Total cell delay = 2.224 ns ( 47.00 % )
+            Info: Total interconnect delay = 2.508 ns ( 53.00 % )
+        Info: - Shortest clock path from clock "clk_in" to source register is 2.690 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 9; CLK Node = 'clk_in'
+            Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 8; COMB Node = 'clk_in~clkctrl'
+            Info: 3: + IC(1.036 ns) + CELL(0.537 ns) = 2.690 ns; Loc. = LCFF_X23_Y34_N7; Fanout = 1; REG Node = 'port_reg[5]'
+            Info: Total cell delay = 1.536 ns ( 57.10 % )
+            Info: Total interconnect delay = 1.154 ns ( 42.90 % )
+    Info: - Micro clock to output delay of source is 0.250 ns
+    Info: - Shortest register to register delay is 0.323 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X23_Y34_N7; Fanout = 1; REG Node = 'port_reg[5]'
+        Info: 2: + IC(0.000 ns) + CELL(0.323 ns) = 0.323 ns; Loc. = LCCOMB_X23_Y34_N6; Fanout = 2; REG Node = 'port_io~29'
+        Info: Total cell delay = 0.323 ns ( 100.00 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[3]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[3]" (Hold time is 76 ps)
+    Info: + Largest clock skew is 0.881 ns
+        Info: + Longest clock path from clock "abus_in[3]" to destination register is 5.745 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_D13; Fanout = 2; CLK Node = 'abus_in[3]'
+            Info: 2: + IC(0.925 ns) + CELL(0.398 ns) = 2.302 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 3: + IC(0.426 ns) + CELL(0.413 ns) = 3.141 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 4: + IC(0.927 ns) + CELL(0.000 ns) = 4.068 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 5: + IC(1.406 ns) + CELL(0.271 ns) = 5.745 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.061 ns ( 35.87 % )
+            Info: Total interconnect delay = 3.684 ns ( 64.13 % )
+        Info: - Shortest clock path from clock "abus_in[3]" to source register is 4.864 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_D13; Fanout = 2; CLK Node = 'abus_in[3]'
+            Info: 2: + IC(0.908 ns) + CELL(0.150 ns) = 2.037 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 2.442 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.339 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 4.864 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.429 ns ( 29.38 % )
+            Info: Total interconnect delay = 3.435 ns ( 70.62 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[6]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[6]" (Hold time is 345 ps)
+    Info: + Largest clock skew is 1.150 ns
+        Info: + Longest clock path from clock "abus_in[6]" to destination register is 6.134 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.870 ns) = 0.870 ns; Loc. = PIN_J11; Fanout = 2; CLK Node = 'abus_in[6]'
+            Info: 2: + IC(1.026 ns) + CELL(0.398 ns) = 2.294 ns; Loc. = LCCOMB_X27_Y34_N6; Fanout = 1; COMB Node = 'dbus_out~1'
+            Info: 3: + IC(0.247 ns) + CELL(0.150 ns) = 2.691 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 3.530 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.457 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 6.134 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.102 ns ( 34.27 % )
+            Info: Total interconnect delay = 4.032 ns ( 65.73 % )
+        Info: - Shortest clock path from clock "abus_in[6]" to source register is 4.984 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.870 ns) = 0.870 ns; Loc. = PIN_J11; Fanout = 2; CLK Node = 'abus_in[6]'
+            Info: 2: + IC(1.012 ns) + CELL(0.275 ns) = 2.157 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 2.562 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.459 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 4.984 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.445 ns ( 28.99 % )
+            Info: Total interconnect delay = 3.539 ns ( 71.01 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[5]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[5]" (Hold time is 209 ps)
+    Info: + Largest clock skew is 1.014 ns
+        Info: + Longest clock path from clock "abus_in[5]" to destination register is 6.506 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.872 ns) = 0.872 ns; Loc. = PIN_B2; Fanout = 2; CLK Node = 'abus_in[5]'
+            Info: 2: + IC(1.423 ns) + CELL(0.371 ns) = 2.666 ns; Loc. = LCCOMB_X27_Y34_N6; Fanout = 1; COMB Node = 'dbus_out~1'
+            Info: 3: + IC(0.247 ns) + CELL(0.150 ns) = 3.063 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 3.902 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.829 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 6.506 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.077 ns ( 31.92 % )
+            Info: Total interconnect delay = 4.429 ns ( 68.08 % )
+        Info: - Shortest clock path from clock "abus_in[5]" to source register is 5.492 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.872 ns) = 0.872 ns; Loc. = PIN_B2; Fanout = 2; CLK Node = 'abus_in[5]'
+            Info: 2: + IC(1.422 ns) + CELL(0.371 ns) = 2.665 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 3.070 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.967 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 5.492 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.543 ns ( 28.10 % )
+            Info: Total interconnect delay = 3.949 ns ( 71.90 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[4]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[4]" (Hold time is 44 ps)
+    Info: + Largest clock skew is 0.849 ns
+        Info: + Longest clock path from clock "abus_in[4]" to destination register is 6.589 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_G5; Fanout = 2; CLK Node = 'abus_in[4]'
+            Info: 2: + IC(1.673 ns) + CELL(0.398 ns) = 2.913 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.253 ns) + CELL(0.150 ns) = 3.316 ns; Loc. = LCCOMB_X27_Y34_N30; Fanout = 1; COMB Node = 'dbus_out~6'
+            Info: 4: + IC(0.398 ns) + CELL(0.271 ns) = 3.985 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.912 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 6.589 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 1.932 ns ( 29.32 % )
+            Info: Total interconnect delay = 4.657 ns ( 70.68 % )
+        Info: - Shortest clock path from clock "abus_in[4]" to source register is 5.740 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.842 ns) = 0.842 ns; Loc. = PIN_G5; Fanout = 2; CLK Node = 'abus_in[4]'
+            Info: 2: + IC(1.673 ns) + CELL(0.398 ns) = 2.913 ns; Loc. = LCCOMB_X27_Y34_N28; Fanout = 3; COMB Node = 'dbus_out~4'
+            Info: 3: + IC(0.255 ns) + CELL(0.150 ns) = 3.318 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.215 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 5.740 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.540 ns ( 26.83 % )
+            Info: Total interconnect delay = 4.200 ns ( 73.17 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[2]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[2]" (Hold time is 95 ps)
+    Info: + Largest clock skew is 0.900 ns
+        Info: + Longest clock path from clock "abus_in[2]" to destination register is 6.933 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.852 ns) = 0.852 ns; Loc. = PIN_D23; Fanout = 3; CLK Node = 'abus_in[2]'
+            Info: 2: + IC(1.833 ns) + CELL(0.275 ns) = 2.960 ns; Loc. = LCCOMB_X27_Y34_N8; Fanout = 1; COMB Node = 'dbus_out~0'
+            Info: 3: + IC(0.255 ns) + CELL(0.275 ns) = 3.490 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 4.329 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 5.256 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 6.933 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.086 ns ( 30.09 % )
+            Info: Total interconnect delay = 4.847 ns ( 69.91 % )
+        Info: - Shortest clock path from clock "abus_in[2]" to source register is 6.033 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.852 ns) = 0.852 ns; Loc. = PIN_D23; Fanout = 3; CLK Node = 'abus_in[2]'
+            Info: 2: + IC(1.833 ns) + CELL(0.275 ns) = 2.960 ns; Loc. = LCCOMB_X27_Y34_N4; Fanout = 2; COMB Node = 'dbus_out~15'
+            Info: 3: + IC(0.258 ns) + CELL(0.393 ns) = 3.611 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 4.508 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 6.033 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.670 ns ( 27.68 % )
+            Info: Total interconnect delay = 4.363 ns ( 72.32 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[0]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[0]" (Hold time is 327 ps)
+    Info: + Largest clock skew is 1.132 ns
+        Info: + Longest clock path from clock "abus_in[0]" to destination register is 6.477 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_J14; Fanout = 2; CLK Node = 'abus_in[0]'
+            Info: 2: + IC(1.261 ns) + CELL(0.413 ns) = 2.504 ns; Loc. = LCCOMB_X27_Y34_N8; Fanout = 1; COMB Node = 'dbus_out~0'
+            Info: 3: + IC(0.255 ns) + CELL(0.275 ns) = 3.034 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 3.873 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 4.800 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 6.477 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.202 ns ( 34.00 % )
+            Info: Total interconnect delay = 4.275 ns ( 66.00 % )
+        Info: - Shortest clock path from clock "abus_in[0]" to source register is 5.345 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.830 ns) = 0.830 ns; Loc. = PIN_J14; Fanout = 2; CLK Node = 'abus_in[0]'
+            Info: 2: + IC(1.248 ns) + CELL(0.150 ns) = 2.228 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.285 ns) + CELL(0.410 ns) = 2.923 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 3.820 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 5.345 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.540 ns ( 28.81 % )
+            Info: Total interconnect delay = 3.805 ns ( 71.19 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Warning: Circuit may not operate. Detected 7 non-operational path(s) clocked by clock "abus_in[8]" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "latch[1]" and destination pin or register "dbus_out[1]$latch" for clock "abus_in[8]" (Hold time is 49 ps)
+    Info: + Largest clock skew is 0.854 ns
+        Info: + Longest clock path from clock "abus_in[8]" to destination register is 7.569 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+            Info: 2: + IC(2.340 ns) + CELL(0.416 ns) = 3.596 ns; Loc. = LCCOMB_X27_Y34_N8; Fanout = 1; COMB Node = 'dbus_out~0'
+            Info: 3: + IC(0.255 ns) + CELL(0.275 ns) = 4.126 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+            Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 4.965 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+            Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 5.892 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+            Info: 6: + IC(1.406 ns) + CELL(0.271 ns) = 7.569 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+            Info: Total cell delay = 2.215 ns ( 29.26 % )
+            Info: Total interconnect delay = 5.354 ns ( 70.74 % )
+        Info: - Shortest clock path from clock "abus_in[8]" to source register is 6.715 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+            Info: 2: + IC(2.338 ns) + CELL(0.420 ns) = 3.598 ns; Loc. = LCCOMB_X27_Y34_N24; Fanout = 3; COMB Node = 'dbus_out~5'
+            Info: 3: + IC(0.285 ns) + CELL(0.410 ns) = 4.293 ns; Loc. = LCCOMB_X27_Y34_N0; Fanout = 1; COMB Node = 'dbus_out~16'
+            Info: 4: + IC(0.897 ns) + CELL(0.000 ns) = 5.190 ns; Loc. = CLKCTRL_G11; Fanout = 8; COMB Node = 'dbus_out~16clkctrl'
+            Info: 5: + IC(1.375 ns) + CELL(0.150 ns) = 6.715 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+            Info: Total cell delay = 1.820 ns ( 27.10 % )
+            Info: Total interconnect delay = 4.895 ns ( 72.90 % )
+    Info: - Micro clock to output delay of source is 0.000 ns
+    Info: - Shortest register to register delay is 0.805 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X28_Y34_N26; Fanout = 1; REG Node = 'latch[1]'
+        Info: 2: + IC(0.254 ns) + CELL(0.150 ns) = 0.404 ns; Loc. = LCCOMB_X28_Y34_N30; Fanout = 1; COMB Node = 'dbus_out[1]~8'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 0.805 ns; Loc. = LCCOMB_X28_Y34_N14; Fanout = 1; REG Node = 'dbus_out[1]$latch'
+        Info: Total cell delay = 0.300 ns ( 37.27 % )
+        Info: Total interconnect delay = 0.505 ns ( 62.73 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "port_reg[3]" (data pin = "wr_en", clock pin = "clk_in") is 5.258 ns
+    Info: + Longest pin to register delay is 7.984 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.850 ns) = 0.850 ns; Loc. = PIN_C8; Fanout = 2; PIN Node = 'wr_en'
+        Info: 2: + IC(5.629 ns) + CELL(0.150 ns) = 6.629 ns; Loc. = LCCOMB_X27_Y34_N10; Fanout = 8; COMB Node = 'port_reg[0]~0'
+        Info: 3: + IC(0.695 ns) + CELL(0.660 ns) = 7.984 ns; Loc. = LCFF_X23_Y34_N9; Fanout = 1; REG Node = 'port_reg[3]'
+        Info: Total cell delay = 1.660 ns ( 20.79 % )
+        Info: Total interconnect delay = 6.324 ns ( 79.21 % )
+    Info: + Micro setup delay of destination is -0.036 ns
+    Info: - Shortest clock path from clock "clk_in" to destination register is 2.690 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.999 ns) = 0.999 ns; Loc. = PIN_P2; Fanout = 9; CLK Node = 'clk_in'
+        Info: 2: + IC(0.118 ns) + CELL(0.000 ns) = 1.117 ns; Loc. = CLKCTRL_G3; Fanout = 8; COMB Node = 'clk_in~clkctrl'
+        Info: 3: + IC(1.036 ns) + CELL(0.537 ns) = 2.690 ns; Loc. = LCFF_X23_Y34_N9; Fanout = 1; REG Node = 'port_reg[3]'
+        Info: Total cell delay = 1.536 ns ( 57.10 % )
+        Info: Total interconnect delay = 1.154 ns ( 42.90 % )
+Info: tco from clock "abus_in[8]" to destination pin "dbus_out[3]" through register "dbus_out[3]$latch" is 13.656 ns
+    Info: + Longest clock path from clock "abus_in[8]" to source register is 7.547 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+        Info: 2: + IC(2.340 ns) + CELL(0.416 ns) = 3.596 ns; Loc. = LCCOMB_X27_Y34_N8; Fanout = 1; COMB Node = 'dbus_out~0'
+        Info: 3: + IC(0.255 ns) + CELL(0.275 ns) = 4.126 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+        Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 4.965 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+        Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 5.892 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+        Info: 6: + IC(1.384 ns) + CELL(0.271 ns) = 7.547 ns; Loc. = LCCOMB_X23_Y34_N18; Fanout = 1; REG Node = 'dbus_out[3]$latch'
+        Info: Total cell delay = 2.215 ns ( 29.35 % )
+        Info: Total interconnect delay = 5.332 ns ( 70.65 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 6.109 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCCOMB_X23_Y34_N18; Fanout = 1; REG Node = 'dbus_out[3]$latch'
+        Info: 2: + IC(3.321 ns) + CELL(2.788 ns) = 6.109 ns; Loc. = PIN_AC9; Fanout = 0; PIN Node = 'dbus_out[3]'
+        Info: Total cell delay = 2.788 ns ( 45.64 % )
+        Info: Total interconnect delay = 3.321 ns ( 54.36 % )
+Info: th for register "dbus_out[2]$latch" (data pin = "rd_en", clock pin = "abus_in[8]") is 4.991 ns
+    Info: + Longest clock path from clock "abus_in[8]" to destination register is 7.570 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.840 ns) = 0.840 ns; Loc. = PIN_V14; Fanout = 2; CLK Node = 'abus_in[8]'
+        Info: 2: + IC(2.340 ns) + CELL(0.416 ns) = 3.596 ns; Loc. = LCCOMB_X27_Y34_N8; Fanout = 1; COMB Node = 'dbus_out~0'
+        Info: 3: + IC(0.255 ns) + CELL(0.275 ns) = 4.126 ns; Loc. = LCCOMB_X27_Y34_N14; Fanout = 10; COMB Node = 'dbus_out~2'
+        Info: 4: + IC(0.426 ns) + CELL(0.413 ns) = 4.965 ns; Loc. = LCCOMB_X28_Y34_N24; Fanout = 1; COMB Node = 'dbus_out[7]~7'
+        Info: 5: + IC(0.927 ns) + CELL(0.000 ns) = 5.892 ns; Loc. = CLKCTRL_G9; Fanout = 8; COMB Node = 'dbus_out[7]~7clkctrl'
+        Info: 6: + IC(1.407 ns) + CELL(0.271 ns) = 7.570 ns; Loc. = LCCOMB_X28_Y34_N8; Fanout = 1; REG Node = 'dbus_out[2]$latch'
+        Info: Total cell delay = 2.215 ns ( 29.26 % )
+        Info: Total interconnect delay = 5.355 ns ( 70.74 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 2.579 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.979 ns) = 0.979 ns; Loc. = PIN_C13; Fanout = 10; CLK Node = 'rd_en'
+        Info: 2: + IC(0.924 ns) + CELL(0.275 ns) = 2.178 ns; Loc. = LCCOMB_X28_Y34_N6; Fanout = 1; COMB Node = 'dbus_out[2]~9'
+        Info: 3: + IC(0.251 ns) + CELL(0.150 ns) = 2.579 ns; Loc. = LCCOMB_X28_Y34_N8; Fanout = 1; REG Node = 'dbus_out[2]$latch'
+        Info: Total cell delay = 1.404 ns ( 54.44 % )
+        Info: Total interconnect delay = 1.175 ns ( 45.56 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 160 megabytes
+    Info: Processing ended: Thu Nov 21 21:55:42 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+
