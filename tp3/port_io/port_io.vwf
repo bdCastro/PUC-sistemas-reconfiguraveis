@@ -24,9 +24,21 @@ HEADER
 {
 	VERSION = 1;
 	TIME_UNIT = ns;
+	PRINT_OPTIONS = "Print_options_version 6\
+range_start 0ps\
+range_end 1.0us\
+width 1\
+names_percentage 25\
+comments 1\
+grid_lines 1\
+time_bars 1\
+name_every_page 0\
+expand_groups 0\
+print_all 1\
+print_row_height 100";
 	DATA_OFFSET = 0.0;
 	DATA_DURATION = 1000.0;
-	SIMULATION_TIME = 0.0;
+	SIMULATION_TIME = 1000.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 10.0;
 	GRID_DUTY_CYCLE = 50;
@@ -442,6 +454,91 @@ SIGNAL("wr_en")
 	PARENT = "";
 }
 
+SIGNAL("port_io[0]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[1]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[2]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[3]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[4]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[5]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[6]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("port_io[7]~result")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+GROUP("port_io_result")
+{
+	MEMBERS = "port_io[0]~result", "port_io[1]~result", "port_io[2]~result", "port_io[3]~result", "port_io[4]~result", "port_io[5]~result", "port_io[6]~result", "port_io[7]~result";
+}
+
 TRANSITION_LIST("abus_in[8]")
 {
 	NODE
@@ -503,7 +600,11 @@ TRANSITION_LIST("abus_in[2]")
 		REPEAT = 1;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 970.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 30.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 870.0;
 	}
 }
 
@@ -514,7 +615,23 @@ TRANSITION_LIST("abus_in[1]")
 		REPEAT = 1;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 0 FOR 10.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 40.0;
+		}
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 10.0;
+			NODE
+			{
+				REPEAT = 1;
+				LEVEL 1 FOR 40.0;
+			}
+		}
+		LEVEL 0 FOR 850.0;
 	}
 }
 
@@ -525,7 +642,23 @@ TRANSITION_LIST("abus_in[0]")
 		REPEAT = 1;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 0 FOR 10.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 1 FOR 40.0;
+		}
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 10.0;
+			NODE
+			{
+				REPEAT = 1;
+				LEVEL 1 FOR 40.0;
+			}
+		}
+		LEVEL 0 FOR 850.0;
 	}
 }
 
@@ -550,7 +683,13 @@ TRANSITION_LIST("dbus_in[7]")
 		REPEAT = 1;
 		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -559,7 +698,13 @@ TRANSITION_LIST("dbus_in[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -570,7 +715,13 @@ TRANSITION_LIST("dbus_in[5]")
 		REPEAT = 1;
 		LEVEL 0 FOR 30.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -579,7 +730,13 @@ TRANSITION_LIST("dbus_in[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 80.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -592,7 +749,13 @@ TRANSITION_LIST("dbus_in[3]")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -605,7 +768,13 @@ TRANSITION_LIST("dbus_in[2]")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -618,7 +787,13 @@ TRANSITION_LIST("dbus_in[1]")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -631,7 +806,13 @@ TRANSITION_LIST("dbus_in[0]")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
 	}
 }
 
@@ -640,7 +821,7 @@ TRANSITION_LIST("dbus_out[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -649,7 +830,7 @@ TRANSITION_LIST("dbus_out[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -658,7 +839,7 @@ TRANSITION_LIST("dbus_out[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -667,7 +848,7 @@ TRANSITION_LIST("dbus_out[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -676,7 +857,7 @@ TRANSITION_LIST("dbus_out[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -685,7 +866,7 @@ TRANSITION_LIST("dbus_out[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -694,7 +875,7 @@ TRANSITION_LIST("dbus_out[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -703,7 +884,7 @@ TRANSITION_LIST("dbus_out[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 1000.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -713,7 +894,11 @@ TRANSITION_LIST("nrst")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 10.0;
-		LEVEL 1 FOR 990.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 890.0;
 	}
 }
 
@@ -722,7 +907,9 @@ TRANSITION_LIST("port_io[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL Z FOR 1000.0;
+		LEVEL Z FOR 60.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 900.0;
 	}
 }
 
@@ -731,7 +918,9 @@ TRANSITION_LIST("port_io[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL Z FOR 1000.0;
+		LEVEL Z FOR 110.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 850.0;
 	}
 }
 
@@ -740,7 +929,9 @@ TRANSITION_LIST("port_io[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL Z FOR 1000.0;
+		LEVEL Z FOR 60.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 900.0;
 	}
 }
 
@@ -749,7 +940,9 @@ TRANSITION_LIST("port_io[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL Z FOR 1000.0;
+		LEVEL Z FOR 110.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 850.0;
 	}
 }
 
@@ -758,7 +951,10 @@ TRANSITION_LIST("port_io[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL Z FOR 10.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 900.0;
 	}
 }
 
@@ -767,7 +963,10 @@ TRANSITION_LIST("port_io[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL Z FOR 60.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 850.0;
 	}
 }
 
@@ -776,7 +975,10 @@ TRANSITION_LIST("port_io[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL Z FOR 10.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 900.0;
 	}
 }
 
@@ -785,7 +987,10 @@ TRANSITION_LIST("port_io[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 1000.0;
+		LEVEL 1 FOR 50.0;
+		LEVEL Z FOR 60.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL Z FOR 850.0;
 	}
 }
 
@@ -798,7 +1003,19 @@ TRANSITION_LIST("rd_en")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 950.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		NODE
+		{
+			REPEAT = 1;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 10.0;
+			LEVEL 0 FOR 10.0;
+			LEVEL 1 FOR 10.0;
+		}
+		LEVEL 0 FOR 850.0;
 	}
 }
 
@@ -811,13 +1028,93 @@ TRANSITION_LIST("wr_en")
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 10.0;
 		LEVEL 1 FOR 10.0;
-		LEVEL 0 FOR 960.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 10.0;
+		LEVEL 0 FOR 860.0;
+	}
+}
+
+TRANSITION_LIST("port_io[0]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[1]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[2]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[3]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[4]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[5]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[6]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("port_io[7]~result")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL Z FOR 1000.0;
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "nrst";
+	CHANNEL = "clk_in";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Hexadecimal;
 	TREE_INDEX = 0;
@@ -826,7 +1123,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "clk_in";
+	CHANNEL = "nrst";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Hexadecimal;
 	TREE_INDEX = 1;
@@ -1044,8 +1341,8 @@ DISPLAY_LINE
 DISPLAY_LINE
 {
 	CHANNEL = "port_io";
-	EXPAND_STATUS = EXPANDED;
-	RADIX = Hexadecimal;
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
 	TREE_INDEX = 23;
 	TREE_LEVEL = 0;
 	CHILDREN = 24, 25, 26, 27, 28, 29, 30, 31;
@@ -1055,7 +1352,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 24;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1065,7 +1362,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 25;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1075,7 +1372,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 26;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1085,7 +1382,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 27;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1095,7 +1392,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 28;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1105,7 +1402,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 29;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1115,7 +1412,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 30;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1125,7 +1422,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "port_io[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Binary;
 	TREE_INDEX = 31;
 	TREE_LEVEL = 1;
 	PARENT = 23;
@@ -1221,9 +1518,105 @@ DISPLAY_LINE
 	PARENT = 32;
 }
 
+DISPLAY_LINE
+{
+	CHANNEL = "port_io_result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 41;
+	TREE_LEVEL = 0;
+	CHILDREN = 42, 43, 44, 45, 46, 47, 48, 49;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[0]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 42;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[1]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 43;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[2]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 44;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[3]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 45;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[4]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 46;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[5]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 47;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[6]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 48;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "port_io[7]~result";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 49;
+	TREE_LEVEL = 1;
+	PARENT = 41;
+}
+
 TIME_BAR
 {
-	TIME = 20825;
+	TIME = 0;
+	MASTER = TRUE;
+}
+
+TIME_BAR
+{
+	TIME = 0;
 	MASTER = TRUE;
 }
 ;
