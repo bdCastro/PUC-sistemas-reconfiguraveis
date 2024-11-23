@@ -73,39 +73,37 @@ BEGIN
         END IF;
     END PROCESS;
 
-    PROCESS(clk_in, addr_int, rd_en)
+    PROCESS(clk_in, addr_int, rd_en, mem0, mem1, mem2, mem_com)
     BEGIN
-        IF RISING_EDGE(clk_in) THEN
-            IF rd_en = '1' THEN
-                CASE addr_int IS 
-                    -- mem0 80 bytes
-                    WHEN 32 TO 111 =>
-                        dbus_out <= mem0(addr_int - 32);
+        IF rd_en = '1' THEN
+            CASE addr_int IS 
+                -- mem0 80 bytes
+                WHEN 32 TO 111 =>
+                    dbus_out <= mem0(addr_int - 32);
 
-                    -- mem1 80 bytes
-                    WHEN 160 TO 239 =>
-                        dbus_out <= mem1(addr_int - 160);
+                -- mem1 80 bytes
+                WHEN 160 TO 239 =>
+                    dbus_out <= mem1(addr_int - 160);
 
-                    -- mem2 80 bytes
-                    WHEN 288 TO 367 =>
-                        dbus_out <= mem2(addr_int - 288);
+                -- mem2 80 bytes
+                WHEN 288 TO 367 =>
+                    dbus_out <= mem2(addr_int - 288);
 
-                    -- mem_com 16 bytes
-                    WHEN 112 TO 127 =>
-                        dbus_out <= mem_com(addr_int - 112);
-                    WHEN 240 TO 255 =>
-                        dbus_out <= mem_com(addr_int - 240);
-                    WHEN 368 TO 383 =>
-                        dbus_out <= mem_com(addr_int - 368);
-                    WHEN 496 TO 511 =>
-                        dbus_out <= mem_com(addr_int - 496);
+                -- mem_com 16 bytes
+                WHEN 112 TO 127 =>
+                    dbus_out <= mem_com(addr_int - 112);
+                WHEN 240 TO 255 =>
+                    dbus_out <= mem_com(addr_int - 240);
+                WHEN 368 TO 383 =>
+                    dbus_out <= mem_com(addr_int - 368);
+                WHEN 496 TO 511 =>
+                    dbus_out <= mem_com(addr_int - 496);
 
-                    -- default
-                    WHEN OTHERS =>
-                END CASE;
-            ELSE
-                dbus_out <= "ZZZZZZZZ";
-            END IF;
+                -- default
+                WHEN OTHERS =>
+            END CASE;
+        ELSE
+            dbus_out <= "ZZZZZZZZ";
         END IF;
     END PROCESS;
 
