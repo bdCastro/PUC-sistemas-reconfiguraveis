@@ -66,8 +66,6 @@ BEGIN
 
     latch <= port_io WHEN en_port_addr = '0' OR rd_en = '0';
 
-    -- port_io <= (port_io AND tris_reg) XOR (port_reg AND NOT tris_reg);
-
     port_io(0) <= port_reg(0) WHEN tris_reg(0) = '0' ELSE 'Z';
     port_io(1) <= port_reg(1) WHEN tris_reg(1) = '0' ELSE 'Z';
     port_io(2) <= port_reg(2) WHEN tris_reg(2) = '0' ELSE 'Z';

@@ -63,17 +63,15 @@ BEGIN
                     WHEN OTHERS =>
                 END CASE;
             END IF;
-
-            IF nrst = '0' THEN
-                mem0 <= (OTHERS => (OTHERS => '0'));
-                mem1 <= (OTHERS => (OTHERS => '0'));
-                mem2 <= (OTHERS => (OTHERS => '0'));
-                mem_com <= (OTHERS => (OTHERS => '0'));
-            END IF;
         END IF;
     END PROCESS;
+    
+	mem0 <= (OTHERS => (OTHERS => '0')) WHEN nrst = '0';
+	mem1 <= (OTHERS => (OTHERS => '0')) WHEN nrst = '0';
+	mem2 <= (OTHERS => (OTHERS => '0')) WHEN nrst = '0';
+	mem_com <= (OTHERS => (OTHERS => '0')) WHEN nrst = '0';
 
-    PROCESS(clk_in, addr_int, rd_en, mem0, mem1, mem2. mem_com)
+    PROCESS(clk_in, addr_int, rd_en, mem0, mem1, mem2, mem_com)
     BEGIN
         IF rd_en = '1' THEN
             CASE addr_int IS 

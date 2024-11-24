@@ -63,13 +63,13 @@ BEGIN
                     WHEN OTHERS =>
                 END CASE;
             END IF;
-
-            IF nrst = '0' THEN
+        END IF;
+        
+        IF nrst = '0' THEN
                 mem0 <= (OTHERS => (OTHERS => '0'));
                 mem1 <= (OTHERS => (OTHERS => '0'));
                 mem2 <= (OTHERS => (OTHERS => '0'));
                 mem_com <= (OTHERS => (OTHERS => '0'));
-            END IF;
         END IF;
     END PROCESS;
 

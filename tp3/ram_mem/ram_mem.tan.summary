@@ -5,9 +5,9 @@ Timing Analyzer Summary
 Type           : Worst-case tsu
 Slack          : N/A
 Required Time  : None
-Actual Time    : 16.091 ns
+Actual Time    : 16.363 ns
 From           : abus_in[6]
-To             : dbus_out[0]$latch
+To             : dbus_out[6]$latch
 From Clock     : --
 To Clock       : abus_in[5]
 Failed Paths   : 0
@@ -15,9 +15,9 @@ Failed Paths   : 0
 Type           : Worst-case tco
 Slack          : N/A
 Required Time  : None
-Actual Time    : 10.584 ns
-From           : dbus_out[5]$latch
-To             : dbus_out[5]
+Actual Time    : 12.256 ns
+From           : dbus_out[7]$latch
+To             : dbus_out[7]
 From Clock     : abus_in[6]
 To Clock       : --
 Failed Paths   : 0
@@ -25,8 +25,8 @@ Failed Paths   : 0
 Type           : Worst-case th
 Slack          : N/A
 Required Time  : None
-Actual Time    : 1.277 ns
-From           : abus_in[5]
+Actual Time    : 1.996 ns
+From           : abus_in[7]
 To             : dbus_out[1]$latch
 From Clock     : --
 To Clock       : abus_in[6]

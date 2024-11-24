@@ -1530,7 +1530,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[0]~result";
+	CHANNEL = "port_io[7]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 42;
@@ -1540,7 +1540,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[1]~result";
+	CHANNEL = "port_io[6]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 43;
@@ -1550,7 +1550,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[2]~result";
+	CHANNEL = "port_io[5]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 44;
@@ -1560,7 +1560,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[3]~result";
+	CHANNEL = "port_io[4]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 45;
@@ -1570,7 +1570,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[4]~result";
+	CHANNEL = "port_io[3]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 46;
@@ -1580,7 +1580,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[5]~result";
+	CHANNEL = "port_io[2]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 47;
@@ -1590,7 +1590,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[6]~result";
+	CHANNEL = "port_io[1]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 48;
@@ -1600,7 +1600,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "port_io[7]~result";
+	CHANNEL = "port_io[0]~result";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 49;
