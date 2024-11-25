@@ -64,7 +64,7 @@ O objetivo deste terceiro trabalho prático é a implementação de uma memória
 
 \subsubsection{port\_io}
 
-O bloco port\_io é utilizada na comunicação entre a parte interno e externa do processador. É constituído de um barramento bidirecional configurado por um registrador nomeado tris\_reg, que define quais sinais serão entrada e saída.
+O bloco port\_io é utilizado na comunicação entre a parte interna e externa do processador. É constituído de um barramento bidirecional configurado por um registrador nomeado tris\_reg, que define quais sinais serão entrada e saída.
 
 \subsubsection{ram\_mem}
 
@@ -74,9 +74,9 @@ O bloco de ram\_mem, ou memória ram, são 4 registradores de propósito geral a
 
 \section{port\_io}
 
-O port\_io  é um circuito que possui uma estrutura de doiis registradores de 8 bits, e um barramento biderecional de entrada e saída, para intefaceamento com a estrutura. O registrados tris\_reg armazena o estado de cada bit (que poode ser entrada e saída), e o registrador port\_reg armazena dados, que podem ser escritos eplo usuário através do barramento de dados dbus\_in.
+O port\_io  é um circuito que possui uma estrutura de dois registradores de 8 bits, e um barramento bidirecional de entrada e saída, para interfaceamento com a estrutura. O registrador tris\_reg armazena o estado de cada bit (que pode ser entrada e saída), e o registrador port\_reg armazena dados, que podem ser escritos pelo usuário através do barramento de dados dbus\_in.
 
-As entradas e saídas do circuito são descritas na tabela a baixo:\\
+As entradas e saídas do circuito são descritas na tabela abaixo:\\
 
 \begin{table}[ht]
     \begin{center}
@@ -105,7 +105,7 @@ As entradas e saídas do circuito são descritas na tabela a baixo:\\
     \caption{Entradas e Saídas de port\_io}
 \end{table}
 
-Para o port\_io, também são utilizados 4 endereços internos, implementados através de estruturas \textit{GENERIC}, para enderaçamento dos registrados otris\_reg e port\_reg. São eles:
+Para o port\_io, também são utilizados 4 endereços internos, implementados através de estruturas \textit{GENERIC}, para endereçamento dos registradores tris\_reg e port\_reg. São eles:
 
 \begin{table}[ht]
 \begin{center}
@@ -127,7 +127,7 @@ Para o port\_io, também são utilizados 4 endereços internos, implementados at
 
 \subsection{Implementação}
 
-O circuitop port\_io foi implementado utilizando a linguagem VHDL.\\
+O circuito port\_io foi implementado utilizando a linguagem VHDL.\\
 
 O código na íntegra está abaixo:\\
 
@@ -220,21 +220,21 @@ END port_io;
 
 \subsubsection{Descrição do funcionamento}
 
-O circuito port\_io consiste de de duas partes: uma síncrona e uma assíncrona. A parte síncrona é composta pelas funções de \textit{reset} e escrita. Já a parte assícrona pelas funções de leitura e endereçamento.
+O circuito port\_io consiste de duas partes: uma síncrona e uma assíncrona. A parte síncrona é composta pelas funções de \textit{reset} e escrita. Já a parte assíncrona, pelas funções de leitura e endereçamento.
 
-Inicialmente, verifica-se se alguns dos registrados internos (port\_reg e tris\_reg) estão devidamente endereçados pela entrada abus\_in. Para isso, utilizamos um \textit{SIGNAL} auxiliar. O resultado será usado por ambas as partes síncrona e assíncrona.
+Inicialmente, verifica-se se alguns dos registradores internos (port\_reg e tris\_reg) estão devidamente endereçados pela entrada abus\_in. Para isso, utilizamos um \textit{SIGNAL} auxiliar. O resultado será usado por ambas as partes síncrona e assíncrona.
 
-Dentro do \textit{PROCESS}, a primeira função é a de \textit{reset} (ativo por nrst em baixo.), implementada de maneira assícrona (isto é, independente de uma borda de subida de \textit{clock}). Quando ocorrer, registrador port\_reg é zerado, e o tris\_reg tem todos os bits setados em `1'.
+Dentro do \textit{PROCESS}, a primeira função é a de \textit{reset} (ativo por nrst em baixa), implementada de maneira assíncrona (isto é, independente de uma borda de subida de \textit{clock}). Quando ocorrer, o registrador port\_reg é zerado, e o tris\_reg tem todos os bits setados em `1'.
 
-Ainda dentro do \textit{PROCESS}, são implementadas as funções de escrita sícrona. Após uma borda de subida de \textit{clock}, caso devidamente endereçado (feito anteriormente) e sinal wr\_en ativo, o registrados correspondente é escrito.
+Ainda dentro do \textit{PROCESS}, são implementadas as funções de escrita síncrona. Após uma borda de subida de \textit{clock}, caso devidamente endereçado (feito anteriormente) e sinal wr\_en ativo, o registrador correspondente é escrito.
 
-Fora do \textit{PROCESS}, de maneira assíncrona, são atualizadas a saída dbus\_out, com wr\_en ativo e enderaçamento correto, e o latch, caso não haja uma leitura de port\_reg.
+Fora do \textit{PROCESS}, de maneira assíncrona, são atualizadas a saída dbus\_out, com wr\_en ativo e enderaçamento correto, e o \textit{latch}, caso não haja uma leitura de port\_reg.
 
-Os bits de port\_io são setados individualmente a alta impedância caso estejam configurados como saída.
+Os bits de port\_io são setados individualmente a alta impedância, caso estejam configurados como saída.
 
 \subsection{Simulação}
 
-Para testar nosso código VHDL e certificar-nos de que nosso circuito funciona de maneira esperada, simulamos alguns casos de testes utilizando o software Quatus II.\\
+Para testar nosso código VHDL e certificar-nos de que nosso circuito funciona de maneira esperada, simulamos alguns casos de testes utilizando o software Quartus II.\\
 
 Os testes realizados foram os seguites:
 
@@ -313,8 +313,6 @@ O bloco ram\_mem é um circuito que funciona como uma memória RAM. Ele é divid
     \end{center}
     \caption{Entradas e Saídas de ram\_mem}
 \end{table}
-
-A memória é divida em 4 blocos, com espaço de endereçamento compartilhado. Dependendo do endereço sendo lido/escrito, um bloco de memória diferente deve ser acessado, de acordo com a tabela abaixo:
 
 \begin{table}[ht]
     \begin{center}
@@ -459,13 +457,13 @@ END ram_mem;
 
 \subsubsection{Descrição do funcionamento}
 
-O circuito implementado possui duas partes: uma síncrona e outra assíncrona. A leitura é feita de forma síncrona, isto é, junto de uma borda de subida do \textit{clock}, já a leitura é feita de forma assícrona.
+O circuito implementado possui duas partes: uma síncrona e outra assíncrona. A leitura é feita de forma síncrona, isto é, junto de uma borda de subida do \textit{clock}, já a leitura é feita de forma assíncrona.
 
-Primeiramente, se converte o sinal de entrada abus\_in para um inteiro, utilizando a função \textit{TO\_INTEGER()}. Com isso, podemos identificasr se o endereço sendo lido/escrito está dentro dos intervalos identificados.
+Primeiramente, se converte o sinal de entrada abus\_in para um inteiro, utilizando a função \textit{TO\_INTEGER()}. Com isso, podemos identificar se o endereço sendo lido/escrito está dentro dos intervalos identificados.
 
-Dentro da seção síncrona, após uma borda de subida de \textit{clock}, os dados são escritos no bloco correto, caso rd\_en esteja ativo. Já na parte assícrona, caso wr\_en esteja ativo, o valor endereçado é colocado na saída, acessado de acordo com o bloco utilizado.
+Dentro da seção síncrona, após uma borda de subida de \textit{clock}, os dados são escritos no bloco correto, caso rd\_en esteja ativo. Já na parte assíncrona, caso wr\_en esteja ativo, o valor endereçado é colocado na saída, acessado de acordo com o bloco utilizado.
 
-O reset é feito de maneira assícrona, e possui preferência sobre a escrita, pis é feita de maneira processural depois dela.
+O \textit{reset} é feito de maneira assíncrona, e possui preferência sobre a escrita, pois é feita de maneira procedural, após ela.
 
 \subsection{Simulação}
 
@@ -716,12 +714,8 @@ Os testes realizados foram os seguites:
 
 \section{Conclusão}
 
-A implementação de registradores através de liguagens de descrição de hardware, como a VHDL, são maneiras poderosas de construir circuitos computacionais de maneira menos complexa e mais rápida.
+Neste trabalho trabalho prático, tivemos a oportunidade de desenvolver dois circuitos importantes para funcionamento de um processador.
 
-Apesar de parecerem ``simples'' à primeira vista, sua implementação possuem nuancias que exigem a atenção do engenheiro, e testes exaustivos para certificar que funcionam como deveriam.
-
-Neste trabalho prático, aprendemos como construir registradores e pilhas para auxiliar a contrução de nossos circuitos computacionais, utilizando conhecimentos da prática anterior e novas técnicas, como a utilização do ``PROCESS'', que permite a execução de trechos sequenciais no nosso circuito, e a tuilização do \textit{clock},  que permite a sincronização de rotinas no nosso cicuito.
-
-Com os circuitos implementados, estamos mais confiantes nas nossas capacidades, e estamos um passo mais perto de implementar circuitos mais complexos como controladores e processadores.
+O port\_io tange o interfaceamento entre o processador e o mundo externo, já o ram\_mem é a estrutrura responsável por armazenar dados e instruções que usadas pelo processador (como nossos programas).
 
 \end{document}
