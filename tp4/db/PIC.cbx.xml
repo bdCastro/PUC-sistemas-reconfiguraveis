@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="PIC">
+		<CBX_INST_ENTRY INSTANCE_NAME="|PIC|BUSMUX:inst|lpm_mux:$00000" CBX_FILE_NAME="mux_smc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PIC|rom_4096x14:inst7|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qe71.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

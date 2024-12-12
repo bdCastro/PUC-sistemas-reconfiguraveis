@@ -69,7 +69,7 @@ BEGIN
     END PROCESS;
 
     -- logica combinacional para nextpc
-    PROCESS(stack_pop, inc_pc, load_pc, wr_en, abus_in, pc, addr_in, lath_pc, stack_popped, dbus_in)
+    PROCESS(nextpc, stack_pop, inc_pc, load_pc, wr_en, abus_in, pc, addr_in, lath_pc, stack_popped, dbus_in)
     BEGIN
         IF stack_pop = '1' THEN
             nextpc <= stack_popped;

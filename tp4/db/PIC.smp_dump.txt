@@ -1,0 +1,6 @@
+
+State Machine - |PIC|controller:inst3|presState
+Name presState.fetch_dec_ex presState.fetch_only presState.rst 
+presState.rst 0 0 0 
+presState.fetch_only 0 1 1 
+presState.fetch_dec_ex 1 0 1 

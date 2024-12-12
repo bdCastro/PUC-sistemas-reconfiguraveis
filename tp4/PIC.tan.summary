@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 3.222 ns
+From           : porta[3]
+To             : port_io:inst13|latch[3]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 9.444 ns
+From           : port_io:inst12|port_reg[2]
+To             : portb[2]
+From Clock     : clk
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 2.278 ns
+From           : porta[1]
+To             : port_io:inst13|latch[1]
+From Clock     : --
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Setup: 'clk'
+Slack          : N/A
+Required Time  : None
+Actual Time    : 30.18 MHz ( period = 33.138 ns )
+From           : ula:inst2|z_out
+To             : controller:inst3|presState.fetch_only
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 0
+
+Type           : Clock Hold: 'clk'
+Slack          : Not operational: Clock Skew > Data Delay
+Required Time  : None
+Actual Time    : N/A
+From           : rom_4096x14:inst7|altsyncram:altsyncram_component|altsyncram_qe71:auto_generated|q_a[9]
+To             : ula:inst2|z_out
+From Clock     : clk
+To Clock       : clk
+Failed Paths   : 1193
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 1193
+
+--------------------------------------------------------------------------------------
+
