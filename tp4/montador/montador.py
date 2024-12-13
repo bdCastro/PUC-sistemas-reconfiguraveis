@@ -71,7 +71,7 @@ with open('out.mif', "w") as f:
             match cmd[0][1]:
                 case '[':
                     c = ops[cmd[1]](*map(int, cmd[2:]))
-                    f.write(f'\t[{pc:03x}..{int(cmd[0][4:-1]):03x}]: {c:04x};\n')
+                    f.write(f'\t[{pc:03X}..{int(cmd[0][4:-1]):03X}]: {c:04X};\n')
                     pc+=1
                     continue
                 case _:
@@ -79,7 +79,7 @@ with open('out.mif', "w") as f:
                     continue
 
         c = ops[cmd[0]](*map(int, cmd[1:]))
-        f.write(f'\t{pc+offset:03x}: {c:04x};\n')
+        f.write(f'\t{pc+offset:03X}: {c:04X};\n')
 
         pc+=1
 
