@@ -239,6 +239,6 @@ r_out[6] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 r_out[7] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 c_out <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 dc_out <= aux_nibble.DB_MAX_OUTPUT_PORT_TYPE
-z_out <= z_out$latch.DB_MAX_OUTPUT_PORT_TYPE
+z_out <= z_out.DB_MAX_OUTPUT_PORT_TYPE
 
 

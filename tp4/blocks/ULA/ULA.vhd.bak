@@ -47,7 +47,7 @@ BEGIN
 
 	z_out <= a(TO_INTEGER(UNSIGNED(bit_sel))) WHEN op_sel(3 DOWNTO 1) = "110" ELSE -- BS and BC
 				'1' WHEN aux(7 DOWNTO 0) = "00000000" ELSE 
-				'0';
+				'0' WHEN OTHERS;
 
 	aux_nibble <= ('0' & a(3 DOWNTO 0)) + ('0' + b(3 DOWNTO 0)) WHEN op_sel(0) = '0' 
 	ELSE ('0' & a(3 DOWNTO 0)) - ('0' & b(3 DOWNTO 0));

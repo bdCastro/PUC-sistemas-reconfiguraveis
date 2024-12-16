@@ -31,7 +31,7 @@ ON
 # case_insensitive
 # source_file
 ula.vhd
-d7e8e66a555448a03c9f5535524b619
+3ca6abdb348f4bf9d418a0052d5b157
 5
 # internal_option {
 HDL_INITIAL_FANOUT_LIMIT
@@ -47,7 +47,7 @@ ON
 |
 }
 # lmf
-c:|altera|91sp2|quartus|lmf|maxplus2.lmf
+|home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf
 a36c8ec425c8a2589af98b2d4daabc3
 # macro_sequence
 
