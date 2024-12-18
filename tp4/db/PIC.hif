@@ -859,39 +859,6 @@ busmux:inst|lpm_mux:$00000|mux_smc:auto_generated
 
 # end
 # entity
-fsr_reg
-# storage
-db|PIC.(13).cnf
-db|PIC.(13).cnf
-# logic_option {
-AUTO_RAM_RECOGNITION
-ON
-}
-# case_insensitive
-# source_file
-blocks|fsr_reg|fsr_reg.vhd
-b6d61db8ac38d82a746a2062d9138462
-5
-# internal_option {
-HDL_INITIAL_FANOUT_LIMIT
-OFF
-AUTO_RESOURCE_SHARING
-OFF
-AUTO_RAM_RECOGNITION
-ON
-AUTO_ROM_RECOGNITION
-ON
-}
-# hierarchies {
-fsr_reg:inst6
-}
-# lmf
-|home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf
-a36c8ec425c8a2589af98b2d4daabc3
-# macro_sequence
-
-# end
-# entity
 ram_mem
 # storage
 db|PIC.(14).cnf
@@ -1608,6 +1575,39 @@ ON
 }
 # hierarchies {
 controller:inst3
+}
+# lmf
+|home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf
+a36c8ec425c8a2589af98b2d4daabc3
+# macro_sequence
+
+# end
+# entity
+fsr_reg
+# storage
+db|PIC.(13).cnf
+db|PIC.(13).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+blocks|fsr_reg|fsr_reg.vhd
+395938e7ae2f6cce492b4cd668c2cac9
+5
+# internal_option {
+HDL_INITIAL_FANOUT_LIMIT
+OFF
+AUTO_RESOURCE_SHARING
+OFF
+AUTO_RAM_RECOGNITION
+ON
+AUTO_ROM_RECOGNITION
+ON
+}
+# hierarchies {
+fsr_reg:inst6
 }
 # lmf
 |home|rafael|mega|projects|faculdade|reconfiguraveis|altera|91sp2|quartus|lmf|maxplus2.lmf

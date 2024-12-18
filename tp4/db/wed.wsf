@@ -1066,11 +1066,11 @@ VECTOR("Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reco
 VECTOR("Z:/home/rafael/MEGA/Projects/faculdade/reconfiguraveis/PUC-sistemas-reconfiguraveis/tp4/db/PIC.sim.cvwf")
 {
 	ZOOM{
-		ZBEGIN = 0;
-		ZEND = 205629;
+		ZBEGIN = 39529;
+		ZEND = 245158;
 		NUMERATOR = 1956;
 		DENOMINATOR = 205629;
-		TOP_INDEX = 0;
+		TOP_INDEX = 41;
 	}
 	CLOCK{
 		PERIOD = 10000;

@@ -35,6 +35,7 @@ BEGIN
         END IF;
     END PROCESS;
 
-    dbus_out <= mem_reg WHEN rd_en = '1' ELSE "ZZZZZZZZ";
+    dbus_out <= mem_reg WHEN rd_en = '1' AND abus_in(6 DOWNTO 0) = "0000100"
+                ELSE "ZZZZZZZZ";
     fsr_out <= mem_reg;
 END fsr_reg;
