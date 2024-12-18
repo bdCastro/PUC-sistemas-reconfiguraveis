@@ -64,7 +64,8 @@ set_global_assignment -name VHDL_FILE blocks/fsr_reg/fsr_reg.vhd
 set_global_assignment -name VHDL_FILE blocks/addr_mux/addr_max.vhd
 set_global_assignment -name BDF_FILE PIC.bdf
 set_global_assignment -name QIP_FILE rom_4096x14.qip
-set_global_assignment -name USE_CONFIGURATION_DEVICE ON
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name VECTOR_WAVEFORM_FILE PIC.vwf
+set_global_assignment -name SIMULATION_MODE FUNCTIONAL
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

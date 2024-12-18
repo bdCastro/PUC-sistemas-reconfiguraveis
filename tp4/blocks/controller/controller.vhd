@@ -62,7 +62,7 @@ BEGIN
 
         CASE presState IS
             WHEN rst =>
-                nextState <= fetch_only;
+                nextState <=  fetch_only;
 
             WHEN fetch_only =>
                 inc_pc <= '1';
@@ -80,7 +80,7 @@ BEGIN
 
                         CASE  whichOP IS
                             WHEN "0000" => -- No Op - Return - Move W to F 
-                                op_sel <= "1111";
+                                op_sel <= "1001";
                                 IF(instr(7) = '1') THEN -- Move W to F
                                     inc_pc <= '1';
                                     wr_en <= '1';
@@ -94,7 +94,7 @@ BEGIN
                                 END IF;
 
                             WHEN "0001" => -- Clear F/W
-                                op_sel <= "1000";
+                                op_sel <= "0011";
                                 inc_pc <= '1';
                                 
                                 IF(instr(7) = '0')THEN
@@ -136,7 +136,7 @@ BEGIN
                                 END IF;
 
                             WHEN "0100" => --OR W with F
-                                op_sel <= "0000";
+                                op_sel <= "0001";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 wr_z_en <= '1';
@@ -150,7 +150,7 @@ BEGIN
                                 END IF;
 
                             WHEN "0101" => -- AND W with F
-                                op_sel <= "0001";
+                                op_sel <= "0010";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 wr_z_en <= '1';
@@ -164,7 +164,7 @@ BEGIN
                                 END IF;
                             
                             WHEN "0110" => -- XOR W with F
-                                op_sel <= "0010";
+                                op_sel <= "0000";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 wr_z_en <= '1';
@@ -194,7 +194,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "1000" => --Move F
-                                op_sel <= "1110";
+                                op_sel <= "1000";
                                 wr_z_en <= '1';
                                 rd_en <= '1';
                                 wr_en <= '1';
@@ -209,7 +209,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "1001" => -- Complement F
-                                op_sel <= "0011";
+                                op_sel <= "1010";
                                 wr_z_en <= '1';
                                 rd_en <= '1';
                                 inc_pc <= '1';
@@ -255,7 +255,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "1100" => --Rotate Right
-                                op_sel <= "1011";
+                                op_sel <= "1110";
                                 wr_c_en <= '1';
                                 rd_en <= '1';
                                 inc_pc <= '1';
@@ -269,7 +269,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "1101" => --Rotate Left
-                                op_sel <= "1010";
+                                op_sel <= "1111";
                                 wr_c_en <= '1';
                                 rd_en <= '1';
                                 inc_pc <= '1';
@@ -283,7 +283,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "1110" => --Swap Nibles
-                                op_sel <= "1001";
+                                op_sel <= "1011";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 
@@ -320,19 +320,19 @@ BEGIN
                         
                         CASE whichOP IS
                             WHEN "0000" => --Bit Clear F
-                                op_sel <= "1100";
+                                op_sel <= "1101";
                                 inc_pc <= '1';
                                 wr_en <= '1';
                                 rd_en <= '1';
                             
                             WHEN "0001" => --Bit Set F
-                                op_sel <= "1101";
+                                op_sel <= "1100";
                                 inc_pc <= '1';
                                 wr_en <= '1';
                                 rd_en <= '1';
                                 
                             WHEN "0010" => -- Bit Test F, skip if clear(0)
-                                op_sel <= "1100";
+                                op_sel <= "1101";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 
@@ -342,7 +342,7 @@ BEGIN
                                 END IF;
                                 
                             WHEN "0011" => -- Bit Test F, skip if set(1)
-                                op_sel <= "1101";
+                                op_sel <= "1100";
                                 inc_pc <= '1';
                                 rd_en <= '1';
                                 
@@ -370,33 +370,33 @@ BEGIN
                         
                         CASE whichOP IS
                             WHEN "0000" | "0001" | "0010" | "0011" => --Move Literal To W
-                                op_sel <= "1110";
+                                op_sel <= "1000";
                                 lit_sel <= '1';
                                 inc_pc <= '1';
                                 wr_w_reg_en <= '1';
                             
                             WHEN "0100" | "0101" | "0110" | "0111" => --Return with Literal in W
                                 nextState <= fetch_only;
-                                op_sel <= "1110";
+                                op_sel <= "1000";
                                 inc_pc <= '1';
                                 lit_sel <= '1';
                                 wr_w_reg_en <= '1';
                                 stack_pop <= '1';
                                 
                             WHEN "1000" => -- OR Literal with W
-                                op_sel <= "0000";
-                                inc_pc <= '1';
-                                lit_sel <= '1';
-                                wr_w_reg_en <= '1';
-                                
-                            WHEN "1001" => -- AND Literal with W
                                 op_sel <= "0001";
                                 inc_pc <= '1';
                                 lit_sel <= '1';
                                 wr_w_reg_en <= '1';
                                 
-                            WHEN "1010" => -- XOR Literal with W
+                            WHEN "1001" => -- AND Literal with W
                                 op_sel <= "0010";
+                                inc_pc <= '1';
+                                lit_sel <= '1';
+                                wr_w_reg_en <= '1';
+                                
+                            WHEN "1010" => -- XOR Literal with W
+                                op_sel <= "0000";
                                 inc_pc <= '1';
                                 lit_sel <= '1';
                                 wr_w_reg_en <= '1';

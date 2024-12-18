@@ -65,7 +65,7 @@ BEGIN
                 nextState <= fetch_only;
 
             WHEN fetch_only =>
-                inc_pc <= '1';
+                inc_pc <= '0';
                 nextState <= fetch_dec_ex;
 
             WHEN fetch_dec_ex =>
@@ -76,7 +76,7 @@ BEGIN
                 CASE OPtype IS
                     -- Byte-Oriented
                     WHEN "00" =>
-                        whichOP <= instr(11 DOWNTO 0);
+                        whichOP <= instr(11 DOWNTO 8);
 
                         CASE  whichOP IS
                             WHEN "0000" => -- No Op - Return - Move W to F 

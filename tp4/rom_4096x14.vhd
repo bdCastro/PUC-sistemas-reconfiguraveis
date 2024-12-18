@@ -85,7 +85,7 @@ BEGIN
 	GENERIC MAP (
 		clock_enable_input_a => "BYPASS",
 		clock_enable_output_a => "BYPASS",
-		init_file => "program-1.mif",
+		init_file => "./montador/out.mif",
 		intended_device_family => "Cyclone II",
 		lpm_hint => "ENABLE_RUNTIME_MOD=NO",
 		lpm_type => "altsyncram",
@@ -127,7 +127,7 @@ END SYN;
 -- Retrieval info: PRIVATE: JTAG_ENABLED NUMERIC "0"
 -- Retrieval info: PRIVATE: JTAG_ID STRING "NONE"
 -- Retrieval info: PRIVATE: MAXIMUM_DEPTH NUMERIC "0"
--- Retrieval info: PRIVATE: MIFfilename STRING "program-1.mif"
+-- Retrieval info: PRIVATE: MIFfilename STRING "./montador/out.mif"
 -- Retrieval info: PRIVATE: NUMWORDS_A NUMERIC "4096"
 -- Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 -- Retrieval info: PRIVATE: RegAddr NUMERIC "1"
@@ -140,7 +140,7 @@ END SYN;
 -- Retrieval info: PRIVATE: rden NUMERIC "0"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_INPUT_A STRING "BYPASS"
 -- Retrieval info: CONSTANT: CLOCK_ENABLE_OUTPUT_A STRING "BYPASS"
--- Retrieval info: CONSTANT: INIT_FILE STRING "program-1.mif"
+-- Retrieval info: CONSTANT: INIT_FILE STRING "./montador/out.mif"
 -- Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone II"
 -- Retrieval info: CONSTANT: LPM_HINT STRING "ENABLE_RUNTIME_MOD=NO"
 -- Retrieval info: CONSTANT: LPM_TYPE STRING "altsyncram"
@@ -159,10 +159,10 @@ END SYN;
 -- Retrieval info: CONNECT: @clock0 0 0 0 0 clock 0 0 0 0
 -- Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14.vhd TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14.inc FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14.inc TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14.cmp TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14.bsf TRUE FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14_inst.vhd FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14_inst.vhd TRUE
 -- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14_waveforms.html TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14_wave*.jpg FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL rom_4096x14_wave*.jpg TRUE
 -- Retrieval info: LIB_FILE: altera_mf
